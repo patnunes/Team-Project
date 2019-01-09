@@ -6,8 +6,8 @@ TBD
 
 ## Team Members:
 - Filip Jodoin
-- Synneva
-- Rick Lopez
+- Synneva Furuli
+- Ricky Lopez
 - Johnston Stott
 - Hossein Noorbakhsh
 - Noah Horowitz
