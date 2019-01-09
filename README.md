@@ -1,5 +1,5 @@
 # SOEN341
-SOEN341-Winter2019
+SOEN341 Winter2019
 
 ## Objective(s):
 TBD
