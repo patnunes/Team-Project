@@ -6,10 +6,10 @@
    - Github: fjodoin
 <br/>
 
-2. Synneva
-   - ID: 
+2. Synneva Furuli
+   - ID: 40000861
    - @ synneva-rcf@hotmail.com
-   - Github:
+   - Github: Synneva
 <br/>
 
 3. Rick Lopez
