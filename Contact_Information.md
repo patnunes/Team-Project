@@ -49,9 +49,9 @@
 <br/>
 
 9. Menachem Harrison
-   - ID: 
+   - ID: 40016990
    - @ menachemharrison@gmail.com
-   - Github: 
+   - Github: conso1e
 <br/>
 
 10. Patricia Nunes
