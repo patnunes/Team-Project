@@ -31,9 +31,9 @@
 <br/>
 
 6. Noah Horowitz
-   - ID:
+   - ID: 40033784
    - @ noah.horowitz13@gmail.com
-   - Github:
+   - Github: Foolzo
 <br/>
 
 7. Gindu Dheer
