@@ -13,9 +13,9 @@
 <br/>
 
 3. Rick Lopez
-   - ID: 
+   - ID: 40028010
    - @ rickyerlopez@gmail.com
-   - Github: 
+   - Github: rickyelopez
 <br/>
 
 4. Johnston Stott
