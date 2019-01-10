@@ -57,5 +57,5 @@
 10. Patricia Nunes
     - ID: 40006956
     - @ pat.nunes94@gmail.com
-    - Github: 
+    - Github: patnunes
 <br/>
