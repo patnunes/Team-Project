@@ -9,7 +9,7 @@ TBD
 - Synneva Furuli
 - Ricky Lopez
 - Johnston Stott
-- Hossein Noorbakhsh
+- Seyedhossein Noorbakhsh
 - Noah Horowitz
 - Gindu Dheer
 - Jacob Guirguis
