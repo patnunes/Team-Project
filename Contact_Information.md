@@ -54,8 +54,8 @@
    - Github: 
 <br/>
 
-10. Menachem's friend
-    - ID: 
-    - @ 
+10. Patricia Nunes
+    - ID: 40006956
+    - @ pat.nunes94@gmail.com
     - Github: 
 <br/>
