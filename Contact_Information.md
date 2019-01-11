@@ -43,9 +43,9 @@
 <br/>
 
 8. Jacob Guirguis
-   - ID:
+   - ID: 40062827
    - @ jacob.guirguis@gmail.com
-   - Github:
+   - Github: Jacobian8
 <br/>
 
 9. Menachem Harrison
