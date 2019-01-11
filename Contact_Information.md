@@ -36,8 +36,8 @@
    - Github: Foolzo
 <br/>
 
-7. Gindu Dheer
-   - ID:
+7. Gurinder Dheer
+   - ID: 40029441
    - @ gindulink@gmail.com
    - Github:
 <br/>
