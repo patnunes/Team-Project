@@ -48,13 +48,7 @@
    - Github: Jacobian8
 <br/>
 
-9. Menachem Harrison
-   - ID: 40016990
-   - @ menachemharrison@gmail.com
-   - Github: conso1e
-<br/>
-
-10. Patricia Nunes
+9. Patricia Nunes
     - ID: 40006956
     - @ pat.nunes94@gmail.com
     - Github: patnunes
