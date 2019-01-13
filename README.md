@@ -13,5 +13,4 @@ TBD
 - Noah Horowitz
 - Gindu Dheer
 - Jacob Guirguis
-- Menachem Harrison
 - Patricia Nunes
