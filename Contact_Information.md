@@ -39,7 +39,7 @@
 7. Gurinder Dheer
    - ID: 40029441
    - @ gindulink@gmail.com
-   - Github:
+   - Github: GD-DevFlow
 <br/>
 
 8. Jacob Guirguis
