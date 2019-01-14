@@ -36,7 +36,7 @@
    - Github: Foolzo
 <br/>
 
-7. Gurinder Dheer
+7. Gurinder Dheer (GD)
    - ID: 40029441
    - @ gindulink@gmail.com
    - Github: GD-DevFlow
