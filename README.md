@@ -11,6 +11,6 @@ TBD
 - Johnston Stott
 - Seyedhossein Noorbakhsh
 - Noah Horowitz
-- Gurinder Dheer (GD)
+- Gurinder Dheer
 - Jacob Guirguis
 - Patricia Nunes
