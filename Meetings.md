@@ -8,5 +8,9 @@
    - A decision on which language will be used has not been yet determined; Programming language knowhow will be added to the Contact_Information.md file;
    - A second meeting will take place in-order to decide which language will be chosen;
    
+
+###### Meeting 2
+- **TBD [...]**
+   
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
