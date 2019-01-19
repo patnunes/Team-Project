@@ -36,6 +36,7 @@
    - ID: 40033784
    - @ noah.horowitz13@gmail.com
    - Github: Foolzo
+   - Programming Languages: Java, C++, [Web: HTML W/ bootstrap, CSS, JS, PHP]
 <br/>
 
 7. Gurinder Dheer (GD)
