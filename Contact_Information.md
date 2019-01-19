@@ -55,4 +55,5 @@
     - ID: 40006956
     - @ pat.nunes94@gmail.com
     - Github: patnunes
+    - Programming Languages: Java, C++, [Web: HTML, CSS, JS, PHP]
 <br/>
