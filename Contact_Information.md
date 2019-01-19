@@ -11,6 +11,7 @@
    - ID: 40000861
    - @ synneva-rcf@hotmail.com
    - Github: Synneva
+   - Programming Languages: C++, Java
 <br/>
 
 3. Rick Lopez
