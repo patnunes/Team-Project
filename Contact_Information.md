@@ -61,3 +61,10 @@
     - Github: patnunes
     - Programming Languages: Java, C++, [Web: HTML, CSS, JS, PHP]
 <br/>
+
+10. Mehrdad Ahmadi
+    - ID: 40026720
+    - @ mehrdad2maskull@gmail.com
+    - Github: mehrdadmaskull
+    - Programming Languages: Swift, Java, C# (ASP), Python, HTML, CSS, JS, PHP, C++
+<br/>
