@@ -7,8 +7,8 @@
 
 ## Programming Language(s) & Structure:
  -  ### Language *[TBD by January 30th 2019]*
-    - Below is/are our Project's *programming language*;
-      - [Input Language(s) Chosen here]
+    - Below is/are our Project's *programming language(s)*;
+      - [Input Language(s) here]
  
  -  ### Structure
     - Below is an example of our Project's *programming structure* which includes;
