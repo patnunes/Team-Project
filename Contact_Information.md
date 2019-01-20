@@ -4,7 +4,7 @@
    - ID: 27879105
    - @ filipjodoin@hotmail.com
    - Github: fjodoin
-   - Programming Languages: C++, Java, [Hardware Languages]
+   - Programming Languages: C++, Java
 <br/>
 
 2. Synneva Furuli
