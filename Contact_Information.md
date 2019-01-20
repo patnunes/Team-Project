@@ -25,6 +25,7 @@
    - ID: 40059176
    - @ johnstonstott@gmail.com
    - Github: johnstonstott
+   - Programming Languages: Java, C++, [Web: HTML, CSS, JS, PHP]
 <br/>
 
 5. Seyedhossein Noorbakhsh
