@@ -5,8 +5,9 @@
 
  - *More features will be implemented; TBD with customer (Zhenhao Li)*
 
-## Programming Language(s):
- - *[TBD by January 30th 2019]*
+## Programming Language(s) & Structure:
+ - *[Language TBD by January 30th 2019]*
+ - *[Description of Programming Structure TBD]*
 
 ## Team Members:
 - Filip Jodoin
