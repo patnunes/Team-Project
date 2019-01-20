@@ -6,9 +6,11 @@
  - *More features will be implemented; TBD with customer (Zhenhao Li)*
 
 ## Programming Language(s) & Structure:
- -  ###### Language *[TBD by January 30th 2019]*
+ -  ### Language *[TBD by January 30th 2019]*
+    - Below is/are our Project's *programming language*;
+      - [Input Language(s) Chosen here]
  
- -  ###### Structure
+ -  ### Structure
     - Below is an example of our Project's *programming structure* which includes;
       - Camel Case declaration
       - Open bracket ("{") on same line as Function / Method declaration
