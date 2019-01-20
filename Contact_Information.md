@@ -52,6 +52,7 @@
    - ID: 40062827
    - @ jacob.guirguis@gmail.com
    - Github: Jacobian8
+   - Programming Languages: Java, C#(asp), SQL, (a bit of Python), [Web: HTML, CSS, Bootstrap, JS, PHP]
 <br/>
 
 9. Patricia Nunes
