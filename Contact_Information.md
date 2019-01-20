@@ -18,6 +18,7 @@
    - ID: 40028010
    - @ rickyerlopez@gmail.com
    - Github: rickyelopez
+   - Programming Languages: Python, C++, Java
 <br/>
 
 4. Johnston Stott
