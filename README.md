@@ -6,7 +6,7 @@
  - *More features will be implemented; TBD with customer (Zhenhao Li)*
 
 ## Programming Language(s) & Structure:
- -  ### Language *[TBD by January 30th 2019]*
+ -  ### Language(s) *[TBD by January 30th 2019]*
     - Below is/are our Project's *programming language(s)*;
       - [Input Language(s) here]
  
