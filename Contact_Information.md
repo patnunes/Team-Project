@@ -45,6 +45,7 @@
    - ID: 40029441
    - @ gindulink@gmail.com
    - Github: GD-DevFlow
+   - Programming Languages: Java, C++, [Web: HTML, CSS, JS, PHP]
 <br/>
 
 8. Jacob Guirguis
