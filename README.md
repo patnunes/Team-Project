@@ -1,8 +1,12 @@
-# SOEN341;
-SOEN341 Winter2019
+# SOEN341 - Winter 2019;
 
 ## Objective(s):
-TBD
+ - Deploying a "Twitter-like" website containing core features which include allowing users **to post** short-messages, **to like** short-messages, and **to follow** other users. Each user will have a profile which will be created upon Signing-up; these profiles will contain general information of the user, such as their name(s), email address(es), Github username(s), etc. 
+
+ - *More features will be implemented; TBD with customer (Zhenhao Li)*
+
+## Programming Language(s):
+ - *[TBD by January 30th 2019]*
 
 ## Team Members:
 - Filip Jodoin
