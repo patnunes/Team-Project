@@ -64,8 +64,8 @@
 <br/>
 
 10. Mehrdad Ahmadi
-    - ID: 
+    - ID: 40026720
     - @ mehrdad2maskull@gmail.com
-    - Github: Mehrdadmaskull
-    - Programming Languages: 
+    - Github: mehrdadmaskull
+    - Programming Languages: Swift, Java, C# (ASP), Python, HTML, CSS, JS, PHP, C++
 <br/>
