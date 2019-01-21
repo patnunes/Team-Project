@@ -32,6 +32,7 @@
    - ID: 40036604
    - @ h.noorbakhsh@ymail.com
    - Github: EspressoCode
+   - Programming Languages: Java, C++, [Web: HTML W/ bootstrap, CSS, JS&PHP(under learning!)]
 <br/>
 
 6. Noah Horowitz
