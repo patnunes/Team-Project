@@ -23,7 +23,7 @@
     
  
 >  [...]<br/>
->  }<br/>
+>  <br/>
 >  //[Brief description on MyClass]<br/>
 >  public class MyClass(){<br/>
 >  [MyClass content]<br/>
