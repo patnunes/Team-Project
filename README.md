@@ -15,7 +15,7 @@
       - Camel Case declaration
       - Open bracket ("{") on same line as function / method declaration
       - Insert a New Line before declaring new function / method
-      - Close a function / method with a Closed bracket ("}") on a new line and include an ending-of-function/method comment;
+      - Close a function / method with a Closed bracket ("}") on a new line and include an end-of-function/method comment;
       - Seperation of Concern (SoC) methodology;
       - Include a brief description **above** a class when declared;
       - Include a brief description **on the same line** of a function / method when declared;
@@ -29,7 +29,7 @@
 >  [MyClass content]<br/>
 >  }<br/>
 >  <br/>
->  public void functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Brief description of functionName1();               
+>  public void functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[Brief description of functionName1()];               
 >  int a = 0;<br/>
 >  System.out.println("a = " + a);<br/>
 >  <br/>
@@ -39,7 +39,7 @@
 >  }
 >  //end of functionName1();<br/>
 >  <br/>
->  public void functionName2(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Brief discription of functionName2(); <br/>
+>  public void functionName2(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[Brief discription of functionName2()]; <br/>
 >  [...]<br/>
  
 
