@@ -26,7 +26,8 @@
       * Frontend: I think our best option is to use HTML, CSS and JS; All of which have tons of resources online if you are a beginner. 
    
     - Johnston:
-      * Frontend: I definitely think we should consider JavaScript (among others possibly), many of us have used it before and as mentioned there are many resources available for help.
       * Backend: No real experience with it, but Python seems like a good option based on what Ricky brought up. Open to learning new things.
+      * Frontend: I definitely think we should consider JavaScript (among others possibly), many of us have used it before and as mentioned there are many resources available for help.
+      
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
