@@ -38,7 +38,7 @@
 6. Noah Horowitz
    - ID: 40033784
    - @ noah.horowitz13@gmail.com
-   - Github: Foolzo
+   - Github: Nwitz
    - Programming Languages: Java, C++, [Web: HTML W/ bootstrap, CSS, JS, PHP]
 <br/>
 
