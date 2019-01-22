@@ -14,6 +14,9 @@
    - Ricky:
      * Backend: Python (Django) with MariaDB or MySQL as database. Python is simple to pick up for those that don't know it, and is extremely powerful. Django will produce a simple, functional backend, which is exactly what we need for this project.
      * Frontend: No preference.
+     
+   - Filip:
+     * I have little knowledge on web-based programming; I will be learning the Language that we decide on.
    
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
