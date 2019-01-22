@@ -17,7 +17,7 @@
       - Insert a New Line (represented as \n below) before declaring new Function / Method
       - Close a Function / method with *//end of functionName();*
       - Seperation of Concern (SoC) methodology;
-      - When declaring a *class*, include a brief comment about its utility
+      - When declaring a *class*, include a brief comment about its use
       - [More TBD]
     
  
