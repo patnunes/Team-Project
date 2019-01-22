@@ -22,7 +22,8 @@
      * Same as Fil
    
     - Patricia:
-      * PHP and MySQL would allow us to build a functional twitter-like website. PHP allows for easy configuration and development and is overall pretty straightforward. However, I am open to learning new things and wouldn't mind using a different language. As for the frontend I think our best option is to use HTML, CSS and JS. All of which have tons of resources online if you are a beginner. 
+      * Backend: PHP and MySQL would allow us to build a functional twitter-like website. PHP allows for easy configuration and development and is overall pretty straightforward. However, I am open to learning new things and wouldn't mind using a different language. 
+      * Frontend: I think our best option is to use HTML, CSS and JS; All of which have tons of resources online if you are a beginner. 
    
     - Johnston:
       * Frontend: I definitely think we should consider JavaScript (among others possibly), many of us have used it before and as mentioned there are many resources available for help.
