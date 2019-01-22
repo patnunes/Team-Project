@@ -29,13 +29,14 @@
 >  [MyClass content]<br/>
 >  }<br/>
 >  <br/>
->  public void functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[Brief description of functionName1()];               
+>  public int functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[Brief description of functionName1()];               
 >  int a = 0;<br/>
 >  System.out.println("a = " + a);<br/>
 >  <br/>
 >  &nbsp;&nbsp;&nbsp;for(int i = 0 ; i < 5 ; i++){<br/>
 >  &nbsp;&nbsp;&nbsp;a++;<br/>
 >  &nbsp;&nbsp;&nbsp;}<br/>
+>  return a;<br/>
 >  }
 >  //end of functionName1();<br/>
 >  <br/>
