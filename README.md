@@ -17,25 +17,28 @@
       - Insert a New Line (represented as \n below) before declaring new Function / Method
       - Close a Function / method with *//end of functionName();*
       - Seperation of Concern (SoC) methodology;
+      - When declaring a *class*, include a brief comment about its utility
       - [More TBD]
     
  
 >  [...]<br/>
 >  }<br/>
->  \n before declaring function / method;<br/>
->  public void functionName1(){                
+>  //[Brief discription on MyClass]<br/>
+>  public class MyClass(){<br/>
+>  [MyClass content]<br/>
+>  }<br/>
+>  <br/>
+>  public void functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Brief discription of functionName1();               
 >  int a = 0;<br/>
->  int b = 10;<br/>
->  \n for SoC reasons;<br/>
->  System.out.println("Hello World!");<br/>
->  \n before declaring inner-logic (loops, conditional statements, etc.);<br/>
+>  System.out.println("a = " + a);<br/>
+>  <br/>
 >  &nbsp;&nbsp;&nbsp;for(int i = 0 ; i < 5 ; i++){<br/>
->  &nbsp;&nbsp;&nbsp;//for loop content;<br/>
+>  &nbsp;&nbsp;&nbsp;a++;<br/>
 >  &nbsp;&nbsp;&nbsp;}<br/>
 >  }
 >  //end of functionName1();<br/>
->  \n before declaring function / method;<br/>
->  public void functionName2(){<br/>
+>  <br/>
+>  public void functionName2(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Brief discription of functionName2(); <br/>
 >  [...]<br/>
  
 
