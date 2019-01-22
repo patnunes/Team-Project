@@ -28,7 +28,7 @@
 >  int b = 10;<br/>
 >  \n for SoC reasons;<br/>
 >  System.out.println("Hello World!");<br/>
->  \n before declaring inner-algorithms (loops, conditional statements, etc.);<br/>
+>  \n before declaring inner-logic (loops, conditional statements, etc.);<br/>
 >  &nbsp;&nbsp;&nbsp;for(int i = 0 ; i < 5 ; i++){<br/>
 >  &nbsp;&nbsp;&nbsp;//for loop content;<br/>
 >  &nbsp;&nbsp;&nbsp;}<br/>
