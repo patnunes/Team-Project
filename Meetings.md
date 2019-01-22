@@ -10,7 +10,7 @@
    
 
 #### Meeting 2 (Online Discussion - Refer to: Sprint1-04: Deciding on Programming Language(s) #7)
- - **January 21st 2019**; 3/10 Members (so far) participated;
+ - **January 21st 2019**; 5/10 Members (so far) participated;
    - Ricky:
      * Backend: Python (Django) with MariaDB or MySQL as database. Python is simple to pick up for those that don't know it, and is extremely powerful. Django will produce a simple, functional backend, which is exactly what we need for this project.
      * Frontend: No preference.
@@ -23,5 +23,9 @@
    
     - Patricia:
       * PHP and MySQL would allow us to build a functional twitter-like website. PHP allows for easy configuration and development and is overall pretty straightforward. However, I am open to learning new things and wouldn't mind using a different language. As for the frontend I think our best option is to use HTML, CSS and JS. All of which have tons of resources online if you are a beginner. 
+   
+    - Johnston:
+      * Frontend: I definitely think we should consider JavaScript, many of us have used it before and as mentioned there are many resources available for help.
+      * Backend: No real experience with it, but Python seems like a good option based on what Ricky brought up. Open to learning new things.
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
