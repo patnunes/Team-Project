@@ -14,16 +14,17 @@
     - Below is an example of our Project's *programming structure* which includes;
       - Camel Case declaration
       - Open bracket ("{") on same line as Function / Method declaration
+      - New line before declaring new Function / Method
       - [More TBD]
     
  
 >  [...]<br/>
 >  }<br/>
->  //new line before declaring new function<br/>
+>  //new line before declaring function / method<br/>
 >  public void functionName1(){                  
 >  //functionName1's content<br/>
 >  }<br/>
->  //new line before declaring functions<br/>
+>  //new line before declaring function / method<br/>
 >  public void functionName2(){<br/>
 >  [...]<br/>
  
