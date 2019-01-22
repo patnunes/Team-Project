@@ -13,22 +13,23 @@
  -  ### Structure
     - Below is an example of our Project's *programming structure* which includes;
       - Camel Case declaration
-      - Open bracket ("{") on same line as Function / Method declaration
-      - Insert a New Line (represented as \n below) before declaring new Function / Method
-      - Close a Function / method with *//end of functionName();*
+      - Open bracket ("{") on same line as function / method declaration
+      - Insert a New Line before declaring new function / method
+      - Close a function / method with a Closed bracket ("}") on a new line and include an ending-of-function/method comment;
       - Seperation of Concern (SoC) methodology;
-      - When declaring a *class*, include a brief comment about its use
+      - Include a brief description **above** a class when declared;
+      - Include a brief description **on the same line** of a function / method when declared;
       - [More TBD]
     
  
 >  [...]<br/>
 >  }<br/>
->  //[Brief discription on MyClass]<br/>
+>  //[Brief description on MyClass]<br/>
 >  public class MyClass(){<br/>
 >  [MyClass content]<br/>
 >  }<br/>
 >  <br/>
->  public void functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Brief discription of functionName1();               
+>  public void functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Brief description of functionName1();               
 >  int a = 0;<br/>
 >  System.out.println("a = " + a);<br/>
 >  <br/>
