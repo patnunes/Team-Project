@@ -18,5 +18,7 @@
    - Filip:
      * I have little knowledge on web-based programming; I will be learning the Language that we decide on.
    
+   - Syn:
+     * Same as Fil
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
