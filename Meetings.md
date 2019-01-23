@@ -40,5 +40,10 @@
       - GD
        * Backend: No real experience developing a backend system but open to learning and using any language. 
        * Frontend: HTML, CSS and JS are a comfort zone but again very open to learning and using any language.
+       
+     - Jacob
+       * Backend: Personally, I think it is clear that it comes down to either PHP or Python. Not all of us know Python but it is pretty simple and easy to use. PHP however, even though all the software students know it which is a bonus, it could be hard to manage sometimes. But still, nevertheless, I'm good with either or. 
+            As for the databases, I don't know mongoDB or mariaDB, but I am pretty good with MSSQL / MySQL
+       * Frontend: I think we should stick to JS. It's easy, simple, tons of ressources like ppl are saying and we could pair it with any framework of our liking pretty much. 
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
