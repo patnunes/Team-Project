@@ -29,5 +29,9 @@
       * Backend: No real experience with it, but Python seems like a good option based on what Ricky brought up. Open to learning new things.
       * Frontend: I definitely think we should consider JavaScript (among others possibly), many of us have used it before and as mentioned there are many resources available for help.
       
+     - Hossein:
+      * Backend: I have no exprience in Backend, but I always wanted to add Python to my skills and if it is possible to do it using Python then I am okay with learning it.
+      * Frontend: My choice is HTML, CSS and JS, and I think that would be the easier part that we can all implement and learn.
+      
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
