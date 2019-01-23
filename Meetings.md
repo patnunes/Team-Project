@@ -10,7 +10,7 @@
    
 
 ### Meeting 2 (Online Discussion - Refer to: Sprint1-04: Deciding on Programming Language(s) #7)
- - **January 21st 2019**; 5/10 Members (so far) participated;
+ - **January 21st 2019**; 6/10 Members (so far) participated;
    - Ricky:
      * Backend: Python (Django) with MariaDB or MySQL as database. Python is simple to pick up for those that don't know it, and is extremely powerful. Django will produce a simple, functional backend, which is exactly what we need for this project.
      * Frontend: No preference.
