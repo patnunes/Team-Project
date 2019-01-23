@@ -14,7 +14,7 @@
     - Below is an example of our Project's *programming structure* which includes;
       - Camel Case declaration
       - Open bracket ("{") on same line as function / method declaration
-      - Insert a New Line before declaring new function / method
+      - Insert a New Line before declaring new function / method (this includes conditional statements; while/for-loop, if-else, etc)
       - Close a function / method with a Closed bracket ("}") on a new line and include an end-of-function/method comment;
       - Seperation of Concern (SoC) methodology;
       - Include a brief description **above** a class when declared;
