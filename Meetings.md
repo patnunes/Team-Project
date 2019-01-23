@@ -33,5 +33,8 @@
        * Backend: I have no exprience in Backend, but I always wanted to add Python to my skills and if it is possible to do it using Python then I am okay with learning it.
        * Frontend: My choice is HTML, CSS and JS, and I think that would be the easier part that we can all implement and learn.
       
+     - Noah
+       * Backend: I do not have expeience with backend. Up to learning something new, Python seems promising. 
+       * Frontend: HTML, CSS and JS seem to be the most widely known. I think we should consider using bootstrap for design, it will result in quick implementation of design aspects, so we can focus on features and functionality. We can also use Jquery to streamline javascript. Both have great resources. 
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
