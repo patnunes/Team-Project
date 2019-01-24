@@ -54,4 +54,4 @@
   - Gurinder Dheer
   - Jacob Guirguis
   - Patricia Nunes
-  - Mehrdad Ahmadi
+- Mehrdad Ahmadi
