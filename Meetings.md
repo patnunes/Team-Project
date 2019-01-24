@@ -10,9 +10,11 @@
    
 
 ### Meeting 2 (Online Discussion - Refer to: Sprint1-04: Deciding on Programming Language(s) #7)
- - **January 21st 2019**; 9/10 Members (so far) participated;
+ - **January 21st 2019**; 10/10 Members participated;
    - Refer to Issue: Sprint1-04: Deciding on Programming Language(s) #7
    
-### Meeting 3 (TBD)
+### Meeting 3 (In-person)
+ - **January 25th 2019**; 10/10 Members present; duration ***1-hour***
+    - [...]
    
 ## TIMELINE: SPRINT 2; February 1st 2019 --> February [...]
