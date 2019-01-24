@@ -53,5 +53,5 @@
 - Noah Horowitz
   - Gurinder Dheer
   - Jacob Guirguis
-  - Patricia Nunes
+- Patricia Nunes
 - Mehrdad Ahmadi
