@@ -48,7 +48,7 @@
 - Filip Jodoin
   - Synneva Furuli
   - Ricky Lopez
-  - Johnston Stott
+- Johnston Stott
   - Seyedhossein Noorbakhsh
   - Noah Horowitz
   - Gurinder Dheer
