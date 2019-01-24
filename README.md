@@ -50,7 +50,7 @@
   - Ricky Lopez
   - Johnston Stott
   - Seyedhossein Noorbakhsh
-  - Noah Horowitz
+- Noah Horowitz
   - Gurinder Dheer
   - Jacob Guirguis
   - Patricia Nunes
