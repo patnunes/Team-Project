@@ -51,7 +51,7 @@
 - Johnston Stott
 - Seyedhossein Noorbakhsh
 - Noah Horowitz
+- Jacob Guirguis
   - Gurinder Dheer
-  - Jacob Guirguis
 - Patricia Nunes
 - Mehrdad Ahmadi
