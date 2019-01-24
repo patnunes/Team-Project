@@ -46,12 +46,12 @@
 
 ## Team Members:
 - Filip Jodoin
-  - Synneva Furuli
-  - Ricky Lopez
-  - Johnston Stott
-  - Seyedhossein Noorbakhsh
+- Synneva Furuli
+- Ricky Lopez
+- Johnston Stott
+- Seyedhossein Noorbakhsh
 - Noah Horowitz
   - Gurinder Dheer
   - Jacob Guirguis
   - Patricia Nunes
-  - Mehrdad Ahmadi
+- Mehrdad Ahmadi
