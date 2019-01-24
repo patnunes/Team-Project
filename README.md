@@ -49,7 +49,7 @@
 - Synneva Furuli
 - Ricky Lopez
   - Johnston Stott
-  - Seyedhossein Noorbakhsh
+- Seyedhossein Noorbakhsh
   - Noah Horowitz
   - Gurinder Dheer
   - Jacob Guirguis
