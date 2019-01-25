@@ -52,6 +52,6 @@
 - Seyedhossein Noorbakhsh
 - Noah Horowitz
 - Jacob Guirguis
-  - Gurinder Dheer
+- Gurinder Dheer
 - Patricia Nunes
 - Mehrdad Ahmadi
