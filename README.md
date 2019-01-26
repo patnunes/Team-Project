@@ -5,45 +5,13 @@
 
  - *More features will be implemented; TBD with customer (Zhenhao Li)*
 
-## Programming Language(s) & Structure:
- -  ### Language(s) *[TBD by January 30th 2019]*
+## Programming Language(s):
+ -  ### Language(s)
     - Below is/are our Project's *programming language(s)*;
-      - [Input Language(s) here]
+      - DATABASE: MySQL
+      - BACKEND: Pythong & Django
+      - FRONTEND: JavaScript
  
- -  ### Structure
-    - Below is an example of our Project's *programming structure* which includes;
-      - Camel Case declaration
-      - Open bracket ("{") on same line as function / method declaration
-      - Insert a New Line before declaring new function / method (this includes conditional statements; while/for-loop, if-else, etc)
-      - Close a function / method with a Closed bracket ("}") on a new line and include an end-of-function/method comment;
-      - Seperation of Concern (SoC) methodology;
-      - Include a brief description **above** a class when declared;
-      - Include a brief description **on the same line** of a function / method when declared;
-      - [More TBD]
-    
- 
->  [...]<br/>
->  <br/>
->  //[Brief description on MyClass]<br/>
->  public class MyClass(){<br/>
->  [MyClass content]<br/>
->  }<br/>
->  <br/>
->  public int functionName1(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[Brief description of functionName1()];               
->  int a = 0;<br/>
->  System.out.println("a = " + a);<br/>
->  <br/>
->  &nbsp;&nbsp;&nbsp;for(int i = 0 ; i < 5 ; i++){<br/>
->  &nbsp;&nbsp;&nbsp;a++;<br/>
->  &nbsp;&nbsp;&nbsp;}<br/>
->  return a;<br/>
->  }
->  //end of functionName1();<br/>
->  <br/>
->  public void functionName2(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//[Brief discription of functionName2()]; <br/>
->  [...]<br/>
- 
-
 ## Team Members:
 - Filip Jodoin
 - Synneva Furuli
