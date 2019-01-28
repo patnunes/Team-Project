@@ -12,14 +12,14 @@
       - BACKEND: Pythong & Django
       - FRONTEND: JavaScript
  
-## Team Members:
-- Filip Jodoin
-- Synneva Furuli
-- Ricky Lopez
-- Johnston Stott
-- Seyedhossein Noorbakhsh
-- Noah Horowitz
-- Jacob Guirguis
-- Gurinder Dheer
-- Patricia Nunes
-- Mehrdad Ahmadi
+## Team Members:		Github:
+- Filip Jodoin			fjodoin
+- Synneva Furuli		Synneva
+- Ricky Lopez			rickyelopez
+- Johnston Stott		johnstonstott
+- Seyedhossein Noorbakhsh	EspressoCode
+- Noah Horowitz			Nwitz
+- Jacob Guirguis		Jacobian8
+- Gurinder Dheer		GD-DevFlow
+- Patricia Nunes		patnunes
+- Mehrdad Ahmadi		mehrdadmaskull
