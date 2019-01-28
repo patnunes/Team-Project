@@ -12,14 +12,24 @@
       - BACKEND: Pythong & Django
       - FRONTEND: JavaScript
  
-## Team Members:		Github:
-- Filip Jodoin			fjodoin
-- Synneva Furuli		Synneva
-- Ricky Lopez			rickyelopez
-- Johnston Stott		johnstonstott
-- Seyedhossein Noorbakhsh	EspressoCode
-- Noah Horowitz			Nwitz
-- Jacob Guirguis		Jacobian8
-- Gurinder Dheer		GD-DevFlow
-- Patricia Nunes		patnunes
-- Mehrdad Ahmadi		mehrdadmaskull
+## Team Members:
+- Filip Jodoin
+  - Github: fjodoin
+- Synneva Furuli
+  - Github: Synneva
+- Ricky Lopez
+  - Github: rickyelopez
+- Johnston Stott
+  - Github: johnstonstott
+- Seyedhossein Noorbakhsh
+  - Github: EspressoCode
+- Noah Horowitz
+  - Github: Nwitz
+- Jacob Guirguis
+  - Github: Jacobian8
+- Gurinder Dheer
+  - Github: GD-DevFlow
+- Patricia Nunes
+  - Github: patnunes
+- Mehrdad Ahmadi
+  - Github: mehrdadmaskull
