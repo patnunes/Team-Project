@@ -33,3 +33,6 @@
   - Github: patnunes
 - Mehrdad Ahmadi
   - Github: mehrdadmaskull
+
+## Slack Workspace:
+- The url for our Slack Workspace is: https://concordia-coen-beng.slack.com
