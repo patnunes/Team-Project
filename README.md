@@ -11,6 +11,15 @@
       - DATABASE: MySQL
       - BACKEND: Pythong & Django
       - FRONTEND: JavaScript
+
+## Frontend Frameworks:
+  - NPM: most recent.
+    - through NPM
+      - Bootstrap v- 4.0.0  COMMAND: npm install bootstrap@4.0.0-alpha.6
+      - Gulp: v- 3.9.1      COMMAND: npm install gulp@3.0.0
+      - Browser-sync        COMMAND: npm install gulp browser-sync --save-dev
+      - sass-conversion     COMMAND: npm install gulp-sass --save-dev
+
  
 ## Team Members:
 - Filip Jodoin
