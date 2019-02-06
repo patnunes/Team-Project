@@ -9,7 +9,7 @@ gulp.task('sass', gulp.series(function() {
         .pipe(browserSync.stream());
 }));
 
-gulp.task('serve', gulp.series('sass', gulp.series(function() {
+gulp.task('serve', gulp.series(['sass'], (function() {
     
     browserSync.init({
         server: "./src"

@@ -1,0 +1,12 @@
+// @import 'node_modules/bootsrap/scss/bootstrap';
+
+$mycolor: blue;
+$primary: lightblue;
+
+body {
+    background: $primary;
+}
+
+.firstText{
+    color: $mycolor;   
+}
