@@ -1,8 +1,8 @@
 {
-  "name": "frontent_develop",
+  "name": "frontend_develop",
   "version": "1.0.0",
   "description": "- Deploying a \"Twitter-like\" website containing core features which include allowing users **to post** short-messages, **to like** short-messages, and **to follow** other users. Each user will have a profile which will be created upon Signing-up; these profiles will contain general information of the user, such as their name(s), email address(es), Github username(s), etc.",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,13 +16,12 @@
     "url": "https://github.com/SOEN341-winter2019/Team-Project/issues"
   },
   "homepage": "https://github.com/SOEN341-winter2019/Team-Project#readme",
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^3.9.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-sync": "^0.1.4"
-  },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
   }
 }
