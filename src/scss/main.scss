@@ -2,11 +2,12 @@
 
 $mycolor: blue;
 $primary: lightblue;
+$textPrimary: black;
 
 body {
     background: $primary;
 }
 
 .firstText{
-    color: $mycolor;   
+    color: $textPrimary;   
 }
