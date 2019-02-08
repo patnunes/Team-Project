@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'main_app.apps.MainAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'tweeter.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'tweeter.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tweeter',
+        'USER': 'django',
+        'PASSWORD': 'DjangoPW123$',
+        'HOST': 'rcoen.work',
+        'PORT': '3306',
     }
 }
 
@@ -105,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -118,3 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATIC_ROOT is the location where all the discovered files will be moved to
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+# STATICFILES_DIRS is the directories where the static files ARE
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
