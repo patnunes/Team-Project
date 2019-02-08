@@ -9,6 +9,12 @@ gulp.task('sass', gulp.series(function() {
         .pipe(browserSync.stream());
 }));
 
+gulp.task('js', gulp.series(function() {
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js'])
+    .pipe(gulp.dest("src/js"))
+    .pipe(browserSync.stream());
+}));
+
 gulp.task('serve', gulp.series(['sass'], (function() {
     
     browserSync.init({
@@ -19,4 +25,4 @@ gulp.task('serve', gulp.series(['sass'], (function() {
     gulp.watch("src/*.html").on('change', browserSync.reload);
 })));
 
-gulp.task('default', gulp.series('serve'));
+gulp.task('default', gulp.series('js', 'serve'));
