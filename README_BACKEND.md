@@ -17,7 +17,7 @@
 		(i.e. sudo pacman -Sy python3 python-pip)
 
 
-#### 2. Set up your environment
+#### 2. Set up your environment (Django Installation)
 
   - We're going to be using `virtualenv` instead of the builtin `venv` because
   it seems to have more useful features.
@@ -50,7 +50,7 @@
 
   - To activate your environment, go into the `env` directory and run
 
-	`> source bin/activate`
+	`> source bin/activate` (or Scripts\activate.bat for windows elevated command prompt)
 
 	You can verify that this worked by running
 
