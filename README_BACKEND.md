@@ -51,6 +51,8 @@
   - To activate your environment, go into the `env` directory and run
 
 	`> source bin/activate`
+	or on Windows
+	`> Scripts\activate.bat`
 
 	You can verify that this worked by running
 
@@ -79,7 +81,7 @@ into it.
 > git init
 > git remote add origin https://github.com/SOEN341-winter2019/Team-Project.git
 > git fetch
-> git checkout Backend
+> git checkout sub-master-sprint2
 ```
 
 Now if you check the contents of that directory, you'll see that it only
