@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
     $("#submit_btn").click(function(){
@@ -31,7 +32,24 @@ $(document).ready(function() {
            newUser.email = email;
            newUser.userName = userName;
            newUser.password = password;
-           alert("This is the JSON produced: " + JSON.stringify(newUser))
+           alert("This is the JSON produced: " + JSON.stringify(newUser));
+           $.post("users_server.asp", JSON.stringify(newUser), function(m_status){
+                alert(m_status)
+                switch (m_status) {
+                    case ServerResponses.SUCCESS:
+                        //User was created, and can move to signin page.
+                        // TODO: create signin page, and force open when successful user creation occurs.
+                        break;
+                    case ServerResponses.USER_NAME_IN_USE:
+                        $('#userNameWarning').text("Username already in use");
+                        break;
+                    case ServerResponses.EMAIL_IN_USE:
+                        $('#emailWarning').text("This email is already in use");
+                        break;
+                    default:
+                        alert("Uknown Error, please contact your local zoo or webMD");
+                }
+           })
         }
     };
 });
