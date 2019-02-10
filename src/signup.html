@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Twitter</title>
+        <title>Tweeter</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link media="all" type="text/css" rel="stylesheet" href="static/css/bootstrap.css">
+        <link rel="stylesheet" href="static/css/main.css">
     </head>
 
     <body>
@@ -22,12 +22,13 @@
                         <div class="form-group">
                                 <label for="inputUserName">User Name</label>
                                 <input type="" class="form-control" id="inputUserName" placeholder="User Name">
+                                <small id="userNameWarning" class="form-text text-danger"></small>
                         </div>
 
                         <div class="form-group">
                             <label for="inputEmail">Email address</label>
                             <input type="email" class="form-control" id="inputEmail" aria-descrivedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="forn-text text-muted">We won't share your email with anyone else</small>
+                            <small id="emailHelp" class="form-text text-muted">We won't share your email with anyone else</small>
                         </div>
 
                         <div class="form-group">
@@ -38,16 +39,20 @@
                         <div class="form-group">
                                 <label for="confirmInputPassword">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirmInputPassword" placeholder="Password">
+                                <small id="confirmPasswordWarning" class="form-text text-danger"></small>
                         </div>
 
-
-                        <button type="submit" class="btn btn-primary disabled">Submit</button>
+                        
                     </form>
+                    <button type="submit" class="btn btn-primary" id="submit_btn">Submit</button>
                 </div>
             </div>
-                <div></div>
-            
         </div>    
 
+        <script src="static/js/tether.min.js"></script>
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <script src="static/js/signup.js"></script>
+    
     </body>
 </html>

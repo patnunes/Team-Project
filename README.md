@@ -14,11 +14,14 @@
 
 ## Frontend Frameworks:
   - NPM: most recent.
-    - through NPM
+    - through commandline and requiring correct installation of NPM, navigate to your local repo and execute the following
+    - NOTE: this is only important if you intend to WORK on frontend, simply viewing it requires none of the following. 
       - Bootstrap v- 4.0.0  COMMAND: npm install bootstrap@4.0.0-alpha.6
       - Gulp: v- 4.0.0      COMMAND: npm install gulp@4.0.0
       - Browser-sync        COMMAND: npm install gulp browser-sync --save-dev
       - sass-conversion     COMMAND: npm install gulp-sass --save-dev
+      - jquery              COMMAND: npm install jquery
+      - tether              COMMAND: npm install tether
 
  
 ## Team Members:
