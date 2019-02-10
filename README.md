@@ -55,6 +55,7 @@
 ## Required Software:
 - Python 3.7.2 (install manually)
 - Django 2.1.5 (install using pip, instructions below)
+- mysqlclient
 - (probably more to come)
 
 ## Installation Instructions:
@@ -174,3 +175,83 @@ The code is as follows:
   `> pip freeze > new_requirements.txt` and then merge that output file
   (very carefully please) to the existing requirements.txt file in the
   Backend branch.
+
+#### 5. Pull Frontend Branch
+
+Now that the Backend is set up, you'll need to have the Frontend files as well
+so that Django can find the files it needs to serve to the user.
+
+  - First, create the directory. It is very important that your folder structure
+  is correct.
+
+  ```
+  > cd path/to/soen341/env
+  >  mkdir Frontend
+  > git init
+  > git remote add origin https://github.com/SOEN341-winter2019/Team-Project.git
+  > git fetch
+  > git checkout whichever/frontend/branch
+  ```
+
+  Your directory structure should now look like this:
+
+  ```
+    naga@Iroh ~/Documents/soen341/env % tree -d -L 2
+  .
+  |-- Backend
+  |   `-- tweeter
+  |-- Frontend
+  |   `-- src
+  |-- bin
+  |   `-- __pycache__
+  |-- include
+  |   `-- python3.7m -> /usr/include/python3.7m
+  `-- lib
+      `-- python3.7
+  ```
+
+  It is **critical** that your directory structure looks *exactly* like this,
+  capital letters and all. The symbolic links that link Backend to Frontend
+  depend on it.
+
+  - Now to verify the symbolic links:
+
+  Change into the tweeter directory:
+
+  `> cd Backend/tweeter`
+
+  if you list the contents of the folder, you should see that the "static"
+  folder isn't *actually* a folder, it's a symbolic link to
+  `../../Frontend/src` as shown below:
+
+  ```
+  naga@Iroh ~/Documents/soen341/env/Backend/tweeter (git)-[features/BE-62/env-test] % ls -lap
+  total 24
+  drwxr-xr-x 5 naga naga 4096 Feb  8 18:16 ./
+  drwxr-xr-x 4 naga naga 4096 Feb 10 11:38 ../
+  -rw-r--r-- 1 naga naga    0 Feb  8 09:05 db.sqlite3
+  drwxr-xr-x 4 naga naga 4096 Feb  8 18:17 main_app/
+  -rwxr-xr-x 1 naga naga  539 Feb  8 09:05 manage.py
+  lrwxrwxrwx 1 naga naga   18 Feb  8 16:58 static -> ../../Frontend/src/
+  drwxr-xr-x 2 naga naga 4096 Feb  8 16:48 templates/
+  drwxr-xr-x 3 naga naga 4096 Feb  8 09:05 tweeter/
+  ```
+
+  If this all looks good, then everything should be working (ish)
+
+#### 6. Verify Functionality
+
+Now that everything has been cloned properly, let's verify that everything works.
+If you run the Django server:
+
+```
+> cd tweeter
+> python manage.py runserver
+```
+
+and then go to `127.0.0.1:8000` in your browser, it should take you to the
+Tweeter homepage. The formatting might not have been fixed yet, so it might
+just show up as a plain white page with all the text to the left. Don't worry
+about that, it will be fixed.
+
+If it brought you to the right page, everything should be set up properly.
