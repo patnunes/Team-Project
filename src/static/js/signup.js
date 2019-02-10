@@ -1,6 +1,9 @@
-
+var ServerResponses = ServerResponses = {
+                            SUCCESS: 'success',
+                            USER_NAME_IN_USE: 'user in use',
+                            EMAIL_IN_USE: 'email in use',
+};
 $(document).ready(function() {
-
     $("#submit_btn").click(function(){
         $('#userNameWarning').text('');
         $('#confirmPasswordWarning').text('');
@@ -33,6 +36,7 @@ $(document).ready(function() {
            newUser.userName = userName;
            newUser.password = password;
            alert("This is the JSON produced: " + JSON.stringify(newUser));
+           alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
            $.post("users_server.asp", JSON.stringify(newUser), function(m_status){
                 alert(m_status)
                 switch (m_status) {
