@@ -37,9 +37,9 @@ $(document).ready(function() {
            newUser.password = password;
            alert("This is the JSON produced: " + JSON.stringify(newUser));
            alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
-           $.post("users_server.asp", JSON.stringify(newUser), function(m_status){
-                alert(m_status)
-                switch (m_status) {
+           $.post("/signin_submit", JSON.stringify(newUser), function(m_response){
+                alert(m_response.status)
+                switch (m_response.status) {
                     case ServerResponses.SUCCESS:
                         //User was created, and can move to signin page.
                         // TODO: create signin page, and force open when successful user creation occurs.
