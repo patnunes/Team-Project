@@ -1,15 +1,6 @@
 from .models import User
 
-#Here for testing purposes, feel free to delete
-#user_info = {'email' : 'testemail@gmail.com', 'username' : 'user1', 'password' : '123'}
-
-def index(request):
-    return render(request, 'index.html')
-	
-def signup(request):
-	return render(request, 'signup.html')
-
-def create_user('''pass user_info_dictionary: in this case titled user_info'''):
+def create_user(user_info):
 	all_users = User.objects.all()
 	#check for already existing usernames and email
 	for user in all_users:
