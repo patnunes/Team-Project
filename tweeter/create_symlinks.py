@@ -22,13 +22,13 @@ def main():
 
         create(platform)
 
-def create(os = "windows"):
+def create(os = "win32"):
     print("creating links for os: " + os)
     if(os == "linux"):
         run_cmd(["ln", "-s", "../../Frontend/src/static"])
         run_cmd(["ln", "-s", "../../../Frontend/src/index.html"], dir="templates")
         run_cmd(["ln", "-s", "../../../Frontend/src/signup.html"], dir="templates")
-    elif(os == "windows" and not is_admin()):
+    elif(os == "win32" and not is_admin()):
         run_cmd(["mklink static ..\\..\\Frontend\\src\\static"])
         run_cmd(["mklink index.html ..\\..\\..\\Frontend\\src\\index.html"])
         run_cmd(["mklink signup.html ..\\..\\..\\Frontend\\src\\signup.html"])
