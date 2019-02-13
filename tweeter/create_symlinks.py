@@ -36,7 +36,7 @@ def create(os = "windows"):
 
 
 def run_cmd(cmd, param="", dir="."):
-    proc = Popen(cmd, cwd=dir, stdout=PIPE, stderr=PIPE)
+    proc = Popen(cmd, cwd=dir, stdout=PIPE, stderr=PIPE, shell=True)
     stdout, stderr = proc.communicate(timeout=5)
     return str(stdout)
 
