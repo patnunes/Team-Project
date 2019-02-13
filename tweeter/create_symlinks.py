@@ -20,7 +20,7 @@ def main():
     else:
         print("templates not found")
 
-        create("linux")
+        create(platform)
 
 def create(os = "windows"):
     print("creating links for os: " + os)
