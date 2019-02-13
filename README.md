@@ -9,7 +9,7 @@
  -  ### Language(s)
     - Below is/are our Project's *programming language(s)*;
       - DATABASE: MySQL
-      - BACKEND: Pythong & Django
+      - BACKEND: Python & Django
       - FRONTEND: JavaScript
 
 ## Frontend Frameworks:
