@@ -1,4 +1,5 @@
 from sys import platform
+import ctypes
 from subprocess import Popen, PIPE
 
 def main():
@@ -46,11 +47,11 @@ def is_admin():
 
     try:
         print("checking admin")
-        return not ctypes.windll.shell32.IsUserAnAdmin()
+        return not shell32.IsUserAnAdmin()
     except:
         return 1
 
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+    shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
 
 
 main()
