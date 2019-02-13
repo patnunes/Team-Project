@@ -42,6 +42,6 @@ def signup_submit(request):
 
         # TODO: call the function that processes this info
         # print the result of adding the user
-        response = 0;   # replace this with the actual response from the function
+        response = create_user(user)
         return JsonResponse({"status":signup_responses[response]})
-	return render(request, 'signup.html')
+    return render(request, 'signup.html')
