@@ -37,7 +37,7 @@ $(document).ready(function() {
            newUser.password = password;
            alert("This is the JSON produced: " + JSON.stringify(newUser));
            alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
-           $.post("/signin_submit", JSON.stringify(newUser), function(m_response){
+           $.post("/signup_submit", JSON.stringify(newUser), function(m_response){
                 alert(m_response.status)
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
