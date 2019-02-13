@@ -3,3 +3,6 @@ node_modules/
 !node_modules/bootstrap/
 package-lock\.json
 **/*.pyc
+tweeter/static
+tweeter/templates/*
+tweeter/templates/*
