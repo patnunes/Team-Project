@@ -6,11 +6,12 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 
 
+#   Import features here
+from main_app.signup import create_user
 
 
 def index(request):
     return render(request, 'index.html')
-
 
 def signup(request):
     return render(request, 'signup.html')
@@ -43,3 +44,4 @@ def signup_submit(request):
         # print the result of adding the user
         response = 0;   # replace this with the actual response from the function
         return JsonResponse({"status":signup_responses[response]})
+	return render(request, 'signup.html')

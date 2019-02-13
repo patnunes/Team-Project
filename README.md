@@ -9,7 +9,7 @@
  -  ### Language(s)
     - Below is/are our Project's *programming language(s)*;
       - DATABASE: MySQL
-      - BACKEND: Pythong & Django
+      - BACKEND: Python & Django
       - FRONTEND: JavaScript
 
 ## Frontend Frameworks:
@@ -189,7 +189,8 @@ so that Django can find the files it needs to serve to the user.
 
   ```
   > cd path/to/soen341/env
-  >  mkdir Frontend
+  > mkdir Frontend
+  > cd Frontend
   > git init
   > git remote add origin https://github.com/SOEN341-winter2019/Team-Project.git
   > git fetch

@@ -1,5 +1,9 @@
+var ServerResponses = ServerResponses = {
+                            SUCCESS: 'success',
+                            USER_NAME_IN_USE: 'user in use',
+                            EMAIL_IN_USE: 'email in use',
+};
 $(document).ready(function() {
-
     $("#submit_btn").click(function(){
         $('#userNameWarning').text('');
         $('#confirmPasswordWarning').text('');
@@ -31,7 +35,25 @@ $(document).ready(function() {
            newUser.email = email;
            newUser.userName = userName;
            newUser.password = password;
-           alert("This is the JSON produced: " + JSON.stringify(newUser))
+           alert("This is the JSON produced: " + JSON.stringify(newUser));
+           alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
+           $.post("/signin_submit", JSON.stringify(newUser), function(m_response){
+                alert(m_response.status)
+                switch (m_response.status) {
+                    case ServerResponses.SUCCESS:
+                        //User was created, and can move to signin page.
+                        // TODO: create signin page, and force open when successful user creation occurs.
+                        break;
+                    case ServerResponses.USER_NAME_IN_USE:
+                        $('#userNameWarning').text("Username already in use");
+                        break;
+                    case ServerResponses.EMAIL_IN_USE:
+                        $('#emailWarning').text("This email is already in use");
+                        break;
+                    default:
+                        alert("Uknown Error, please contact your local zoo or webMD");
+                }
+           })
         }
     };
 });
