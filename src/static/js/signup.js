@@ -41,8 +41,8 @@ $(document).ready(function() {
                 alert(m_response.status)
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
-                        //User was created, and can move to signin page.
-                        // TODO: create signin page, and force open when successful user creation occurs.
+                        alert("user successfully created!")
+                        document.location.href = "signin.html"
                         break;
                     case ServerResponses.USER_NAME_IN_USE:
                         $('#userNameWarning').text("Username already in use");
