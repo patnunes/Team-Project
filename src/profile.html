@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <title>Profile View</title>
+
+        <meta charset = UTF-8>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body>
+        <br>
+
+        <h3>[super early version i know its ugly im sorry]</h3>
+
+        <br>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-outline-primary btn-sm">Log Out</button>
+            </div>
+        </nav>
+
+        <br>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="row">
+                <div class="col-3">
+
+                </div>
+
+                <div class="col-4">
+                    <p>Viewing the profile of</p>
+                    <h1 id="userName">[USERNAME]</h1>
+                </div>
+
+                <div class="col-2 text-center">
+                    <img src="http://www.animalslook.com/wp-content/uploads/2010/11/210.jpg"
+                         alt="User photo"
+                         class="img-thumbnail">
+                </div>
+
+                <div class="col-3">
+
+                </div>
+            </div>
+
+            <div class="container text-center">
+                <p>
+                    User Bio Section. Short paragraph can be written by the user to describe themselves.
+                </p>
+            </div>
+        </div>
+
+        <div class="jumbotron jumbotron-fluid">
+            <h5 class="text-center"><strong>Your feed.</strong> See what everyone is talking about.</h5>
+
+            <p class="text-center">Tweets will appear here.</p>
+        </div>
+
+        <div class="jumbotron jumbotron-fluid">
+            <h5 class="text-center">Let the world hear you. <strong>Post something.</strong></h5>
+
+            <div class="form-group">
+                <textarea class="form-control" id="tweet_content" rows="2"></textarea>
+            </div>
+            <small id="noContentWarning" class="form-text text-danger"></small>
+
+            <button type="submit" class="btn btn-primary btn-sm float-right" id="tweet_btn">Submit</button>
+        </div>
+
+        <script src="static/js/tether.min.js"></script>
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/bootstrap.min.js"></script>
+        <script src="static/js/tweet.js"></script>
+
+    </body>
+
+</html>
