@@ -5,5 +5,4 @@ package-lock\.json
 **/*.pyc
 tweeter/tweeter/__pycache__
 tweeter/static
-tweeter/templates/*
-tweeter/templates/*
+tweeter/templates
