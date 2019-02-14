@@ -1,8 +1,9 @@
-from models import User
+from .models import User
 
-def validatingUser(userInfo):
-    user = User.objects.filter(EMAIL = userInfo['email'], PASSWORD = userInfo['password'])
+def validate_user(userInfo):
+    user = User.objects.filter(username=userInfo['username'],
+            password = userInfo['password']).exists()
 	#if user does not have an account
-    if user is None: 
-        return 3
+    if user is False:
+        return 4
     return 0

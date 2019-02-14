@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 #   Import features here
 from main_app.signup import create_user
-
+from main_app.signin import validate_user
 
 def index(request):
     return render(request, 'index.html')
@@ -16,13 +16,16 @@ def index(request):
 def signup(request):
     return render(request, 'signup.html')
 
+def signin(request):
+    return render(request, 'signin.html')
 
 # potential responses from the signup
-signup_responses = {
+responses = {
                     0: 'success',
                     1: 'user in use',
                     2: 'email in use',
                     3: 'other',
+                    4: 'invalid user or email'
 }
 
 #TODO: fix csrf issue in frontend
@@ -38,10 +41,29 @@ def signup_submit(request):
             'password':data['password']}
         except KeyError:
             # if for some reason the response is formed wrong
-            return JsonResponse({"status":signup_responses[3]})
+            return JsonResponse({"status":responses[3]})
 
         # TODO: call the function that processes this info
         # print the result of adding the user
         response = create_user(user)
-        return JsonResponse({"status":signup_responses[response]})
+        return JsonResponse({"status":responses[response]})
     return render(request, 'signup.html')
+
+
+@csrf_exempt
+def signin_submit(request):
+    if request.is_ajax() and request.method == 'POST':
+        # load the content of the response into another var
+        data = json.loads(request.body)
+        try:
+            # store all the passed data into a dict
+            user = {'username':data['userName'], 'password':data['password']}
+        except KeyError:
+            # if for some reason the response is formed wrong
+            return JsonResponse({"status":responses[3]})
+
+        # TODO: call the function that processes this info
+        # print the result of adding the user
+        response = validate_user(user)
+        return JsonResponse({"status":responses[response]})
+    return render(request, 'signin.html')
