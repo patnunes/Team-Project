@@ -29,21 +29,20 @@ $(document).ready(function() {
             var user = new Object();
             user.userName = userName;
             user.password = password;
-            alert("This is the JSON produced: " + JSON.stringify(user));
-            $.get("/signin_submit", JSON.stringify(user), function(m_response){
-                alert(m_response.status)
+            // DEBUG: alert("This is the JSON produced: " + JSON.stringify(user));
+            $.post("/signin_submit", JSON.stringify(user), function(m_response){
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
                             //User was created, and can move to dashboard page.
                             //TODO: create dashboard page, and force open when successful user login occurs.
                         break;
                     case ServerResponses.INVALID_CREDENTIALS:
-                        $('#userNameWarning').text("Username already in use");
+                        $('#userNameWarning').text("Error in credentials. Please try again.");
                         break;
                     default:
-                        alert("Uknown Error, please contact your local zoo or webMD");
+                        // DEBUG: alert("Uknown Error, please contact your local zoo or webMD");
                 }
             })
-        } 
+        }
     };
 });
