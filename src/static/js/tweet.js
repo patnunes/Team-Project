@@ -20,7 +20,7 @@ $(document).ready(function() {
 
             if(error == 0){
                 var tweet = new Object();
-                tweet.userName = tweetUserName;
+                tweet.userName = "test2";
                 tweet.content = tweetContent;
 
                 alert("This is the JSON produced: " + JSON.stringify(tweet));
