@@ -6,9 +6,12 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 
 
-#   Import features here
+# Import features here
 from main_app.signup import create_user
 from main_app.signin import validate_user
+from main_app.tweets import save_user_tweets
+
+# HTML file declarations
 
 def index(request):
     return render(request, 'index.html')
@@ -19,7 +22,11 @@ def signup(request):
 def signin(request):
     return render(request, 'signin.html')
 
-# potential responses from the signup
+def profile(request):
+    return render(request, 'profile.html')
+
+
+# Potential responses from the various methods
 responses = {
                     0: 'success',
                     1: 'user in use',
@@ -28,7 +35,8 @@ responses = {
                     4: 'invalid user or email'
 }
 
-#TODO: fix csrf issue in frontend
+
+# TODO: fix csrf issue in frontend
 @csrf_exempt
 def signup_submit(request):
     # verify that the submitted data meets the requirements
@@ -47,6 +55,8 @@ def signup_submit(request):
         # print the result of adding the user
         response = create_user(user)
         return JsonResponse({"status":responses[response]})
+
+    # redirect in case of weird failure
     return render(request, 'signup.html')
 
 
@@ -66,4 +76,27 @@ def signin_submit(request):
         # print the result of adding the user
         response = validate_user(user)
         return JsonResponse({"status":responses[response]})
+
+    # redirect in case of weird failure
     return render(request, 'signin.html')
+
+
+@csrf_exempt
+def tweet_submit(request):
+    if request.is_ajax() and request.method == 'POST':
+        # load the content of the response into another var
+        data = json.loads(request.body)
+        try:
+            # store all the passed data into a dict
+            user = {'username':data['userName'], 'tweet':data['content']}
+        except KeyError:
+            # if for some reason the response is formed wrong
+            return JsonResponse({"status":responses[3]})
+
+        # TODO: call the function that processes this info
+        # print the result of adding the user
+        response = save_user_tweets(user)
+        return JsonResponse({"status":responses[response]})
+
+    # redirect in case of weird failure
+    return render(request, 'profile.html')
