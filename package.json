@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/SOEN341-winter2019/Team-Project#readme",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6"
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.3.1",
+    "tether": "^1.4.5"
   },
   "devDependencies": {
     "browser-sync": "^2.26.3",
