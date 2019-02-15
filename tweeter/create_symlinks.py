@@ -9,8 +9,8 @@ def main():
         if(not is_admin()):
             return
 
-    list_cmd = ["ls"] if (platform == "linux") else ["rmdir"]
-    del_cmd = ["rm"] if (platform == "linux") else ["del"]
+    list_cmd = ["ls"] if (platform != "win32") else ["rmdir"]
+    del_cmd = ["rm"] if (platform != "win32") else ["del"]
 
     stat = run_cmd(list_cmd)
     if(stat.find("static") >= 0):
@@ -29,7 +29,7 @@ def main():
         create(platform)
 
 def create(os):
-    if(os == "linux"):
+    if(os != "win32"):
         print("creating links for linux")
         run_cmd(["ln", "-s", "../../Frontend/src/static"])
         run_cmd(["ln", "-s", "../../Frontend/src/", "templates"])
