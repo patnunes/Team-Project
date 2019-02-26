@@ -6,4 +6,4 @@ install:
   - pip install -r requirements.txt
 #We might want to use pytest?!
 script:
-  - python test_travisCI.py
+  - python tweeter/test_travisCI.py
