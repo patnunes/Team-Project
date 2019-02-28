@@ -1,0 +1,19 @@
+.tweet {
+  background-color: #424242; }
+
+.tweet_text {
+  color: gray; }
+
+.icon {
+  font-size: 1.8em; }
+
+.icon:hover {
+  color: white; }
+
+.userName {
+  color: white;
+  font-weight: 400;
+  font-size: 1.8em; }
+
+.userHandle {
+  font-size: 1.2em; }

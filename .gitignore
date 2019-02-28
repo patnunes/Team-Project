@@ -6,3 +6,5 @@ package-lock\.json
 tweeter/tweeter/__pycache__
 tweeter/static
 tweeter/templates
+
+\.vscode/settings\.json
