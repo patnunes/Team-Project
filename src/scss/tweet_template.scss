@@ -1,0 +1,28 @@
+
+$tweetBackground: #424242;
+$tweetText: gray;
+.tweet{
+    background-color: $tweetBackground;
+
+}
+
+.tweet_text{
+    color: $tweetText;
+}
+
+.icon{
+    font-size: 1.8em;
+}
+.icon:hover{
+    color: white;
+}
+
+.userName{
+    color: white;
+    font-weight: 400;
+    font-size: 1.8em;
+}
+
+.userHandle{
+    font-size: 1.2em;
+}
