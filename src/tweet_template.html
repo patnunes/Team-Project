@@ -15,21 +15,33 @@
         <div class="container">
             <div class="container mt-5">
                 <div class="row tweet rounded pt-2 pb-2">
-                    <div class="col-1 pr-0">
+                    <div class="img col-2 pr-0">
                         <img src="static/assets/user_placeholder.jpeg" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
                     </div>
-                    <div class="col-11 tweet_text">
+                    <div class="col-10 tweet_text">
                         <span onclick="goToUser()"><span class="userName">UserName</span> <span class="userHandle">@UserName</span></span>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         
 
                         <!-- Icon Row -->
-                        <div class="">
-                            <span onclick="like()"><i class="far fa-heart icon"></i></span> 
+                        <div class="row icon_row">
+                            <div class="col-3 like_col pr-0">
+                                <span onclick="like()"><i class="fas fa-heart liked icon"></i><span class="likes">4</span></span> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row tweet_test  mt-5">
+                <div class="offset-lg-3 col-lg-6" id="mock_feed">
+
+                </div>
+            </div>
         </div>
     </body>
+    <script src="static/js/tether.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/tweet_functions.js"></script>
 </html>

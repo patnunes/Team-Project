@@ -1,6 +1,7 @@
 
 $tweetBackground: #424242;
 $tweetText: gray;
+$liked: #af3f3f;
 .tweet{
     background-color: $tweetBackground;
 
@@ -11,11 +12,23 @@ $tweetText: gray;
 }
 
 .icon{
-    font-size: 1.8em;
+    font-size: 1.3em;
 }
-.icon:hover{
-    color: white;
+
+.liked{
+    color: $liked;
 }
+
+.notLiked:hover {
+    color: $liked;
+}
+
+.likes{
+    font-size: 1.3em;
+    display: inline-block;
+    margin-left: .8em;
+}
+
 
 .userName{
     color: white;

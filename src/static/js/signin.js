@@ -40,7 +40,7 @@ $(document).ready(function() {
                         $('#userNameWarning').text("Error in credentials. Please try again.");
                         break;
                     default:
-                        // DEBUG: alert("Uknown Error, please contact your local zoo or webMD");
+                        // DEBUG: alert("Uknown Error");
                 }
             })
         }
