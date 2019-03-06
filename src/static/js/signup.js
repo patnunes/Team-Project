@@ -16,7 +16,7 @@ function ValidateUsername(username)
     if (username.length<3)
     return false;
     
-    if (username.charAt(0) == isNaN)
+    if (!isNaN(username.charAt(0)))
     return false;
     
     
