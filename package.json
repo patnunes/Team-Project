@@ -18,7 +18,6 @@
   "homepage": "https://github.com/SOEN341-winter2019/Team-Project#readme",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
-    "jasmine-core": "^2.99.1",
     "jquery": "^3.3.1",
     "tether": "^1.4.5"
   },
@@ -27,6 +26,7 @@
     "gulp": "^4.0.0",
     "gulp-sass": "^4.0.2",
     "jasmine": "^2.99.0",
+    "jasmine-core": "^2.99.1",
     "karma": "^4.0.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
