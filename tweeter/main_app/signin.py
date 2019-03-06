@@ -7,3 +7,8 @@ def validate_user(userInfo):
     if user is False:
         return 4
     return 0
+
+#def return_user_id(userInfo):
+#	userID = User.objects.get(username=userInfo['username']).pk
+#	print(userID)
+#	return userID
