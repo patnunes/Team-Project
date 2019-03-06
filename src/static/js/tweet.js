@@ -1,3 +1,19 @@
+function ValidateTweetContent(content)
+{
+    if (content ==="" || content===null)
+    return false;
+    if (content.length>140 || content.length<10)
+    return false;
+    if (/(shit|fuck|motherfucker|ass|asshole|bitch)/.test(content)){ // check if the user is using curse words
+        console.log("please be polite! :-)");
+        return false;
+
+    }
+    
+    
+    return true;
+}
+
 var ServerResponses = ServerResponses = {
     SUCCESS: 'success'
 };

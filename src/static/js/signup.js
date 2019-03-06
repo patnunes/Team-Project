@@ -25,17 +25,17 @@ function ValidateUsername(username)
 
 function ValidatePassword(password)
 {
-   if (password ==="")
+    if (password ==="")
     return false;
     if (password.length<3)
     return false;
-   
-if (!/[0-9]/.test(password)){ //Regex to check if the password contains numbers
+    
+    if (!/[0-9]/.test(password)){ //Regex to check if the password contains numbers
+        return false;
+    }
+    if (!/[A-Z]/.test(password))  
     return false;
-}
-if (!/[A-Z]/.test(password))  
-return false;
-return true;
+    return true;
 }
 
 
