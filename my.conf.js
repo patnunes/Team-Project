@@ -17,7 +17,6 @@ module.exports = function(config) {
     files: [
       
       'https://code.jquery.com/jquery-1.11.2.min.js',
-      //'gulpfile.js',
       'src/static/js/*.js',
       'tests/*.js'
     ],
@@ -25,7 +24,8 @@ module.exports = function(config) {
     
     // list of files / patterns to exclude
     exclude: [
-      'src/static/js/jquery.min.js',
+     'gulpfile.js', 
+     'src/static/js/jquery.min.js',
      'src/static/js/bootstrap.min.js'
     ],
     
