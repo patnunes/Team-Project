@@ -36,6 +36,8 @@ def create(os):
 
     elif(os == "win32"):
             print("creating links for windows")
+            # the following will get rid of the legacy linux symlink if it exists
+            check = run_cmd(["del", "static"])
             stat = run_cmd(["mklink", "/D", "static", "..\\..\\Frontend\\src\\static"])
             stat = run_cmd(["mklink", "/D", "templates", "..\\..\\Frontend\\src"])
 

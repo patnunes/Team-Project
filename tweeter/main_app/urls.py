@@ -12,4 +12,6 @@ urlpatterns = [
     path('signup_submit', views.signup_submit, name='signup_submit'),
     path('signin_submit', views.signin_submit, name='signin_submit'),
     path('tweet_submit', views.tweet_submit, name='tweet_submit'),
+    path('get_tweets', views.get_tweets, name='get_tweets'),
+    path('get_more_tweets', views.get_more_tweets, name='get_more_tweets'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

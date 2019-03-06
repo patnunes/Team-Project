@@ -60,6 +60,14 @@
         <div class="jumbotron jumbotron-fluid">
             <h5 class="text-center"><strong>Your feed.</strong> See what everyone is talking about.</h5>
 
+            <!--<ul>
+                {% for tweets in data %}
+                    <li> {{ tweets.user.username }} </li>
+                    <li> {{ tweets.content }} </li>
+                    <li> {{ tweets.timestamp }} </li>
+                {% endfor %}
+            </ul>-->
+            
             <p class="text-center">Tweets will appear here.</p>
         </div>
 
@@ -82,3 +90,22 @@
     </body>
 
 </html>
+<!--{% block script %}
+<script>
+$(document).ready(function(){
+
+    $.ajax({
+       url: "/get_tweets",
+       method: "GET",
+       data: { 
+        username:"test2"
+    },
+       success: function(data){
+        console.log(data)
+
+       }
+    })
+
+});
+</script>
+{% endblock script %}-->
