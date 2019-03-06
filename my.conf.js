@@ -15,8 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'gulpfile.js',
-      'src/static/js/*.js',
+      //'gulpfile.js',
+      'src/static/js/jsFileForTest.js',
       'tests/*.js'
     ],
 
