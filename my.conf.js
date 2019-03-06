@@ -16,6 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       
+      'https://code.jquery.com/jquery-1.11.2.min.js',
       // 'gulpfile.js',
       // 'src/static/js/*.js',
        'src/static/js/jsFileForTest.js',
@@ -63,9 +64,6 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Chrome'],
-    mime: {
-      'text/x-typescript': ['ts','tsx']
-    },
 
 
     // Continuous Integration mode
