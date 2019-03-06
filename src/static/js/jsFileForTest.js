@@ -1,4 +1,4 @@
-var testFunc= function(parameter){
+function testFunc(parameter){
     if (parameter===true)
     return true;
     else
