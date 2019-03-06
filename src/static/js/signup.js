@@ -8,6 +8,18 @@ function ValidateEmail(mail)
     return (false)
 }
 
+function ValidateUsername(username)
+{
+lower_case_username = username.toLowerCase();
+    if (username ==="")
+return false;
+if (username.length<3)
+return false;
+if (username.charAt(0)!= isNaN)
+return false;
+return lower_case_username;
+}
+
 
 
 var ServerResponses = ServerResponses = {
