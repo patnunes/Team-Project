@@ -12,7 +12,7 @@ from .models import Tweet, User, Follow, Likes
 # Import features here
 from main_app.signup import create_user
 from main_app.signin import validate_user, return_user_id
-from main_app.tweets import save_user_tweets, retrieve_user_tweets, get_more_tweets
+from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
 
 # HTML file declarations
 
@@ -102,7 +102,7 @@ def get_tweets(request):
     return render(request, 'profile.html')
 
 @csrf_exempt
-def get_more_tweets(request):
+def get_older_tweets(request):
     if requests.is_ajax() and request.method == 'GET'
         
         try:
@@ -111,7 +111,7 @@ def get_more_tweets(request):
         except KeyError:
             return JsonResponse({"status": respsonses[3]})
         
-        tweets = get_more_tweets(tweetID, username)
+        tweets = fetch_older_tweets(tweetID, username)
         return JsonResponse(tweets, safe=False)
     return render (request, 'profile.html')
         
