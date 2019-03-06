@@ -1,8 +1,8 @@
 describe('test1', ()=> {
     
     it('should return true', ()=> {
-        const parameter=true;
-        const result = testFunc(parameter);
+        var parameter=true;
+        var result = testFunc(parameter);
         expect(result).toBe(true);
     });
 });
