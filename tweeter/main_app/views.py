@@ -28,6 +28,9 @@ def signin(request):
 def profile(request):
     return render(request, 'profile.html')
 
+def tweet_template(request):
+    return render(request, 'tweet_template.html')
+
 # Potential responses from the various methods
 responses = {
                     0: 'success',
@@ -103,13 +106,13 @@ def get_tweets(request):
 
 @csrf_exempt
 def get_older_tweets(request):
-    if requests.is_ajax() and request.method == 'GET'
+    if request.is_ajax() and request.method == 'GET':
         
         try:
             username = request.GET.get('username', None)
             tweetID = request.GET.get('tweetID', None)
         except KeyError:
-            return JsonResponse({"status": respsonses[3]})
+            return JsonResponse({"status":responses[3]})
         
         tweets = fetch_older_tweets(tweetID, username)
         return JsonResponse(tweets, safe=False)
