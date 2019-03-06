@@ -95,11 +95,11 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "UsernameValidation - short input test\n";    
     it('', ()=> {
-        var parameter="ABC";
+        var parameter="ABCDEFG";
         var result = ValidateUsername(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
         counter++;
-        expect(result).toBe("abc");
+        expect(result).toBe("abcdefg");
 
     });
 });
