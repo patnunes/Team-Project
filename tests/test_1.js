@@ -1,7 +1,8 @@
-describe('getDiv', function() {
-    var d = document.querySelector('.box');
+describe('test1', ()=> {
     
-    it('Should exist', function() {
-        expect(d.nodeName).toBe('DIV');
+    it('should return true', ()=> {
+        var bool=true;
+        const result = testFunc(bool);
+        expect(result).toBe(true);
     });
 });
