@@ -24,7 +24,7 @@ module.exports = function(config) {
     
     
     // list of files / patterns to exclude
-    exclude: [
+    exclude: ['src/static/js/jquery.min.js', 'src/static/js/bootstrap.min.js'
     ],
     
     
