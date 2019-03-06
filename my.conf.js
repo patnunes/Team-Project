@@ -17,9 +17,9 @@ module.exports = function(config) {
     files: [
       //'gulpfile.js',
       'src/static/js/jsFileForTest.js',
-      //'src/static/js/signin.js',
+      'src/static/js/signin.js',
       'src/static/js/signup.js',
-      //'src/static/js/tweet.js',
+      'src/static/js/tweet.js',
       'tests/*.js'
     ],
 
