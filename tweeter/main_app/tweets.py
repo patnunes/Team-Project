@@ -31,7 +31,7 @@ def retrieve_user_tweets(username):
 	tweet_data_json = json.dumps(list(tweet_data), cls=DjangoJSONEncoder)
 	return tweet_data_json
 
-def get_more_tweets(tweetId, username):
+def get_older_tweets(tweetId, username):
 	
 	following_ids = get_following_ids(username)
 	more_tweets = Tweet.objects.filter(user_id__in = following_ids).filter(is_comment = 0).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
