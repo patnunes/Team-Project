@@ -9,8 +9,8 @@ def main():
         if(not is_admin()):
             return
 
-    list_cmd = ["ls"] if (platform == "linux") else ["rmdir"]
-    del_cmd = ["rm"] if (platform == "linux") else ["del"]
+    list_cmd = ["rmdir"] if (platform == "win32") else ["ls"]
+    del_cmd = ["del"] if (platform == "win32") else ["rm"]
 
     stat = run_cmd(list_cmd)
     if(stat.find("static") >= 0):
@@ -29,15 +29,15 @@ def main():
         create(platform)
 
 def create(os):
-    if(os == "linux"):
-        print("creating links for linux")
-        run_cmd(["ln", "-s", "../../Frontend/src/static"])
-        run_cmd(["ln", "-s", "../../Frontend/src/", "templates"])
+    if(os != "win32"):
+        print("creating links for linux/mac")
+        run_cmd(["ln", "-s", "../src/static"])
+        run_cmd(["ln", "-s", "../src", "templates"])
 
-    elif(os == "win32"):
-            print("creating links for windows")
-            stat = run_cmd(["mklink", "/D", "static", "..\\..\\Frontend\\src\\static"])
-            stat = run_cmd(["mklink", "/D", "templates", "..\\..\\Frontend\\src"])
+    else:
+        print("creating links for windows")
+        stat = run_cmd(["mklink", "/D", "static", "..\\src\\static"])
+        stat = run_cmd(["mklink", "/D", "templates", "..\\src"])
 
 
 def run_cmd(cmd, param=[""], dir="."):
