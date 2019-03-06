@@ -1,8 +1,0 @@
-node_modules/
-/node_modules/ansi-styles/*
-!node_modules/bootstrap/
-package-lock\.json
-**/*.pyc
-tweeter/tweeter/__pycache__
-tweeter/static
-tweeter/templates
