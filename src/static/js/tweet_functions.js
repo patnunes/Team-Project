@@ -1,6 +1,7 @@
 var ServerResponses = {
     SUCCESS: 'success',
     INVALID_CREDENTIALS: 'invalid user or email',
+    OTHER: "other",
     FAILURE: 'fail'
 };
 var tweet_json = `{
@@ -57,23 +58,29 @@ $(document).ready(function() {
         for (i = 0; i < tweets_js_call.length; i++) {
         
             var likeRequest = new Object();
-            likeRequest.username = user;
-            likeRequest.tweetID = tweets_js_call[index].id;
-            $.post("/like", JSON.stringify(likeRequest), function(m_response){
-                alert(m_response.status)
+            likeRequest.username = "test2";
+            likeRequest.tweetID = tweets_js_call[i].id;
+            var likeOBJ = $.post("/like", JSON.stringify(likeRequest), function(m_response){
+                // alert(m_response.status)
                 switch (m_response.status) {
+                    case ServerResponses.OTHER:
+                        setLiked(false);
                     case ServerResponses.SUCCESS:
-                        tweets_js_call[i].liked = true;
+                        setLiked(true);
                     default:
-                        tweets_js_call[i].liked = flase;
+                        setLiked(false);
                 }
-           })
+           });
 
-            // $('#tweetField').append(markup);
+           function setLiked(isLiked){
+               tweets_js_call[i].liked = isLiked; //can't actuially set .liked here
+           }
+
             console.log("i = " + i)
+            console.log("is liked? = " + likeOBJ.isLiked)
             console.log("likes = " + tweets_js_call[i].like_counter);
             likes = tweets_js_call[i].like_count > 0 ? tweets_js_call[i].like_counter : "";
-            like_icon = tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture}
+            like_icon = !tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture}
             console.log(tweets_js_call[i].timestamp)
             var time = moment(tweets_js_call[i].timestamp, "YYYY-MM-DDTHH:mm:ssZ").fromNow();
             console.log(time)
