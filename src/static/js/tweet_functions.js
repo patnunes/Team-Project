@@ -53,18 +53,21 @@ $(document).ready(function() {
         var likes;
         var like_icon;
         var iconRow;
+
         for (i = 0; i < tweets_js_call.length; i++) {
-            $.ajax({
-                url: "/like",
-                method: "POST",
-                data: { 
-                 username:"test2",
-                 tweet_ID:tweets_js_call[i].id
-             },
-                success: function(data){
-                    tweets_js_call[i].liked = true;
+        
+            var likeRequest = new Object();
+            likeRequest.username = user;
+            likeRequest.tweetID = tweets_js_call[index].id;
+            $.post("/like", JSON.stringify(likeRequest), function(m_response){
+                alert(m_response.status)
+                switch (m_response.status) {
+                    case ServerResponses.SUCCESS:
+                        tweets_js_call[i].liked = true;
+                    default:
+                        tweets_js_call[i].liked = flase;
                 }
-             })
+           })
 
             // $('#tweetField').append(markup);
             console.log("i = " + i)
@@ -80,7 +83,7 @@ $(document).ready(function() {
                         <img src="static/assets/user_placeholder.jpeg" class="mx-auto d-block img-fluid rounded-circle mt-2" alt=""> 
                     </div>
                     <div class="col-10 tweet_text">
-                        <span onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user_name}</span> <span class="userHandle">@${tweets_js_call[i].user_name}</span><span>${time}</span></span>
+                        <span class="top" onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user_name}</span> <span class="userHandle">@${tweets_js_call[i].user_name}</span><span class="time_span">${time}</span></span>
                         <p>${tweets_js_call[i].content}</p>
                     
                         <!-- Icon Row -->
