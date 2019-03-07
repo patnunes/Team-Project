@@ -10,8 +10,23 @@ var tweet_json = `{
 console.log(tweet_json);
 
 $(document).ready(function() {
-    // var mockUser = "mockUser"; 
+    var mockUser = "test2"; 
 
+
+// INTEGRATION OF BACKEND ////////////////////////////////////////////
+// TODO: Make query
+    $.get("/get_tweets", JSON.stringify(mockUser))
+        //TODO: Retrieve result
+        .fail(function () {
+            //TODO: notify user of failure with message
+        })
+        .done(function(tweets_json) {
+            console.log(tweets_json);
+            //TODO: Parse results into array of tweet objects
+            //TODO: Cycle through tweet objects and populate template
+            //TODO: Publish each template to website using append
+        });
+    
 
 // START TEST /////////////////////////////////////////////
 

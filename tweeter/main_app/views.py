@@ -102,7 +102,7 @@ def get_tweets(request):
         tweets = retrieve_user_tweets(username)
         return JsonResponse(tweets, safe=False)
 
-    return render(request, 'profile.html')
+    return render(request, 'tweet_template.html')
 
 @csrf_exempt
 def get_older_tweets(request):
