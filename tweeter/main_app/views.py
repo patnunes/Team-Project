@@ -100,7 +100,7 @@ def get_tweets(request):
              return JsonResponse({"status":responses[3]})
        
         tweets = retrieve_user_tweets(username)
-        return JsonResponse(tweets, safe=False)
+        return JsonResponse({"status":responses[0], "tweets": tweets})
 
     return render(request, 'tweet_template.html')
 

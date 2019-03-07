@@ -1,3 +1,7 @@
+var ServerResponses = {
+    SUCCESS: 'success',
+    INVALID_CREDENTIALS: 'invalid user or email'
+};
 var tweet_json = `{
     "tweets": [
         {"UserName": "User1", "UserHandle": "@user1", "profile_picture": "static/assets/user_placeholder.jpeg", "content": "This is a tweet from user one", "likes":0, "liked":false},
@@ -10,79 +14,137 @@ var tweet_json = `{
 console.log(tweet_json);
 
 $(document).ready(function() {
-    var mockUser = "test2"; 
+    // var mockUser = new Object();
+    var username = "test2";
 
 
 // INTEGRATION OF BACKEND ////////////////////////////////////////////
-// TODO: Make query
-    $.get("/get_tweets", JSON.stringify(mockUser))
-        //TODO: Retrieve result
-        .fail(function () {
-            //TODO: notify user of failure with message
-        })
-        .done(function(tweets_json) {
-            console.log(tweets_json);
-            //TODO: Parse results into array of tweet objects
-            //TODO: Cycle through tweet objects and populate template
-            //TODO: Publish each template to website using append
-        });
+    console.log(username);
+    console.log(JSON.stringify(username));
+    // $.get("/get_tweets", username, function(m_response){
+    //     switch (m_response.status) {
+    //         case ServerResponses.SUCCESS:
+    //             console.log()
+    //     }
+    // })
+    window.tweets_js_call = "";
+    $.ajax({
+        url: "/get_tweets",
+        method: "GET",
+        data: { 
+         username:"test2"
+     },
+        success: function(data){
+            console.log(data)
+            window.tweets_js_call = JSON.parse(data);
+            console.log(tweets_js_call);
+            fillForm(tweets_js_call);
+        }
+     })
+
+
+     var fillForm = function(tweets_js_call){
+        console.log("tweets: " + tweets_js_call);
+        var tweet;
+        var likes;
+        var like_icon;
+        var iconRow;
+        for (i = 0; i < tweets_js_call.length; i++) {
+
+            // $('#tweetField').append(markup);
+            tweets_js_call[i].liked = false;
+            console.log("i = " + i)
+            console.log("likes = " + tweets_js_call[i].like_counter);
+            likes = tweets_js_call[i].like_count > 0 ? tweets_js_call[i].like_counter : "";
+            like_icon = tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture}
+            $('#feed').append(
+                `<div class="row tweet rounded pt-2 mt-2 pb-2 mb-2" id="tweet${i}">
+                    <div class="col-2 pr-0">
+                        <img src="static/assets/user_placeholder.jpeg" class="mx-auto d-block img-fluid rounded-circle mt-2" alt=""> 
+                    </div>
+                    <div class="col-10 tweet_text">
+                        <span onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user_name}</span> <span class="userHandle">@${tweets_js_call[i].user_name}</span></span>
+                        <p>${tweets_js_call[i].content}</p>
+                    
+                        <!-- Icon Row -->
+                        <div class="row icon_row">
+                            <div class="col-3 like_col pr-0">
+                                <span onclick="like(${i})">${like_icon}<span class="likes">${likes}</span></span> 
+                            </div>    
+                        </div>
+                    </div>
+                </div>`
+            ); //for test
+        }
+     }
+
+        // //TODO: Retrieve result
+        // .fail(function () {
+        //     //TODO: notify user of failure with message
+        // })
+        // .done(function(tweets_json) {
+        //     console.log(tweets_json);
+        //     //TODO: Parse results into array of tweet objects
+        //     //TODO: Cycle through tweet objects and populate template
+        //     //TODO: Publish each template to website using append
+        // });
     
 
 // START TEST /////////////////////////////////////////////
 
     // var tweet_json = "X"; //read from file
-    window.tweets_js = JSON.parse(tweet_json);
-    console.log(tweets_js);
-    tweets_js = tweets_js.tweets; 
-    console.log(tweets_js);
-    console.log(tweets_js[0]);
-    var i = 0;
-    const markup = `
-    <div class="row tweet rounded pt-2 pb-2">
-        <div class="col-1 pr-0">
-            <img src="${tweets_js[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
-        </div>
-        <div class="col-11 tweet_text">
-            <span onclick="goToUser(${i})"><span class="userName">${tweets_js[i].UserName}</span> <span class="userHandle">${tweets_js[i].UserHandle}</span></span>
-            <p>${tweets_js[i].content}</p>
+    // window.tweets_js = JSON.parse(tweet_json);
+    // console.log(tweets_js);
+    // tweets_js = tweets_js.tweets; 
+    // console.log(tweets_js);
+    // console.log(tweets_js[0]);
+    // var i = 0;
+    // const markup = `
+    // <div class="row tweet rounded pt-2 pb-2">
+    //     <div class="col-1 pr-0">
+    //         <img src="${tweets_js[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
+    //     </div>
+    //     <div class="col-11 tweet_text">
+    //         <span onclick="goToUser(${i})"><span class="userName">${tweets_js[i].UserName}</span> <span class="userHandle">${tweets_js[i].UserHandle}</span></span>
+    //         <p>${tweets_js[i].content}</p>
         
-            <!-- Icon Row -->
-            <div class="">
-                <span onclick="like(${i})"><i class="far fa-heart icon"></i><span class="likes">${likes}</span></span> 
-            </div>
-        </div>
-    </div>
-    `;
-    var tweet;
-    var likes;
-    var like_icon;
-    var iconRow;
-    for (i = 0; i < tweets_js.length; i++) {
+    //         <!-- Icon Row -->
+    //         <div class="">
+    //             <span onclick="like(${i})"><i class="far fa-heart icon"></i><span class="likes">${likes}</span></span> 
+    //         </div>
+    //     </div>
+    // </div>
+    // `;
+    // var tweet;
+    // var likes;
+    // var like_icon;
+    // var iconRow;
+    // for (i = 0; i < tweets_js.length; i++) {
 
-        // $('#tweetField').append(markup);
-        console.log("i = " + i)
-        console.log("likes = " + tweets_js[i].likes);
-        likes = tweets_js[i].likes > 0 ? tweets_js[i].likes : "";
-        like_icon = tweets_js[i].liked? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
-        $('#mock_feed').append(
-            `<div class="row tweet rounded pt-2 mt-2 pb-2 mb-2" id="tweet${i}">
-                <div class="col-2 pr-0">
-                    <img src="${tweets_js[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
-                </div>
-                <div class="col-10 tweet_text">
-                    <span onclick="goToUser(${i})"><span class="userName">${tweets_js[i].UserName}</span> <span class="userHandle">${tweets_js[i].UserHandle}</span></span>
-                    <p>${tweets_js[i].content}</p>
+    //     // $('#tweetField').append(markup);
+    //     console.log("i = " + i)
+    //     console.log("likes = " + tweets_js[i].likes);
+    //     likes = tweets_js[i].likes > 0 ? tweets_js[i].likes : "";
+    //     like_icon = tweets_js[i].liked? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
+    //     $('#mock_feed').append(
+    //         `<div class="row tweet rounded pt-2 mt-2 pb-2 mb-2" id="tweet${i}">
+    //             <div class="col-2 pr-0">
+    //                 <img src="${tweets_js[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
+    //             </div>
+    //             <div class="col-10 tweet_text">
+    //                 <span onclick="goToUser(${i})"><span class="userName">${tweets_js[i].UserName}</span> <span class="userHandle">${tweets_js[i].UserHandle}</span></span>
+    //                 <p>${tweets_js[i].content}</p>
                 
-                    <!-- Icon Row -->
-                    <div class="row icon_row">
-                        <div class="col-3 like_col pr-0">
-                            <span onclick="like(${i})">${like_icon}<span class="likes">${likes}</span></span> 
-                        </div>    
-                    </div>
-                </div>
-            </div>`
-        ); //for test
-    }
+    //                 <!-- Icon Row -->
+    //                 <div class="row icon_row">
+    //                     <div class="col-3 like_col pr-0">
+    //                         <span onclick="like(${i})">${like_icon}<span class="likes">${likes}</span></span> 
+    //                     </div>    
+    //                 </div>
+    //             </div>
+    //         </div>`
+    //     ); //for test
+    // }
     
 
   
@@ -139,10 +201,10 @@ $(document).ready(function() {
 
 
  function like(index){
-    like_icon = !tweets_js[index].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
-    like_count = !tweets_js[index].liked ? (tweets_js[index].likes + 1) : (tweets_js[index].likes - 1);
-    tweets_js[index].liked = !tweets_js[index].liked;
-    tweets_js[index].likes = like_count; 
+    like_icon = !tweets_js_call[index].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
+    like_count = !tweets_js_call[index].liked ? (tweets_js_call[index].like_counter + 1) : (tweets_js_call[index].like_counter - 1);
+    tweets_js_call[index].liked = !tweets_js_call[index].liked;
+    tweets_js_call[index].like_counter = like_count; 
     // console.log( $(`#tweet${index}`));
     console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
     $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
