@@ -1,6 +1,7 @@
 var ServerResponses = {
     SUCCESS: 'success',
-    INVALID_CREDENTIALS: 'invalid user or email'
+    INVALID_CREDENTIALS: 'invalid user or email',
+    FAILURE: 'fail'
 };
 var tweet_json = `{
     "tweets": [
@@ -211,4 +212,19 @@ $(document).ready(function() {
     // console.log( $(`#tweet${index}`));
     console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
     $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
+
+    //ajax post to tell server the user has just liked tweet at index in tweets_js_call
+    var likeObject = new Object();
+    likeObject.username = user;
+    likeObject.tweetID = tweets_js_call[index].id;
+    likeObject.liked = tweets_js_call[index].liked;
+    $.post("/like", JSON.stringify(likeObject), function(m_response){
+        switch(m_response.status){
+            case ServerResponses.SUCCESS:
+                break;
+            case ServerResponses.FAILURE:
+                alert("tweet could not be liked");
+                break;
+        }
+
 }
