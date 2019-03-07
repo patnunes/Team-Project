@@ -60,7 +60,16 @@
                 </div>
             </div>
 
-        
+            <div class="jumbotron jumbotron-fluid">
+                    <h5 class="text-center">Let the world hear you. <strong>Post something.</strong></h5>
+    
+                    <div class="form-group">
+                        <textarea class="form-control" id="tweet_content" rows="2" maxlength="255x"></textarea>
+                    </div>
+                    <small id="noContentWarning" class="form-text text-danger"></small>
+    
+                    <button type="submit" class="btn btn-primary btn-sm float-right" id="tweet_btn">Submit</button>
+                </div>
 
 
             <div class="row tweet_test  mt-5">
@@ -80,36 +89,12 @@
                     </div>
                 </div>
             </div>
-                <div class="jumbotron" id="feed">
-                    <h5 class="text-center"><strong>Your feed.</strong> See what everyone is talking about.</h5>
-
-                    <!--<ul>
-                        {% for tweets in data %}
-                            <li> {{ tweets.user.username }} </li>
-                            <li> {{ tweets.content }} </li>
-                            <li> {{ tweets.timestamp }} </li>
-                        {% endfor %}
-                    </ul>-->
-                    
-                    <p class="text-center">Tweets will appear here.</p>
-                </div>
-        
-
-            <div class="jumbotron jumbotron-fluid">
-                <h5 class="text-center">Let the world hear you. <strong>Post something.</strong></h5>
-
-                <div class="form-group">
-                    <textarea class="form-control" id="tweet_content" rows="2"></textarea>
-                </div>
-                <small id="noContentWarning" class="form-text text-danger"></small>
-
-                <button type="submit" class="btn btn-primary btn-sm float-right" id="tweet_btn">Submit</button>
-            </div>
     </div>
 
         <script src="static/js/tether.min.js"></script>
         <script src="static/js/jquery.min.js"></script>
         <script src="static/js/bootstrap.min.js"></script>
+        <script src="static/js/moment-with-locales.min.js"></script>
         <script src="static/js/tweet.js"></script>
         <script src="static/js/tweet_functions.js"></script>
 

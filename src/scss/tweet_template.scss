@@ -23,6 +23,10 @@ $liked: #af3f3f;
     color: $liked;
 }
 
+.like_text {
+    cursor: pointer;
+}
+
 .likes{
     font-size: 1.3em;
     display: inline-block;

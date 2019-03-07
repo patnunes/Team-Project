@@ -57,19 +57,22 @@ $(document).ready(function() {
             console.log("likes = " + tweets_js_call[i].like_counter);
             likes = tweets_js_call[i].like_count > 0 ? tweets_js_call[i].like_counter : "";
             like_icon = tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture}
+            console.log(tweets_js_call[i].timestamp)
+            var time = moment(tweets_js_call[i].timestamp, "YYYY-MM-DDTHH:mm:ssZ").fromNow();
+            console.log(time)
             $('#feed').append(
                 `<div class="row tweet rounded pt-2 mt-2 pb-2 mb-2" id="tweet${i}">
                     <div class="col-2 pr-0">
                         <img src="static/assets/user_placeholder.jpeg" class="mx-auto d-block img-fluid rounded-circle mt-2" alt=""> 
                     </div>
                     <div class="col-10 tweet_text">
-                        <span onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user_name}</span> <span class="userHandle">@${tweets_js_call[i].user_name}</span></span>
+                        <span onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user_name}</span> <span class="userHandle">@${tweets_js_call[i].user_name}</span><span>${time}</span></span>
                         <p>${tweets_js_call[i].content}</p>
                     
                         <!-- Icon Row -->
                         <div class="row icon_row">
                             <div class="col-3 like_col pr-0">
-                                <span onclick="like(${i})">${like_icon}<span class="likes">${likes}</span></span> 
+                                <span class="like_text" onclick="like(${i})">${like_icon}<span class="likes">${likes}</span></span> 
                             </div>    
                         </div>
                     </div>
@@ -207,5 +210,5 @@ $(document).ready(function() {
     tweets_js_call[index].like_counter = like_count; 
     // console.log( $(`#tweet${index}`));
     console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
-    $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
+    $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
 }

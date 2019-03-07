@@ -13,6 +13,9 @@
 .notLiked:hover {
   color: #af3f3f; }
 
+.like_text {
+  cursor: pointer; }
+
 .likes {
   font-size: 1.3em;
   display: inline-block;
