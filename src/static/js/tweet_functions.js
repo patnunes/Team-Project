@@ -45,15 +45,28 @@ $(document).ready(function() {
 
 
      var fillForm = function(tweets_js_call){
+        
+       
+
         console.log("tweets: " + tweets_js_call);
         var tweet;
         var likes;
         var like_icon;
         var iconRow;
         for (i = 0; i < tweets_js_call.length; i++) {
+            $.ajax({
+                url: "/like",
+                method: "POST",
+                data: { 
+                 username:"test2",
+                 tweet_ID:tweets_js_call[i].id
+             },
+                success: function(data){
+                    tweets_js_call[i].liked = true;
+                }
+             })
 
             // $('#tweetField').append(markup);
-            tweets_js_call[i].liked = false;
             console.log("i = " + i)
             console.log("likes = " + tweets_js_call[i].like_counter);
             likes = tweets_js_call[i].like_count > 0 ? tweets_js_call[i].like_counter : "";
@@ -214,17 +227,17 @@ $(document).ready(function() {
     $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
 
     //ajax post to tell server the user has just liked tweet at index in tweets_js_call
-    var likeObject = new Object();
-    likeObject.username = user;
-    likeObject.tweetID = tweets_js_call[index].id;
-    likeObject.liked = tweets_js_call[index].liked;
-    $.post("/like", JSON.stringify(likeObject), function(m_response){
-        switch(m_response.status){
-            case ServerResponses.SUCCESS:
-                break;
-            case ServerResponses.FAILURE:
-                alert("tweet could not be liked");
-                break;
-        }
+    // var likeObject = new Object();
+    // likeObject.username = user;
+    // likeObject.tweetID = tweets_js_call[index].id;
+    // likeObject.liked = tweets_js_call[index].liked;
+    // $.post("/like", JSON.stringify(likeObject), function(m_response){
+    //     switch(m_response.status){
+    //         case ServerResponses.SUCCESS:
+    //             break;
+    //         case ServerResponses.FAILURE:
+    //             alert("tweet could not be liked");
+    //             break;
+    //     }
 
 }
