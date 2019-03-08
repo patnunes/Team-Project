@@ -22,45 +22,46 @@
 
     <body>
 
-        <div class="row">
-            <div class="col-10">
-                <h1 class="display-2 pl-5 pt-1 pb-3">tweeter</h1>
-            </div>
-            <div class="col-2 m-auto" id="top_controls">
-                <button id = "log_out" type="button" class="btn btn-outline-primary btn-sm w-75">Log Out</button>
-                <button id = "dashboard" type="button" class="btn btn-outline-primary btn-sm w-75" href="index.html">Back to Dashboard</button>
-                <button id = "my_profile" type="button" class="btn btn-outline-primary btn-sm w-75">View my profile</button>
-            </div>
-        </div>
-
-        <div class="row justify-content-end">
-            <div id = "tweets_div" class="col-8 ml-auto mr-auto">
-                <div class="jumbotron jumbotron-fluid ml-4 p-1 text-center" id="tweets_jumbo">
-                    <div class="jumbotron jumbotron-fluid p-3 m-2 align-top text-center" id="tweets_message">
-                        <h5>Here are some of [USERNAME]'s thoughts.</h5>
-                    </div>
-                    <div class="jumbotron jumbotron-fluid p-4 m-4 align-top text-center" id="tweets-container">
-                        <em>Looks like this user prefers to keep to themselves.</em>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-10">
+                    <h1 class="display-2 pl-5 pt-1 pb-3">tweeter</h1>
+                </div>
+                <div class="col-2 m-auto" id="top_controls">
+                    <button id = "log_out" type="button" class="btn btn-outline-primary btn-sm w-75">Log Out</button>
+                    <button id = "dashboard" type="button" class="btn btn-outline-primary btn-sm w-75" href="index.html">Back to Dashboard</button>
+                    <button id = "my_profile" type="button" class="btn btn-outline-primary btn-sm w-75">View my profile</button>
                 </div>
             </div>
-            <div id = "user_info_div" class="col-4 align-right">
-                <div class="jumbotron jumbotron-fluid p-2 pt-3" id="user_info_jumbo">
-                    <div id="user_photo_div" class="container-fluid text-center w-50">
-                        <img id = "user_photo" src="http://www.animalslook.com/wp-content/uploads/2010/11/210.jpg"
-                             alt="User photo"
-                             class="img-thumbnail">
+            <div class="row justify-content-end">
+                <div id = "tweets_div" class="col-8 ml-auto mr-auto">
+                    <div class="jumbotron jumbotron-fluid ml-4 p-1 text-center" id="tweets_jumbo">
+                        <div class="jumbotron jumbotron-fluid p-3 m-2 align-top text-center" id="tweets_message">
+                            <h5>Here are some of [USERNAME]'s thoughts.</h5>
+                        </div>
+                        <div class="jumbotron p-4 m-4 align-top text-left" id="feed">
+                            <!-- <em>Looks like this user prefers to keep to themselves.</em> -->
+                        </div>
                     </div>
-                    <div class="jumbotron jumbotron-fluid p-1 m-2" id="user_text_jumbo">
-                        <h3 class="text-center mt-2">[USERNAME]</h3>
-                        <br>
-                        <p id="user_bio" class="text-center mr-3 ml-3">User bio section, where user can write a short message about themselves or their page.</p>
-                    </div>
-                    <div id="follow_counter_div" class="container-fluid pt-2 pb-0 text-center">
-                        <span id="follow_counter_badge" class="badge badge-pill badge-info">000 Followers</span>
-                    </div>
-                    <div class="container-fluid text-center mt-4">
-                        <button id="follow_user" type="button" class="btn btn-primary mb-2">FOLLOW</button>
+                </div>
+                <div id = "user_info_div" class="col-4 align-right">
+                    <div class="jumbotron jumbotron-fluid p-2 pt-3" id="user_info_jumbo">
+                        <div id="user_photo_div" class="container-fluid text-center w-50">
+                            <img id = "user_photo" src="http://www.animalslook.com/wp-content/uploads/2010/11/210.jpg"
+                                alt="User photo"
+                                class="img-thumbnail">
+                        </div>
+                        <div class="jumbotron jumbotron-fluid p-1 m-2" id="user_text_jumbo">
+                            <h3 class="text-center mt-2">[USERNAME]</h3>
+                            <br>
+                            <p id="user_bio" class="text-center mr-3 ml-3">User bio section, where user can write a short message about themselves or their page.</p>
+                        </div>
+                        <div id="follow_counter_div" class="container-fluid pt-2 pb-0 text-center">
+                            <span id="follow_counter_badge" class="badge badge-pill badge-info">000 Followers</span>
+                        </div>
+                        <div class="container-fluid text-center mt-4">
+                            <button id="follow_user" type="button" class="btn btn-primary mb-2">FOLLOW</button>
+                        </div>
                     </div>
                 </div>
             </div>

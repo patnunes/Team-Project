@@ -45,7 +45,7 @@ $(document).ready(function() {
      })
 
 
-     var fillForm = function(tweets_js_call){
+    var fillForm = function(tweets_js_call){
         
        
 
@@ -56,41 +56,29 @@ $(document).ready(function() {
         var iconRow;
 
         for (i = 0; i < tweets_js_call.length; i++) {
-        
-            var likeRequest = new Object();
-            likeRequest.username = "test2";
-            likeRequest.tweetID = tweets_js_call[i].id;
-            var likeOBJ = $.post("/like", JSON.stringify(likeRequest), function(m_response){
-                // alert(m_response.status)
-                switch (m_response.status) {
-                    case ServerResponses.OTHER:
-                        setLiked(false);
-                    case ServerResponses.SUCCESS:
-                        setLiked(true);
-                    default:
-                        setLiked(false);
-                }
-           });
 
-           function setLiked(isLiked){
-               tweets_js_call[i].liked = isLiked; //can't actuially set .liked here
-           }
-
+            tweets_js_call[i].liked = false;
             console.log("i = " + i)
-            console.log("is liked? = " + likeOBJ.isLiked)
             console.log("likes = " + tweets_js_call[i].like_counter);
             likes = tweets_js_call[i].like_count > 0 ? tweets_js_call[i].like_counter : "";
-            like_icon = !tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture}
+            like_icon = tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture} 
             console.log(tweets_js_call[i].timestamp)
             var time = moment(tweets_js_call[i].timestamp, "YYYY-MM-DDTHH:mm:ssZ").fromNow();
             console.log(time)
             $('#feed').append(
-                `<div class="row tweet rounded pt-2 mt-2 pb-2 mb-2" id="tweet${i}">
+                `<div class="row tweet rounded pt-3 mt-3 pb-4 mb-4" id="tweet${i}">
                     <div class="col-2 pr-0">
                         <img src="static/assets/user_placeholder.jpeg" class="mx-auto d-block img-fluid rounded-circle mt-2" alt=""> 
                     </div>
                     <div class="col-10 tweet_text">
-                        <span class="top" onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user_name}</span> <span class="userHandle">@${tweets_js_call[i].user_name}</span><span class="time_span">${time}</span></span>
+                        <div class="row">
+                            <div class="col 8">
+                                <span class="top" onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user__username}</span> <span class="userHandle">@${tweets_js_call[i].user__username}</span></span>
+                            </div>
+                            <div class="col 4 text-right">
+                                <span class="time_span">${time}</span>
+                            </div>
+                        </div>
                         <p>${tweets_js_call[i].content}</p>
                     
                         <!-- Icon Row -->
@@ -101,9 +89,76 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div>`
-            ); //for test
+            ); 
         }
-     }
+
+        // var likeRequest = new Object;
+        // for(i=0; i < tweets_js_call.length; i++) {
+        //     likeRequest.username = "test2";
+        //     likeRequest.tweetID = tweets_js_call[i].id;
+        //     likeRequest.index = i;
+        //     $.post("/like", JSON.stringify(likeRequest), function(m_response){
+        //         async:false;
+        //         switch (m_response.status) {
+        //             case ServerResponses.OTHER:
+        //                 setInitialLike(likeRequest.index, false, tweets_js_call);
+        //                 break;
+        //             case ServerResponses.SUCCESS:
+        //                 setInitialLike(likeRequest.index, true, tweets_js_call);
+        //                 break;
+        //             default:
+        //                 setInitialLike(likeRequest.index, false, tweets_js_call);
+        //                 break;
+        //         }
+        //    });
+        // }
+
+        //     $.ajax({
+        //         url: "/like",
+        //         method: "POST",
+        //         data: { 
+        //             username: "test2",
+        //             tweetID: tweets_js_call[i].id,
+        //         },
+        //         success: function(m_response) {
+        //             switch (m_response.status) {
+        //                 case ServerResponses.OTHER:
+        //                     setInitialLike(likeRequest.index, false, tweets_js_call);
+        //                     break;
+        //                 case ServerResponses.SUCCESS:
+        //                     setInitialLike(likeRequest.index, true, tweets_js_call);
+        //                     break;
+        //                 default:
+        //                     setInitialLike(likeRequest.index, false, tweets_js_call);
+        //                     break;
+        //             }
+        //         },
+        //         async: false,
+        //     })
+        
+        // }
+
+        // var setInitialLike = function(index, boolean, tweets_js_call){
+        //     like_icon = boolean ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
+        //     tweets_js_call[index].liked = boolean;
+        //     // console.log( $(`#tweet${index}`));
+        //     console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
+        //     $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${tweets_js_call[index].like_count}</span></span>`);
+        // }        
+      
+    }
+})
+
+function like(index){
+    like_icon = !tweets_js_call[index].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
+    like_count = !tweets_js_call[index].liked ? (tweets_js_call[index].like_counter + 1) : (tweets_js_call[index].like_counter - 1);
+    tweets_js_call[index].liked = !tweets_js_call[index].liked;
+    tweets_js_call[index].like_counter = like_count; 
+    like_count = like_count == 0 ? "" : like_count
+    // console.log( $(`#tweet${index}`));
+    console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
+    $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
+}
 
         // //TODO: Retrieve result
         // .fail(function () {
@@ -119,122 +174,12 @@ $(document).ready(function() {
 
 // START TEST /////////////////////////////////////////////
 
-    // var tweet_json = "X"; //read from file
-    // window.tweets_js = JSON.parse(tweet_json);
-    // console.log(tweets_js);
-    // tweets_js = tweets_js.tweets; 
-    // console.log(tweets_js);
-    // console.log(tweets_js[0]);
-    // var i = 0;
-    // const markup = `
-    // <div class="row tweet rounded pt-2 pb-2">
-    //     <div class="col-1 pr-0">
-    //         <img src="${tweets_js[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
-    //     </div>
-    //     <div class="col-11 tweet_text">
-    //         <span onclick="goToUser(${i})"><span class="userName">${tweets_js[i].UserName}</span> <span class="userHandle">${tweets_js[i].UserHandle}</span></span>
-    //         <p>${tweets_js[i].content}</p>
-        
-    //         <!-- Icon Row -->
-    //         <div class="">
-    //             <span onclick="like(${i})"><i class="far fa-heart icon"></i><span class="likes">${likes}</span></span> 
-    //         </div>
-    //     </div>
-    // </div>
-    // `;
-    // var tweet;
-    // var likes;
-    // var like_icon;
-    // var iconRow;
-    // for (i = 0; i < tweets_js.length; i++) {
-
-    //     // $('#tweetField').append(markup);
-    //     console.log("i = " + i)
-    //     console.log("likes = " + tweets_js[i].likes);
-    //     likes = tweets_js[i].likes > 0 ? tweets_js[i].likes : "";
-    //     like_icon = tweets_js[i].liked? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
-    //     $('#mock_feed').append(
-    //         `<div class="row tweet rounded pt-2 mt-2 pb-2 mb-2" id="tweet${i}">
-    //             <div class="col-2 pr-0">
-    //                 <img src="${tweets_js[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
-    //             </div>
-    //             <div class="col-10 tweet_text">
-    //                 <span onclick="goToUser(${i})"><span class="userName">${tweets_js[i].UserName}</span> <span class="userHandle">${tweets_js[i].UserHandle}</span></span>
-    //                 <p>${tweets_js[i].content}</p>
-                
-    //                 <!-- Icon Row -->
-    //                 <div class="row icon_row">
-    //                     <div class="col-3 like_col pr-0">
-    //                         <span onclick="like(${i})">${like_icon}<span class="likes">${likes}</span></span> 
-    //                     </div>    
-    //                 </div>
-    //             </div>
-    //         </div>`
-    //     ); //for test
-    // }
-    
-
-  
-
-
-// END TEST /////////////////////////////////////////////
 
 
 
-    // // TODO: Make query
-    // $.get("/tweets_for_user", JSON.stringify(mockUser))
-    //     //TODO: Retrieve result
-    //     .fail(function () {
-    //         //TODO: notify user of failure with message
-    //     })
-    //     .done(function(tweets_json) {
-    //         var tweets = JSON.parse(tweets_json);
-    //         const markup = `
-    //             <div class="row tweet rounded pt-2 pb-2">
-    //                 <div class="col-1 pr-0">
-    //                     <img src="${tweets[i].profile_picture}" class="mx-auto d-block img-fluid rounded-circle mt-2" alt="">
-    //                 </div>
-    //                 <div class="col-11 tweet_text">
-    //                     <span onclick="goToUser(${i})"><span class="userName">${tweets[i].UserName}</span> <span class="userHandle">${tweets[i].Userhandle}</span></span>
-    //                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    
-    //                     <!-- Icon Row -->
-    //                     <div class="">
-    //                         <span onclick="like(${i})"><i class="far fa-heart icon"></i></span> 
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             `;
-                
-    //             for (var i = 0; i < tweets.length; i++) {
-    //                 $('#tweetField').append(markup);
-    //             }
-            
-    //         //TODO: Parse results into array of tweet objects
-    //         //TODO: Cycle through tweet objects and populate template
-    //         //TODO: Publish each template to website using append
-    //     });
+ 
 
 
-    
-    
-    
-    
-    //TODO: Create goToAuthor function and backend query
-    //TODO: Create like function and backend query
-    
-
-});
-
-
- function like(index){
-    like_icon = !tweets_js_call[index].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
-    like_count = !tweets_js_call[index].liked ? (tweets_js_call[index].like_counter + 1) : (tweets_js_call[index].like_counter - 1);
-    tweets_js_call[index].liked = !tweets_js_call[index].liked;
-    tweets_js_call[index].like_counter = like_count; 
-    // console.log( $(`#tweet${index}`));
-    console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
-    $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
 
     //ajax post to tell server the user has just liked tweet at index in tweets_js_call
     // var likeObject = new Object();
@@ -250,4 +195,4 @@ $(document).ready(function() {
     //             break;
     //     }
 
-}
+    

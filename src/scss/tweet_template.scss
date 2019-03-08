@@ -12,7 +12,8 @@ $liked: #af3f3f;
 }
 
 .icon{
-    font-size: 1.3em;
+    padding-top: 1em;
+    font-size: 1.4em;
 }
 
 .liked{
@@ -24,6 +25,7 @@ $liked: #af3f3f;
 }
 
 .like_text {
+    padding-top: 1em;
     cursor: pointer;
 }
 
@@ -33,6 +35,9 @@ $liked: #af3f3f;
     margin-left: .8em;
 }
 
+.icon_row {
+    height: 40px;
+}
 
 .userName{
     color: white;
@@ -42,4 +47,8 @@ $liked: #af3f3f;
 
 .userHandle{
     font-size: 1.2em;
+}
+
+.spacer {
+    height: 1em;
 }
