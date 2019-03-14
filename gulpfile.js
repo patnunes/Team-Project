@@ -10,7 +10,7 @@ gulp.task('sass', gulp.series(function() {
 }));
 
 gulp.task('js', gulp.series(function() {
-    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
+    return gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js', 'node_modules/moment/min/moment-with-locales.min.js', 'node_modules/jquery/dist/jquery.min.js', 'node_modules/tether/dist/js/tether.min.js'])
     .pipe(gulp.dest("src/static/js"))
     .pipe(browserSync.stream());
 }));

@@ -9,8 +9,8 @@ def main():
         if(not is_admin()):
             return
 
-    list_cmd = ["rmdir"] if (platform == "win32") else ["ls"]
-    del_cmd = ["del"] if (platform == "win32") else ["rm"]
+    list_cmd = ["ls"] if (platform != "win32") else ["rmdir"]
+    del_cmd = ["rm"] if (platform != "win32") else ["del"]
 
     stat = run_cmd(list_cmd)
     if(stat.find("static") >= 0):
@@ -30,6 +30,18 @@ def main():
 
 def create(os):
     if(os != "win32"):
+<<<<<<< HEAD
+        print("creating links for linux")
+        run_cmd(["ln", "-s", "../../Frontend/src/static"])
+        run_cmd(["ln", "-s", "../../Frontend/src/", "templates"])
+
+    elif(os == "win32"):
+            print("creating links for windows")
+            # the following will get rid of the legacy linux symlink if it exists
+            check = run_cmd(["del", "static"])
+            stat = run_cmd(["mklink", "/D", "static", "..\\..\\Frontend\\src\\static"])
+            stat = run_cmd(["mklink", "/D", "templates", "..\\..\\Frontend\\src"])
+=======
         print("creating links for linux/mac")
         run_cmd(["ln", "-s", "../src/static"])
         run_cmd(["ln", "-s", "../src", "templates"])
@@ -38,6 +50,7 @@ def create(os):
         print("creating links for windows")
         stat = run_cmd(["mklink", "/D", "static", "..\\src\\static"])
         stat = run_cmd(["mklink", "/D", "templates", "..\\src"])
+>>>>>>> master
 
 
 def run_cmd(cmd, param=[""], dir="."):

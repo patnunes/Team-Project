@@ -5,11 +5,15 @@ from django.http import JsonResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
 
+#all used for testing purposes:
+from .models import Tweet, User, Follow, Likes
+
 
 # Import features here
 from main_app.signup import create_user
-from main_app.signin import validate_user
-from main_app.tweets import save_user_tweets
+from main_app.signin import validate_user, return_user_id
+from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
+from main_app.likes import user_has_liked_tweet
 
 # HTML file declarations
 
@@ -25,6 +29,8 @@ def signin(request):
 def profile(request):
     return render(request, 'profile.html')
 
+def tweet_template(request):
+    return render(request, 'tweet_template.html')
 
 # Potential responses from the various methods
 responses = {
@@ -75,10 +81,43 @@ def signin_submit(request):
         # TODO: call the function that processes this info
         # print the result of adding the user
         response = validate_user(user)
-        return JsonResponse({"status":responses[response]})
+        if response == 0:
+            userID = return_user_id(user)
+            userinfo ={ 0: userID}
+            return JsonResponse({"status":responses[response], "userID": userinfo[0]})
+        else:
+             return JsonResponse({"status":responses[response]})
 
     # redirect in case of weird failure
     return render(request, 'signin.html')
+
+@csrf_exempt
+def get_tweets(request):
+    if request.is_ajax() and request.method == 'GET':
+
+        try:
+            username = request.GET.get('username', None)
+        except KeyError:
+             return JsonResponse({"status":responses[3]})
+
+        tweets = retrieve_user_tweets(username)
+        return JsonResponse({"status":responses[0], "tweets": tweets})
+
+    return render(request, 'tweet_template.html')
+
+@csrf_exempt
+def get_older_tweets(request):
+    if request.is_ajax() and request.method == 'GET':
+
+        try:
+            username = request.GET.get('userName', None)
+            tweetID = request.GET.get('tweetID', None)
+        except KeyError:
+            return JsonResponse({"status":responses[3]})
+
+        tweets = fetch_older_tweets(tweetID, username)
+        return JsonResponse(tweets, safe=False)
+    return render (request, 'profile.html')
 
 
 @csrf_exempt
@@ -100,3 +139,24 @@ def tweet_submit(request):
 
     # redirect in case of weird failure
     return render(request, 'profile.html')
+
+@csrf_exempt
+def like(request):
+    if request.is_ajax() and request.method == 'POST':
+    # load the content of the response into another var
+        data = json.loads(request.body)
+    try:
+        # store all the passed data into a dict
+        user = data['userName']
+        tweet_id = data['tweet_ID']
+    except KeyError:
+        # if for some reason the response is formed wrong
+        return JsonResponse({"status":responses[3]})
+
+    # TODO: call the function that processes this info
+    # print the result of adding the user
+    response = user_has_liked_tweet(user, tweet_id)
+    return JsonResponse({"status":responses[response]})
+
+    # redirect in case of weird failure
+    return render(request, 'index.html')

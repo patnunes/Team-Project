@@ -6,8 +6,6 @@ package-lock\.json
 tweeter/static
 tweeter/templates
 
-### Intellij ###
-
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
