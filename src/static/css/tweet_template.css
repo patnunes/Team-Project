@@ -1,0 +1,38 @@
+.tweet {
+  background-color: #424242; }
+
+.tweet_text {
+  color: gray; }
+
+.icon {
+  padding-top: 1em;
+  font-size: 1.4em; }
+
+.liked {
+  color: #af3f3f; }
+
+.notLiked:hover {
+  color: #af3f3f; }
+
+.like_text {
+  padding-top: 1em;
+  cursor: pointer; }
+
+.likes {
+  font-size: 1.3em;
+  display: inline-block;
+  margin-left: .8em; }
+
+.icon_row {
+  height: 40px; }
+
+.userName {
+  color: white;
+  font-weight: 400;
+  font-size: 1.8em; }
+
+.userHandle {
+  font-size: 1.2em; }
+
+.spacer {
+  height: 1em; }
