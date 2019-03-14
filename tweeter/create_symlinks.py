@@ -30,6 +30,7 @@ def main():
 
 def create(os):
     if(os != "win32"):
+<<<<<<< HEAD
         print("creating links for linux")
         run_cmd(["ln", "-s", "../../Frontend/src/static"])
         run_cmd(["ln", "-s", "../../Frontend/src/", "templates"])
@@ -40,6 +41,16 @@ def create(os):
             check = run_cmd(["del", "static"])
             stat = run_cmd(["mklink", "/D", "static", "..\\..\\Frontend\\src\\static"])
             stat = run_cmd(["mklink", "/D", "templates", "..\\..\\Frontend\\src"])
+=======
+        print("creating links for linux/mac")
+        run_cmd(["ln", "-s", "../src/static"])
+        run_cmd(["ln", "-s", "../src", "templates"])
+
+    else:
+        print("creating links for windows")
+        stat = run_cmd(["mklink", "/D", "static", "..\\src\\static"])
+        stat = run_cmd(["mklink", "/D", "templates", "..\\src"])
+>>>>>>> master
 
 
 def run_cmd(cmd, param=[""], dir="."):
