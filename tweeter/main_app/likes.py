@@ -41,4 +41,4 @@ def like_a_tweet(username, tweetID):
 		tweet = Tweet.objects.get(id = tweetID)
 		tweet_data = serializers.serialize("json", [tweet])
 		return tweet_data, 0
-	return 0
+	return 3
