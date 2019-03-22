@@ -14,6 +14,7 @@ from main_app.signup import create_user
 from main_app.signin import validate_user, return_user_id
 from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
 from main_app.likes import user_has_liked_tweet
+from main_app.follow import get_followers_ids, get_following_ids, follow
 
 # HTML file declarations
 
@@ -160,3 +161,32 @@ def like(request):
 
     # redirect in case of weird failure
     return render(request, 'index.html')
+
+@csrf_exempt
+def follow(request):
+    if(request.is_ajac() and request.method == 'POST':
+    # load the content of the response into another var
+        data = json.loads(request.body)
+    try:
+        # store all the passed data into vars
+        action = data['action']
+
+        user1 = action == "follow" ? data['userName1'] : data['userName']
+        user2 = action == "follow" ? data['userName1'] : ""
+
+    except KeyError:
+        # if for some reason the response is formed wrong
+        return JsonResponse({"status":responses[3]})
+
+    if(action == "get_followers"):
+        response = get_followers_ids(user1)
+        return JsonResponse(response, safe=False)
+    elif(action == "get_following")
+        response = get_following_ids(user1)
+        return JsonResponse(response, safe=False)
+    elif(action == "follow")
+        response = follow(user1, user2)
+        return JsonResponse({"status":responses[response]})
+    elif(action == "unfollow")
+        response = unfollow(user1, user2)
+        return JsonResponse({"status":responses[response]})
