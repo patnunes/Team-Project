@@ -10,6 +10,7 @@ urlpatterns = [
     path('signin.html', views.signin, name='signin'),
     path('profile.html', views.profile, name="profile"),
     path('tweet_template.html', views.tweet_template, name="tweet_template"),
+    path('myprofile.html', views.myprofile, name="myprofile"),
     path('signup_submit', views.signup_submit, name='signup_submit'),
     path('signin_submit', views.signin_submit, name='signin_submit'),
     path('tweet_submit', views.tweet_submit, name='tweet_submit'),

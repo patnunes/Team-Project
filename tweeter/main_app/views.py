@@ -13,7 +13,7 @@ from .models import Tweet, User, Follow, Likes
 from main_app.signup import create_user
 from main_app.signin import validate_user, return_user_id
 from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
-from main_app.likes import user_has_liked_tweet
+from main_app.likes import user_has_liked_tweet, like_a_tweet
 
 # HTML file declarations
 
@@ -28,6 +28,9 @@ def signin(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+def myprofile(request):
+    return render(request, 'myprofile.html')
 
 def tweet_template(request):
     return render(request, 'tweet_template.html')
@@ -155,8 +158,8 @@ def like(request):
 
     # TODO: call the function that processes this info
     # print the result of adding the user
-    response = user_has_liked_tweet(user, tweet_id)
-    return JsonResponse({"status":responses[response]})
+    tweet = like_a_tweet(user, tweet_id)
+    return JsonResponse({"status":responses[tweet[1]], "tweet": tweet[0]})
 
     # redirect in case of weird failure
     return render(request, 'index.html')
