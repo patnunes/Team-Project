@@ -17,21 +17,25 @@ from main_app.likes import user_has_liked_tweet
 from main_app.follow import get_followers_ids, get_following_ids, follow
 
 # HTML file declarations
-
 def index(request):
     return render(request, 'index.html')
+
 
 def signup(request):
     return render(request, 'signup.html')
 
+
 def signin(request):
     return render(request, 'signin.html')
+
 
 def profile(request):
     return render(request, 'profile.html')
 
+
 def tweet_template(request):
     return render(request, 'tweet_template.html')
+
 
 # Potential responses from the various methods
 responses = {
@@ -43,7 +47,6 @@ responses = {
 }
 
 
-# TODO: fix csrf issue in frontend
 @csrf_exempt
 def signup_submit(request):
     # verify that the submitted data meets the requirements
@@ -92,6 +95,7 @@ def signin_submit(request):
     # redirect in case of weird failure
     return render(request, 'signin.html')
 
+
 @csrf_exempt
 def get_tweets(request):
     if request.is_ajax() and request.method == 'GET':
@@ -105,6 +109,7 @@ def get_tweets(request):
         return JsonResponse({"status":responses[0], "tweets": tweets})
 
     return render(request, 'tweet_template.html')
+
 
 @csrf_exempt
 def get_older_tweets(request):
@@ -141,6 +146,7 @@ def tweet_submit(request):
     # redirect in case of weird failure
     return render(request, 'profile.html')
 
+
 @csrf_exempt
 def like(request):
     if request.is_ajax() and request.method == 'POST':
@@ -162,17 +168,18 @@ def like(request):
     # redirect in case of weird failure
     return render(request, 'index.html')
 
+
 @csrf_exempt
 def follow(request):
-    if(request.is_ajac() and request.method == 'POST':
+    if(request.is_ajax() and request.method == 'POST'):
     # load the content of the response into another var
         data = json.loads(request.body)
     try:
         # store all the passed data into vars
         action = data['action']
 
-        user1 = action == "follow" ? data['userName1'] : data['userName']
-        user2 = action == "follow" ? data['userName1'] : ""
+        user1 = data['userName1'] if action == "follow" else data['userName']
+        user2 = data['userName2'] if action == "follow" else ""
 
     except KeyError:
         # if for some reason the response is formed wrong
@@ -181,12 +188,31 @@ def follow(request):
     if(action == "get_followers"):
         response = get_followers_ids(user1)
         return JsonResponse(response, safe=False)
-    elif(action == "get_following")
+    elif(action == "get_following"):
         response = get_following_ids(user1)
         return JsonResponse(response, safe=False)
-    elif(action == "follow")
+    elif(action == "follow"):
         response = follow(user1, user2)
         return JsonResponse({"status":responses[response]})
-    elif(action == "unfollow")
+    elif(action == "unfollow"):
         response = unfollow(user1, user2)
         return JsonResponse({"status":responses[response]})
+
+@csrf_exempt
+def get_info(request):
+
+    if(request.is_ajax() and request.method == 'POST'):
+    # load the content of the response into another var
+        data = json.loads(request.body)
+    try:
+        # store all the passed data into vars
+        user1 = data['userName1']
+        user2 = data['userName2']
+
+    except KeyError:
+        # if for some reason the response is formed wrong
+        return JsonResponse({"status":responses[3]})
+
+
+    return JsonResponse({'following': follows(user1, user2),
+                            'num_followers': followers(user2)})

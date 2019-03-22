@@ -19,10 +19,10 @@ def get_followers_ids(username):
     current_user_id = User.objects.get(username=username).pk
 
     # return a list of follow_ids that follow the current user
-    follower_ids = Follow.objects.values_list('follow_id' flat=True).filter(
+    follower_ids = Follow.objects.values_list('follow_id', flat=True).filter(
         user_id=current_user_id).filter(is_following=0)[::1]
     return following_ids
-    )
+
 
 
 # method to make user1 follow user2
@@ -61,3 +61,24 @@ def unfollow(user1, user2):
                                     is_following = 0).delete()
 
     return 0
+
+def follows(user1, user2):
+    current_user_id=User.objects.get(username = user1).pk[0][0]
+    follows_user_id=User.objects.get(username = user2).pk[0][0]
+
+    # check if user1 follows user2
+    follows=Follow.objects.get(user_id = current_user_id,
+    follow_id = follows_user_id, is_following = 1).exists()
+
+    if(follows):
+        return True
+
+    return False
+
+
+def followers(username):
+    user_id = User.objects.get(username = username).pk[0][0]
+
+    followers = Follow.objects.get(follow_id = user_id, is_following=0).count()
+
+    return followers
