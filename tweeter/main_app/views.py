@@ -178,8 +178,12 @@ def follow(request):
         # store all the passed data into vars
         action = data['action']
 
-        user1 = data['userName1'] if action == "follow" else data['userName']
-        user2 = data['userName2'] if action == "follow" else ""
+        if(action == "follow" or action == "unfollow"):
+            user1 = data["userName1"]
+            user2 = data["userName2"]
+        else:
+            user1 = data["userName"]
+            user2 = ""
 
     except KeyError:
         # if for some reason the response is formed wrong
