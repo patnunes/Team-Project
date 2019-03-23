@@ -29,12 +29,14 @@ $(document).ready(function() {
             var user = new Object();
             user.userName = userName;
             user.password = password;
+            document.cookie = "UserName" + "=" + userName;
             // DEBUG: alert("This is the JSON produced: " + JSON.stringify(user));
             $.post("/signin_submit", JSON.stringify(user), function(m_response){
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
                             //User was created, and can move to dashboard page.
                             //TODO: create dashboard page, and force open when successful user login occurs.
+                        window.location.replace("profile.html"); 
                         break;
                     case ServerResponses.INVALID_CREDENTIALS:
                         $('#userNameWarning').text("Error in credentials. Please try again.");
