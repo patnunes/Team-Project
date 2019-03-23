@@ -2,6 +2,7 @@ from .models import Tweet, User, Follow
 from datetime import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 import json
+from .follow import get_following_ids
 
 
 def save_user_tweets(tweetData):
