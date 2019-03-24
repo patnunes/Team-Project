@@ -67,10 +67,9 @@ def follows(user1, user2):
     follows_user_id=User.objects.get(username = user2).pk
 
     # check if user1 follows user2
-    follows=Follow.objects.get(user = current_user_id,
-    follow_id = follows_user_id, is_following = 1).exists()
+    follows=Follow.objects.filter(user = current_user_id, follow_id = follows_user_id, is_following = 1).exists()
 
-    if(follows):
+    if follows is True:
         return True
 
     return False
@@ -79,6 +78,6 @@ def follows(user1, user2):
 def followers(username):
     user_id = User.objects.get(username = username).pk
 
-    followers = Follow.objects.get(follow_id = user_id, is_following=0).count()
+    followers = Follow.objects.filter(follow_id = user_id, is_following=1).count()
 
     return followers
