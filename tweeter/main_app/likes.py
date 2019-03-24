@@ -1,8 +1,6 @@
 from .models import Tweet, User, Follow, Likes
 from datetime import datetime 
 from django.core import serializers
-from django.db.models import Case, When, Value
-from itertools import chain
 
 def user_has_liked_tweet(username, tweetID): 
     #getting the userid
