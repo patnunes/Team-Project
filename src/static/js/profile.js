@@ -1,10 +1,10 @@
 var followerCount = 0;
 
 $(document).ready(function() {
-    const ACTIVE_USER = "NoahForReal";
+    const ACTIVE_USER = "user1";
     const VISITING_USER = "test2";
 
-    // getInfo();
+    
 
 
 
@@ -30,31 +30,33 @@ $(document).ready(function() {
     });
 
 
-
+   
     var getInfo = function(){
         var request = new Object;
         request.userName1 = ACTIVE_USER;
         request.userName2 = VISITING_USER;
-        $.post("/get_info", JSON.stringify(tweet), function(m_response){
+        $.post("/get_info", JSON.stringify(request), function(m_response){
             console.log("post/like: m_response.status: " + m_response.status);
             switch (m_response.status) {
                 case ServerResponses.SUCCESS:
-                    // updateTweetentry(index, m_response.
-                    setFollowButton(m_response.following)
-                    setFollowersCount(m_response.num_following)
+                
+                    setFollowButton(m_response.following);
+                    setFollowersCount(m_response.num_following);
                     break;
                 case ServerResponses.OTHER:
-                    alert("failed liking tweet")
-                    updateTweetLikes(index); // undo the like
+                    alert("failed getting info");
+                
                     break;
                 default:
                     // DEBUG: alert("Uknown Error");
             }
         })
         .fail(function() {
-            updateTweetLikes(index); // undo the like
+        
         });
     }
+
+    getInfo();
 
     
 
@@ -63,7 +65,7 @@ $(document).ready(function() {
         request.userName1 = ACTIVE_USER;
         request.userName2 = VISITING_USER;
         request.action = action;
-        console.log("post/follow: follow=follow: " + (action == "follow"));
+        console.log("post/follow: action: " + (action));
         $.post("/follow", JSON.stringify(request), function(m_response){
             console.log("post/like: m_response.status: " + m_response.status);
             switch (m_response.status) {
@@ -76,7 +78,8 @@ $(document).ready(function() {
                         $("#followerCounter").text(function(i, text){
                             return (parseInt(text) - 1);
                         })
-                    }z
+                    }
+                    break;
                 case ServerResponses.OTHER:
                     alert("failed following User")
                     toggleFollowButton(); // undo the follow
@@ -85,6 +88,9 @@ $(document).ready(function() {
                     // DEBUG: alert("Uknown Error");
             }
         })
+        .fail(function() {
+            toggleFollowButton(); // undo the follow
+        });
     }
 
     var setFollowButton = function(following){
@@ -105,10 +111,7 @@ $(document).ready(function() {
     }
 
 
-    var setFollowersCount = function(){
-
+    var setFollowersCount = function(count){
+        $("#followerCounter").text(count);
     }
-
-
-
 });
