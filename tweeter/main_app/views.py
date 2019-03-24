@@ -218,5 +218,5 @@ def get_info(request):
         return JsonResponse({"status":responses[3]})
 
 
-    return JsonResponse({"status":"success" "following": follows(user1, user2),
+    return JsonResponse({"status":"success", "following": follows(user1, user2),
                             "num_followers": followers(user2)})
