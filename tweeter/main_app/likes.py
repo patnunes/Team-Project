@@ -1,6 +1,8 @@
 from .models import Tweet, User, Follow, Likes
 from datetime import datetime 
 from django.core import serializers
+from django.db.models import Case, When, Value
+from itertools import chain
 
 def user_has_liked_tweet(username, tweetID): 
     #getting the userid
@@ -9,15 +11,18 @@ def user_has_liked_tweet(username, tweetID):
     #checking if user has liked tweet
     isLiked = Likes.objects.filter(tweet = tweetID, user = current_user_id).exists()
     if isLiked is False:
-        return 3
-    return 0
+        return 0,0
+    else:
+    	return 0,1
+    return 3
 
 def like_a_tweet(username, tweetID):
 
 	#getting the userid
 	current_user_id = User.objects.get(username = username).pk
+	isLiked = Likes.objects.filter(tweet = tweetID, user = current_user_id).exists()
 	
-	if user_has_liked_tweet(username,tweetID) == 3:
+	if isLiked is False:
 
 		#insert values into LIKE table as well as increment like_counter in TWEET table
 		like_entry = Likes(tweet_id = tweetID, user_id = current_user_id, timestamp = datetime.now())
@@ -41,4 +46,4 @@ def like_a_tweet(username, tweetID):
 		tweet = Tweet.objects.get(id = tweetID)
 		tweet_data = serializers.serialize("json", [tweet])
 		return tweet_data, 0
-	return 0
+	return 3

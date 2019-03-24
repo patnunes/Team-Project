@@ -106,6 +106,7 @@ def get_tweets(request):
         tweets = retrieve_user_tweets(username)
         return JsonResponse({"status":responses[0], "tweets": tweets})
 
+
     return render(request, 'tweet_template.html')
 
 @csrf_exempt
@@ -139,7 +140,7 @@ def tweet_submit(request):
         # print the result of adding the user
         response = save_user_tweets(user)
         return JsonResponse({"status":responses[response]})
-
+        
     # redirect in case of weird failure
     return render(request, 'profile.html')
 
@@ -160,6 +161,27 @@ def like(request):
     # print the result of adding the user
     tweet = like_a_tweet(user, tweet_id)
     return JsonResponse({"status":responses[tweet[1]], "tweet": tweet[0]})
+
+    # redirect in case of weird failure
+    return render(request, 'index.html')
+
+@csrf_exempt
+def  is_liked(request):
+    if request.is_ajax() and request.method == 'POST':
+    # load the content of the response into another var
+        data = json.loads(request.body)
+    try:
+        # store all the passed data into a dict
+        user = data['userName']
+        tweet_id = data['tweet_ID']
+    except KeyError:
+        # if for some reason the response is formed wrong
+        return JsonResponse({"status":responses[3]})
+
+    # TODO: call the function that processes this info
+    # print the result of adding the user
+    response = user_has_liked_tweet(user, tweet_id)
+    return JsonResponse({"status":responses[response[0]], "isLiked":response[1]})
 
     # redirect in case of weird failure
     return render(request, 'index.html')
