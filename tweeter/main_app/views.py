@@ -170,7 +170,7 @@ def like(request):
 
 
 @csrf_exempt
-def follow(request):
+def follow_dist(request):
     if(request.is_ajax() and request.method == 'POST'):
     # load the content of the response into another var
         data = json.loads(request.body)
