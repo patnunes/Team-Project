@@ -29,8 +29,8 @@ def get_followers_ids(username):
 def follow(user1, user2):
 
     # get the IDs for the two users
-    current_user_id=User.objects.get(username = user1).pk[0][0]
-    to_follow_id=User.objects.get(username = user2).pk[0][0]
+    current_user_id=User.objects.get(username = user1).pk
+    to_follow_id=User.objects.get(username = user2).pk
 
     # make user1 follow user2
     following=Follow(user_id = current_user_id,
@@ -47,27 +47,27 @@ def follow(user1, user2):
 
 # method to make user1 unfollow user2
 def unfollow(user1, user2):
-    current_user_id=User.objects.get(username = user1).pk[0][0]
-    to_follow_id=User.objects.get(username = user2).pk[0][0]
+    current_user_id=User.objects.get(username = user1).pk
+    to_follow_id=User.objects.get(username = user2).pk
 
     # delete the follow relationship
-    unfollowing=Follow.objects.get(user_id = current_user_id,
+    unfollowing=Follow.objects.get(user = current_user_id,
                                     follow_id = to_follow_id,
                                     is_following = 1).delete()
 
     # delete the follower relationship
-    unfollower=Follow.objects.get(user_id = to_follow_id,
+    unfollower=Follow.objects.get(user = to_follow_id,
                                     follow_id = current_user_id,
                                     is_following = 0).delete()
 
     return 0
 
 def follows(user1, user2):
-    current_user_id=User.objects.get(username = user1).pk[0][0]
-    follows_user_id=User.objects.get(username = user2).pk[0][0]
+    current_user_id=User.objects.get(username = user1).pk
+    follows_user_id=User.objects.get(username = user2).pk
 
     # check if user1 follows user2
-    follows=Follow.objects.get(user_id = current_user_id,
+    follows=Follow.objects.get(user = current_user_id,
     follow_id = follows_user_id, is_following = 1).exists()
 
     if(follows):
@@ -77,7 +77,7 @@ def follows(user1, user2):
 
 
 def followers(username):
-    user_id = User.objects.get(username = username).pk[0][0]
+    user_id = User.objects.get(username = username).pk
 
     followers = Follow.objects.get(follow_id = user_id, is_following=0).count()
 

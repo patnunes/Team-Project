@@ -14,7 +14,7 @@ from main_app.signup import create_user
 from main_app.signin import validate_user, return_user_id
 from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
 from main_app.likes import user_has_liked_tweet
-from main_app.follow import get_followers_ids, get_following_ids, follow
+from main_app.follow import get_followers_ids, get_following_ids, follow, unfollow
 
 # HTML file declarations
 def index(request):
