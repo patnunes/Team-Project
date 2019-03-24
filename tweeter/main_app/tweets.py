@@ -27,13 +27,6 @@ def retrieve_user_tweets(username):
 
 	following_ids = get_following_ids(username)
 
-	#testing for using the stored procedure in db
-	#cursor = connection.cursor()
-	#cursor.callproc('tweet_fetching', [username])
-
-	#results = cursor.fetchall()
-	#return results
-	
 	#returns a queryset of first 5 tweets in order of most recent
 	tweet_data = Tweet.objects.filter(user_id__in = following_ids).filter().order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
 	tweet_data_json = json.dumps(list(tweet_data), cls=DjangoJSONEncoder)
