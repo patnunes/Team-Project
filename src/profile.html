@@ -10,34 +10,37 @@
     <head>
         <title>Profile View | Tweeter</title>
 
-        <meta charset = UTF-8>
+        <meta charset = "UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link media="all" type="text/css" rel="stylesheet" href="static/css/bootstrap.css">
         <link rel="stylesheet" href="static/css/main.css">
         <link rel="stylesheet" href="static/css/tweet_template.css">
+        <link rel="stylesheet" href="static/css/profiles.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
 
     <body>
 
+        
         <div class="container">
             <div class="row">
+
                 <div class="col-10">
                     <h1 class="display-2 pl-5 pt-1 pb-3">tweeter</h1>
                 </div>
                 <div class="col-2 m-auto" id="top_controls">
-                    <button id = "log_out" type="button" class="btn btn-outline-primary btn-sm w-75">Log Out</button>
-                    <button id = "dashboard" type="button" class="btn btn-outline-primary btn-sm w-75" href="index.html">Back to Dashboard</button>
-                    <button id = "my_profile" type="button" class="btn btn-outline-primary btn-sm w-75">View my profile</button>
+                    <button id = "log_out" type="button" class="btn btn-outline-primary btn-sm w-75 p-0">Log Out</button>
+                    <button id = "dashboard" type="button" class="btn btn-outline-primary btn-sm w-75 p-0" href="index.html">Back to Dashboard</button>
+                    <button id = "my_profile" type="button" class="btn btn-outline-primary btn-sm w-75 p-0">View my profile</button>
                 </div>
             </div>
             <div class="row justify-content-end">
                 <div id = "tweets_div" class="col-8 ml-auto mr-auto">
                     <div class="jumbotron jumbotron-fluid ml-4 p-1 text-center" id="tweets_jumbo">
                         <div class="jumbotron jumbotron-fluid p-3 m-2 align-top text-center" id="tweets_message">
-                            <h5>Here are some of [USERNAME]'s thoughts.</h5>
+                            <h5>Here are some of <p class = "replacer">[USERNAME]</p>'s thoughts.</h5>
                         </div>
                         <div class="jumbotron p-4 m-4 align-top text-left" id="feed">
                             <!-- <em>Looks like this user prefers to keep to themselves.</em> -->
@@ -45,6 +48,7 @@
                     </div>
                 </div>
                 <div id = "user_info_div" class="col-4 align-right">
+
                     <div class="jumbotron jumbotron-fluid p-2 pt-3" id="user_info_jumbo">
                         <div id="user_photo_div" class="container-fluid text-center w-50">
                             <img id = "user_photo" src="http://www.animalslook.com/wp-content/uploads/2010/11/210.jpg"
@@ -52,7 +56,7 @@
                                 class="img-thumbnail">
                         </div>
                         <div class="jumbotron jumbotron-fluid p-1 m-2" id="user_text_jumbo">
-                            <h3 class="text-center mt-2">[USERNAME]</h3>
+                            <h3 class="text-center mt-2"> <p class = "replacer" >[USERNAME]</p></h3>
                             <br>
                             <p id="user_bio" class="text-center mr-3 ml-3">User bio section, where user can write a short message about themselves or their page.</p>
                         </div>
@@ -62,6 +66,7 @@
                         <div class="container-fluid text-center mt-4">
                             <button id="follow_user" type="button" class="btn btn-outline-primary border mb-2">Follow</button>
                         </div>
+
                     </div>
                 </div>
             </div>
