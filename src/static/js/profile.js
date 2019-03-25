@@ -1,5 +1,3 @@
-var followerCount = 0;
-
 $(document).ready(function() {
     const ACTIVE_USER = "user1";
     const VISITING_USER = "test2";
