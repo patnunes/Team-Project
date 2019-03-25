@@ -15,4 +15,5 @@ urlpatterns = [
     path('tweet_submit', views.tweet_submit, name='tweet_submit'),
     path('get_tweets', views.get_tweets, name='get_tweets'),
     path('get_more_tweets', views.get_older_tweets, name='get_older_tweets'),
+    path('like', views.like, name='like'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
