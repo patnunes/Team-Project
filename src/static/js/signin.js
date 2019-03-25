@@ -47,6 +47,3 @@ $(document).ready(function() {
     };
 });
 
-$("#back_to_index").click(function(){
-    window.location= "index.html";
-})
