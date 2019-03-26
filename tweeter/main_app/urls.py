@@ -18,4 +18,5 @@ urlpatterns = [
     path('get_more_tweets', views.get_older_tweets, name='get_older_tweets'),
     path('like', views.like, name='like'),
     path('is_liked', views.is_liked, name='is_liked'),
+    path('populate_tweets', views.populate_tweets, name='populate_tweets'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

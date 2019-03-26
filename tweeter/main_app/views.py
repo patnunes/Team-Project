@@ -12,7 +12,7 @@ from .models import Tweet, User, Follow, Likes
 # Import features here
 from main_app.signup import create_user
 from main_app.signin import validate_user, return_user_id
-from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
+from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets, CU_page, populate_dashboard
 from main_app.likes import user_has_liked_tweet, like_a_tweet
 
 # HTML file declarations
@@ -140,7 +140,7 @@ def tweet_submit(request):
         # print the result of adding the user
         response = save_user_tweets(user)
         return JsonResponse({"status":responses[response]})
-        
+
     # redirect in case of weird failure
     return render(request, 'profile.html')
 
@@ -185,3 +185,30 @@ def  is_liked(request):
 
     # redirect in case of weird failure
     return render(request, 'index.html')
+
+@csrf_exempt
+def populate_tweets(request):
+    if(request.is_ajax() and request.method == 'POST'):
+        # load the content of the response into another var
+        data = json.loads(request.body)
+    try:
+        # store all the passed data into vars
+        action = data['action']
+
+        if(action == "dashboard"):
+            username = data["userName"]
+        else:
+            username = action
+                
+    except KeyError:
+        # if for some reason the response is formed wrong
+        return JsonResponse({"status":responses[3]})
+
+    if(action == "dashboard"):
+        reponse = populate_dashboard(username)
+        return JsonResponse({"status":responses[response[0]], "tweets":response[1]})
+    else:
+        response = CU_page(username)
+        return JsonResponse({"status":responses[response[0]], "tweets":response[1]})
+
+
