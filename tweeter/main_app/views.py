@@ -41,7 +41,8 @@ responses = {
                     1: 'user in use',
                     2: 'email in use',
                     3: 'other',
-                    4: 'invalid user or email'
+                    4: 'invalid user or email',
+                    5: 'no tweets exist'
 }
 
 
