@@ -1,8 +1,13 @@
+function delete_cookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1941 00:00:01 GMT;';
+};
+
 $('#my_profile').click(function(){
     window.location="myprofile.html"
 });
 
 $('#log_out').click(function(){
+    delete_cookie("UserName");
     window.location = "signin.html"
 });
 
