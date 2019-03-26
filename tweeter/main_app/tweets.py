@@ -51,7 +51,7 @@ def CU_page(username):
 	if tweet_data.exists():
 		return 0, list(tweet_data)
 	else:
-		return 3,0
+		return 5,0
 
 def populate_dashboard(username):
 
@@ -60,10 +60,10 @@ def populate_dashboard(username):
 	following_ids = get_following_ids(username)
 
 	# retrieve all tweets that belong to the user and those they follow
-	tweet_data = Tweet.objects.filter(user_id = following_ids).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter')
+	tweet_data = Tweet.objects.filter(user_id__in = following_ids).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter')
 	
 	if tweet.data.exists():
 		return 0, list(tweet_data)
 	else:
-		return 3,0
+		return 5,0
 	return tweet_data
