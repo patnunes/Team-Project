@@ -40,7 +40,7 @@ $(document).ready(function() {
                     case ServerResponses.SUCCESS:
                             //User was created, and can move to dashboard page.
                             //TODO: create dashboard page, and force open when successful user login occurs.
-                           document.cookie = "UserName" + "=" + userName;
+                           document.cookie = "FriendsName" + "=" + userName;
                         window.location.replace("profile.html"); 
                         break;
                     case ServerResponses.INVALID_CREDENTIALS:
