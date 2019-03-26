@@ -8,6 +8,7 @@ $('#my_profile').click(function(){
 
 $('#log_out').click(function(){
     delete_cookie("UserName");
+    delete_cookie("FriendsName");
     window.location = "signin.html"
 });
 
