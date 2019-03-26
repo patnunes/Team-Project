@@ -2,11 +2,10 @@ from .models import Tweet, User, Follow
 from datetime import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 import json
-from django.db import connection
 
 
 def save_user_tweets(tweetData):
-    #TODO: setup the likes counter once the likes feature has been implemented
+    # TODO: setup the likes counter once the likes feature has been implemented
     user = User.objects.values_list('id').filter(username = tweetData['username'])
     tweet = Tweet(user_id = user[0][0], content = tweetData['tweet'], timestamp = datetime.now(), like_counter = 0)
     tweet.save()
