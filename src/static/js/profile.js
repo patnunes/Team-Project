@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
     
     $('#dashboard').click(function(){
-       window.location = "index.html"
+       window.location = "dashboard.html"
     });
     
     $('#my_profile').click(function(){
