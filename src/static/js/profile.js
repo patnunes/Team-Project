@@ -22,13 +22,15 @@ if (pagename=="profile.html"){
 }
 
 
-    // getInfo();
+    
 
-for(i = 0; i < replaced.length; i++)
-{
-    replaced[i].innerText = username;
-}
+// for(i = 0; i < replaced.length; i++)
+// {
+//     replaced[i].innerText = username;
+// }
 $(document).ready(function() {
+    ACTIVE_USER = "NoahForReal";
+    VISITING_USER = "test2";
     
     $('#log_out').click(function(){
         window.location = "signin.html"
@@ -41,10 +43,11 @@ $(document).ready(function() {
     $('#my_profile').click(function(){
         window.location = "myprofile.html"
     });
-});
+
 
 
     $('#follow_user').click(function(){
+        
         var action = $(this).text() == "Follow" ? "follow" : "unfollow";
         var antiAction = $(this).text() != "Follow" ? "follow" : "unfollow";
         console.log(action);
@@ -60,7 +63,7 @@ $(document).ready(function() {
         var request = new Object;
         request.userName1 = ACTIVE_USER;
         request.userName2 = VISITING_USER;
-        $.post("/get_info", JSON.stringify(tweet), function(m_response){
+        $.post("/get_info", JSON.stringify(request), function(m_response){
             console.log("post/like: m_response.status: " + m_response.status);
             console.log("num-follwoing:" + m_response.num_following);
             switch (m_response.status) {
@@ -142,5 +145,5 @@ $(document).ready(function() {
     var setFollowersCount = function(){
 
     }
-//});
 
+});
