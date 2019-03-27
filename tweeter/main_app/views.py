@@ -172,7 +172,7 @@ def like(request):
 
     # TODO: call the function that processes this info
     # print the result of adding the user
-    response = user_has_liked_tweet(user, tweet_id)
+    response = like_a_tweet(user, tweet_id)
     return JsonResponse({"status":responses[response]})
 
     # redirect in case of weird failure
