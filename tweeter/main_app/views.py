@@ -298,7 +298,7 @@ def populate_tweets(request):
         return JsonResponse({"status":responses[3]})
 
     if(action == "dashboard"):
-        reponse = populate_dashboard(username)
+        response = populate_dashboard(username)
         return JsonResponse({"status":responses[response[0]], "tweets":response[1]})
     else:
         response = CU_page(username)
