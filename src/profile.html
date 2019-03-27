@@ -10,7 +10,7 @@
     <head>
         <title>Profile View | Tweeter</title>
 
-        <meta charset = "UTF-8">
+        <meta charset = UTF-8>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,7 +37,7 @@
                 <div id = "tweets_div" class="col-8 ml-auto mr-auto">
                     <div class="jumbotron jumbotron-fluid ml-4 p-1 text-center" id="tweets_jumbo">
                         <div class="jumbotron jumbotron-fluid p-3 m-2 align-top text-center" id="tweets_message">
-                            <h5>Here are some of [USERNAME]'s thoughts.</h5>
+                            <h5>Here are some of <span class="username">USERNAME</span>'s thoughts.</h5>
                         </div>
                         <div class="jumbotron p-4 m-4 align-top text-left" id="feed">
                             <!-- <em>Looks like this user prefers to keep to themselves.</em> -->
@@ -52,17 +52,18 @@
                                 class="img-thumbnail">
                         </div>
                         <div class="jumbotron jumbotron-fluid p-1 m-2" id="user_text_jumbo">
-                            <h3 class="text-center mt-2">[USERNAME]</h3>
+                            <h3 class="text-center mt-2 username">[USERNAME]</h3>
                             <br>
                             <p id="user_bio" class="text-center mr-3 ml-3">User bio section, where user can write a short message about themselves or their page.</p>
                         </div>
                         <div id="follow_counter_div" class="container-fluid pt-2 pb-0 text-center">
-                            <span id="follow_counter_badge" class="badge badge-pill badge-info">000 Followers</span>
+                            <span id="follow_counter_badge" class="badge badge-pill badge-info"><span id="followerCounter">0</span> Followers</span>
                         </div>
                         <div class="container-fluid text-center mt-4">
-                            <button id="follow_user" type="button" class="btn btn-primary mb-2">FOLLOW</button>
+                            <button id="follow_user" type="button" class="btn btn-outline-primary border mb-2">Follow</button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

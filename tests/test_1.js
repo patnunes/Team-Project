@@ -7,7 +7,6 @@ describe('', ()=> {
         var result = ValidateEmail(parameter);
         console.log(`Testing #${counter++}: ${description}\nInput '' should return false`);
         expect(result).toBe(false);
-
     });
 });
 
