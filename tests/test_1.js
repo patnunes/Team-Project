@@ -5,9 +5,7 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="";
         var result = ValidateEmail(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Input '' should return false");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nInput '' should return false`);
         expect(result).toBe(false);
 
     });
@@ -18,12 +16,10 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="a";
         var result = ValidateEmail(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Emails shouldn't be short. Testing with " + parameter);
-        console.log("Result should return false")
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nEmails shouldn't be short.\n
+        Testing with '${parameter}'\n
+        Result should return false`);
         expect(result).toBe(false);
-
     });
 });
 
@@ -32,10 +28,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="ab.com";
         var result = ValidateEmail(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing with 'ab.com'");
-        console.log("Invalid email input should return false");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting with '${parameter}'\n
+        Invalid email input should return false`);
         expect(result).toBe(false);
 
     });
@@ -45,10 +39,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="ab@abdozdakcom";
         var result = ValidateEmail(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing with " + parameter);
-        console.log("Invalid email input should return false");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting with '${parameter}'\n
+        Invalid email input should return false`);
         expect(result).toBe(false);
 
     });
@@ -58,12 +50,9 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="";
         var result = ValidateUsername(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing username with ''");
-        console.log("Empty username should return false");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting username with ''\n
+        Empty username should return false`);
         expect(result).toBe(false);
-
     });
 });
 
@@ -72,10 +61,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="a";
         var result = ValidateUsername(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing username with 'a'");
-        console.log("Invalid username should return false");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting username with '${parameter}'\n
+        Invalid username should return false`);
         expect(result).toBe(false);
 
     });
@@ -85,10 +72,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="1abcdefg";
         var result = ValidateUsername(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing username with '1abcdefg'");
-        console.log("Usernames shouldn't begin with a number");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting username with '${parameter}'\n
+        Usernames shouldn't begin with a number`);
         expect(result).toBe(false);
 
     });
@@ -98,10 +83,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="ABC";
         var result = ValidateUsername(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing with 'ABC'");
-        console.log("Usernames shouldn't be short");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting with '${parameter}'\n
+        Usernames shouldn't be short`);
         expect(result).toBe("abc");
 
     });
@@ -111,10 +94,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing password with ''");
-        console.log("Password shouldn't be empty");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting password with ''\n
+        Password shouldn't be empty`);
         expect(result).toBe(false);
 
     });
@@ -124,10 +105,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="1a";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing password with '1a'");
-        console.log("Short passwords aren't accepted");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting password with '${parameter}'\n
+        Short passwords aren't accepted`);
         expect(result).toBe(false);
 
     });
@@ -137,10 +116,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="AbCdEf";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing password with 'AbCdEf'");
-        console.log("Passwords must contain numbers");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting password with '${parameter}'\n
+        Passwords must contain numbers`);
         expect(result).toBe(false);
 
     });
@@ -150,10 +127,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="1abcdefg";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing password with '1abcdefg'");
-        console.log("Passwords must contain at least 1 capital letter");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting password with '${parameter}'\n
+        Passwords must contain at least 1 capital letter`);
         expect(result).toBe(false);
 
     });
@@ -163,10 +138,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="AbCdEf123";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing password with 'AbCdEf123'");
-        console.log("Passwords must contain at least 1 number and at least 1 capital letter");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting password with '${parameter}'
+        Passwords must contain at least 1 number and at least 1 capital letter`);
         expect(result).toBe(true);
 
     });
@@ -176,10 +149,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing Tweets with ''");
-        console.log("Tweets shouldn't be empty");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with ''\n
+        Tweets shouldn't be empty`);
         expect(result).toBe(false);
     });
 });
@@ -188,10 +159,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="A";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing Tweets with 'A'");
-        console.log("Tweets must not be short");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+        Tweets must not be short`);
         expect(result).toBe(false);
     });
 });
@@ -205,10 +174,8 @@ describe('', ()=> {
         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing Tweets with '" + parameter + "'");
-        console.log("Tweets must not be very long");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+        Tweets must not be very long`);
         expect(result).toBe(false);
     });
 });
@@ -217,10 +184,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="asdasdhasfasdafuck";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing Tweets with '" + parameter + "'");
-        console.log("Tweets must not contain curse words");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+        Tweets must not contain curse words`);
         expect(result).toBe(false);
     });
 });
@@ -229,10 +194,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="asdasdhasfaasdshitasdasd";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing Tweets with '" + parameter + "'");
-        console.log("Tweets must not contain curse words");
-        counter++;
+        console.log(`Testing #${counter}: ${description}\nTesting Tweets with '${parameter}'\n
+        Tweets must not contain curse words`);
         expect(result).toBe(false);
     });
 });
@@ -241,10 +204,8 @@ describe('', ()=> {
     it('', ()=> {
         var parameter="asdasdhasfaasdsbitchezdasda";
         var result = ValidatePassword(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log("Testing Tweets with '" + parameter + "'");
-        console.log("Tweets must not contain curse words");
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+        Tweets must not contain curse words`);
         expect(result).toBe(false);
     });
 });
@@ -255,9 +216,7 @@ describe('', ()=> {
         var username = "Filip"
         var tweetID = 11;
         var result = userLikesTweet(username, tweetID);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log(`User '${username}' likes Tweet ID '${tweetID}`);
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nUser '${username}' likes Tweet ID '${tweetID}`);
         expect(result).toBe(true);
     });
 });
@@ -268,9 +227,7 @@ describe('', ()=> {
         var username = "Filip";
         var tweetID = 4;
         var result = userDoesntLikeTweet(username, tweetID);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log(`User '${username}' doesn't like Tweet ID '${tweetID}'`);
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nUser '${username}' doesn't like Tweet ID '${tweetID}'`);
         expect(result).toBe(false);
     });
 });
@@ -280,9 +237,7 @@ describe('', ()=> {
     it('', ()=> {
         var query = "THIRD"
         var result = searchForTweet(query);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log(`Testing Search with query '${query}'`);
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nTesting Search with query '${query}'`);
         expect(result).toBe(4);
     });
 });
@@ -293,9 +248,7 @@ describe('', ()=> {
         var user = "user1"
         var following = "test2"
         var result = userFollows(user, following);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log(`User '${user}' follows user '${following}'`);
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nUser '${user}' follows user '${following}'`);
         expect(result).toBe(true);
     });
 });
@@ -306,9 +259,7 @@ describe('', ()=> {
         var tweet = "quick maths"
         var user = "test2"
         var result = userTweeted(user, tweet)
-        console.log("Testing: test no"+counter+", comment: "+description);
-        console.log(`User '${user}' has tweeted '${tweet}'`);
-        counter++;
+        console.log(`Testing #${counter++}: ${description}\nUser '${user}' has tweeted '${tweet}'`);
         expect(result).toBe(true);
     });
 });
