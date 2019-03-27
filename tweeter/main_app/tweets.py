@@ -56,7 +56,7 @@ def populate_dashboard(username):
 	# retrieve all tweets that belong to the user and those they follow
 	tweet_data = Tweet.objects.filter(user_id__in = following_ids).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter')
 	
-	if tweet.data.exists():
+	if tweet_data.exists():
 		return 0, list(tweet_data)
 	else:
 		return 5,0
