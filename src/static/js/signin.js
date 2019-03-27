@@ -33,8 +33,8 @@ $(document).ready(function() {
             $.post("/signin_submit", JSON.stringify(user), function(m_response){
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
-                        document.cookie = "UserName" + "=" + userName;
                         document.cookie = "FriendsName" + "=" + "test2"; //for testing!
+                        document.cookie = "UserName" + "=" + userName;
                         window.location.replace("profile.html"); 
                         break;
                     case ServerResponses.INVALID_CREDENTIALS:

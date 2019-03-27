@@ -29,8 +29,8 @@ var username;
 //getting the name of the html file that is using this js file:
 var path = window.location.pathname;
 var pagename = path.split("/").pop();
-// var ACTIVE_USER;
-// var VISITING_USER;
+var ACTIVE_USER;
+var VISITING_USER;
 
 if (pagename=="myprofile.html"){
     ACTIVE_USER = getCookie("UserName");
@@ -38,9 +38,9 @@ if (pagename=="myprofile.html"){
     CURRENT_ACTION = ACTIVE_USER;
 }
 if (pagename=="profile.html"){
-    au = getCookie("UserName");
+    ACTIVE_USER = getCookie("UserName");
     console.log(username);
-    cu = getCookie("FriendsName");
+    CURRENT_ACTION = getCookie("FriendsName");
     console.log("username: " + username);   
 }
 if (pagename=="dashboard.html"){
@@ -56,8 +56,8 @@ console.log(tweet_json);
 
 $(document).ready(function() {
     // var mockUser = new Object();
-    var username = au;
-    var currentAction = cu;
+    var username = ACTIVE_USER;
+    var currentAction = CURRENT_ACTION;
 
 
 // INTEGRATION OF BACKEND ////////////////////////////////////////////

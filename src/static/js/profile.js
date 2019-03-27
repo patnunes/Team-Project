@@ -16,16 +16,16 @@ var ACTIVE_USER;
 var VISITING_USER;
 
 if (pagename=="myprofile.html"){
-    ACTIVE_USER = getCookie("UserName");
+    ACTIVE_USER = getKookie("UserName");
     console.log(username)
 }
 
 if (pagename=="profile.html"){
-    VISITING_USER = getCookie("FriendsName");
-    console.log("VISITING_USER: " + username);
+    VISITING_USER = getKookie("FriendsName");
+    console.log("VISITING_USER: " + VISITING_USER);
     console.log("pagenamecheck");
-    ACTIVE_USER = getCookie("UserName");
-    console.log("username :" + username);
+    ACTIVE_USER = getKookie("UserName");
+    console.log("ACTIVE_USER: " + ACTIVE_USER);
     
 }
 
@@ -34,7 +34,7 @@ var replaced = document.getElementsByClassName("username");
 
 for(i = 0; i < replaced.length; i++)
 {
-    replaced[i].innerText = username;
+    replaced[i].innerText = VISITING_USER;
 }
 $(document).ready(function() {
     
