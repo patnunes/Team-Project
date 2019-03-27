@@ -223,3 +223,58 @@ describe('', ()=> {
         expect(result).toBe(false);
     });
 });
+
+describe('', ()=> {
+    var description= "Testing Like Feature\n";    
+    it('', ()=> {
+        var result = userLikesTweet("Filip", 11);
+        console.log("Testing: test no"+counter+", comment: "+description);
+        counter++;
+        expect(result).toBe(true);
+    });
+});
+
+describe('', ()=> {
+    var description= "Testing Like Feature\n";    
+    it('', ()=> {
+        var result = userDoesntLikeTweet("Filip", 4);
+        console.log("Testing: test no"+counter+", comment: "+description);
+        counter++;
+        expect(result).toBe(true);
+    });
+});
+
+describe('', ()=> {
+    var description= "Testing Search Feature\n";    
+    it('', ()=> {
+        var query = "THIRD"
+        var result = searchForTweet(query);
+        console.log("Testing: test no"+counter+", comment: "+description);
+        counter++;
+        expect(result).toBe(4);
+    });
+});
+
+describe('', ()=> {
+    var description= "Testing Following Feature\n";    
+    it('', ()=> {
+        var user = "user1"
+        var following = "test2"
+        var result = userFollows(user, following);
+        console.log("Testing: test no"+counter+", comment: "+description);
+        counter++;
+        expect(result).toBe(true);
+    });
+});
+
+describe('', ()=> {
+    var description= "Testing Tweet Feature\n";    
+    it('', ()=> {
+        var tweet = "quick maths"
+        var user = "test2"
+        var result = userTweeted(user, tweet)
+        console.log("Testing: test no"+counter+", comment: "+description);
+        counter++;
+        expect(result).toBe(true);
+    });
+});
