@@ -18,6 +18,7 @@ console.log(tweet_json);
 $(document).ready(function() {
     // var mockUser = new Object();
     var username = "test2";
+    var currentAction = "test2";
 
 
 // INTEGRATION OF BACKEND ////////////////////////////////////////////
@@ -30,24 +31,46 @@ $(document).ready(function() {
     //     }
     // })
     window.tweets_js_call = "";
-    $.ajax({
-        url: "/get_tweets",
-        method: "GET",
-        data: { 
-         username:"test2"
-     },
-        success: function(data){
-            console.log(data)
-            window.tweets_js_call = JSON.parse(data);
-            console.log(tweets_js_call);
-            fillForm(tweets_js_call);
+    // $.ajax({
+    //     url: "/get_tweets",
+    //     method: "GET",
+    //     data: { 
+    //      username:"test2"
+    //  },
+    //     success: function(data){
+    //         console.log(data)
+    //         window.tweets_js_call = JSON.parse(data["tweets"]);
+    //         console.log(tweets_js_call);
+    //         fillForm(tweets_js_call);
+    //     }
+    //  })
+
+    var request = new Object();
+    request.userName = username;
+    request.action = currentAction;
+
+    $.post("/populate_tweets", JSON.stringify(request), function(m_response){
+        console.log("post/populate_tweets: m_response.status: " + m_response.status);
+        switch (m_response.status) {
+            case ServerResponses.SUCCESS:
+                tweets_js_call = m_response.tweets;
+                console.log(tweets_js_call);
+                fillForm(tweets_js_call);
+                break;
+            case ServerResponses.OTHER:
+                alert("failed liking tweet")
+                updateTweetLikes(index, false, false); // undo the like
+                break;
+            default:
+                // DEBUG: alert("Uknown Error");
         }
-     })
+    })
+
+    
+
 
 
     var fillForm = function(tweets_js_call){
-        
-       
 
         console.log("tweets: " + tweets_js_call);
         var tweet;
@@ -89,7 +112,72 @@ $(document).ready(function() {
                         </div>
                     </div>
                 </div>`
-            ); 
+            );
+
+            // setInitialLike(i);
+        }    
+    }
+
+    // var setInitialLike = function(i){
+    //     var tweet = new Object;
+    //     tweet.userName = username;
+    //     tweet.tweet_ID = tweets_js_call[i].id;
+    //     $.post("/is_liked", JSON.stringify(tweet), function(m_response){
+    //         console.log("post/like: m_response.status: " + m_response.status);
+    //         console.log("post/like: index: " + i);
+    //         console.log("post/like: tweet: " + tweet.userName);
+    //         console.log("post/like: tweet: " + tweet.tweet_ID);
+    //         switch (m_response.status) {
+    //             case ServerResponses.SUCCESS:
+    //                 // updateTweetentry(index, m_response.
+    //                 console.log("post/like: isLiked: " + m_response.isLiked);
+    //                 updateTweetLikes(i, true, m_response.isLiked);
+    //                 break;
+    //             case ServerResponses.OTHER:
+    //                 alert("failed liking tweet")
+    //                 break;
+    //             default:
+    //                 // DEBUG: alert("Uknown Error");
+    //         }
+    //     })
+    // }
+
+    window.like = function(index){
+        updateTweetLikes(index, false, false); // like regardless of confirmation from server, this prevents delays in UI
+        console.log("inside Jquery boiiii");
+        var tweet = new Object;
+        console.log(tweets_js_call[index].id);
+        tweet.tweet_ID = tweets_js_call[index].id;
+        tweet.userName = username;
+        console.log("tweet strinigfy: " + JSON.stringify(tweet))
+        $.post("/like", JSON.stringify(tweet), function(m_response){
+            console.log("post/like: m_response.status: " + m_response.status);
+            switch (m_response.status) {
+                case ServerResponses.SUCCESS:
+                    // updateTweetentry(index, m_response.
+                    break;
+                case ServerResponses.OTHER:
+                    alert("failed liking tweet")
+                    updateTweetLikes(index, false, false); // undo the like
+                    break;
+                default:
+                    // DEBUG: alert("Uknown Error");
+            }
+        })
+    }
+
+    var updateTweetLikes = function(index, initialSet, isLiked){
+        if (initialSet) {
+            like_icon = isLiked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
+            tweets_js_call[index].liked = isLiked;
+            like_count = tweets_js_call[index].like_counter;
+            like_count = like_count == 0 ? "" : like_count;
+        } else {
+            like_icon = !tweets_js_call[index].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
+            like_count = !tweets_js_call[index].liked ? (tweets_js_call[index].like_counter + 1) : (tweets_js_call[index].like_counter - 1);
+            tweets_js_call[index].liked = !tweets_js_call[index].liked;
+            tweets_js_call[index].like_counter = like_count; 
+            like_count = like_count == 0 ? "" : like_count;
         }
 
         // var likeRequest = new Object;
@@ -160,39 +248,7 @@ function like(index){
     $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
 }
 
-        // //TODO: Retrieve result
-        // .fail(function () {
-        //     //TODO: notify user of failure with message
-        // })
-        // .done(function(tweets_json) {
-        //     console.log(tweets_json);
-        //     //TODO: Parse results into array of tweet objects
-        //     //TODO: Cycle through tweet objects and populate template
-        //     //TODO: Publish each template to website using append
-        // });
-    
-
-// START TEST /////////////////////////////////////////////
-
 
 
 
  
-
-
-
-    //ajax post to tell server the user has just liked tweet at index in tweets_js_call
-    // var likeObject = new Object();
-    // likeObject.username = user;
-    // likeObject.tweetID = tweets_js_call[index].id;
-    // likeObject.liked = tweets_js_call[index].liked;
-    // $.post("/like", JSON.stringify(likeObject), function(m_response){
-    //     switch(m_response.status){
-    //         case ServerResponses.SUCCESS:
-    //             break;
-    //         case ServerResponses.FAILURE:
-    //             alert("tweet could not be liked");
-    //             break;
-    //     }
-
-    
