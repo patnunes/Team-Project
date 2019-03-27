@@ -142,8 +142,9 @@ $(document).ready(function() {
     }
 
 
-    var setFollowersCount = function(){
-
+    var setFollowersCount = function(num_followers){
+        console.log("setFollowersCount: " +  num_followers);
+        $("#followerCounter").text(num_followers);
     }
 
 });
