@@ -18,6 +18,7 @@ console.log(tweet_json);
 $(document).ready(function() {
     // var mockUser = new Object();
     var username = "test2";
+    var currentAction = "test2";
 
 
 // INTEGRATION OF BACKEND ////////////////////////////////////////////
@@ -30,24 +31,46 @@ $(document).ready(function() {
     //     }
     // })
     window.tweets_js_call = "";
-    $.ajax({
-        url: "/get_tweets",
-        method: "GET",
-        data: { 
-         username:"test2"
-     },
-        success: function(data){
-            console.log(data)
-            window.tweets_js_call = JSON.parse(data["tweets"]);
-            console.log(tweets_js_call);
-            fillForm(tweets_js_call);
+    // $.ajax({
+    //     url: "/get_tweets",
+    //     method: "GET",
+    //     data: { 
+    //      username:"test2"
+    //  },
+    //     success: function(data){
+    //         console.log(data)
+    //         window.tweets_js_call = JSON.parse(data["tweets"]);
+    //         console.log(tweets_js_call);
+    //         fillForm(tweets_js_call);
+    //     }
+    //  })
+
+    var request = new Object();
+    request.userName = username;
+    request.action = currentAction;
+
+    $.post("/populate_tweets", JSON.stringify(request), function(m_response){
+        console.log("post/populate_tweets: m_response.status: " + m_response.status);
+        switch (m_response.status) {
+            case ServerResponses.SUCCESS:
+                tweets_js_call = m_response.tweets;
+                console.log(tweets_js_call);
+                fillForm(tweets_js_call);
+                break;
+            case ServerResponses.OTHER:
+                alert("failed liking tweet")
+                updateTweetLikes(index, false, false); // undo the like
+                break;
+            default:
+                // DEBUG: alert("Uknown Error");
         }
-     })
+    })
+
+    
+
 
 
     var fillForm = function(tweets_js_call){
-        
-       
 
         console.log("tweets: " + tweets_js_call);
         var tweet;
