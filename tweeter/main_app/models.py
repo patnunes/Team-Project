@@ -13,6 +13,7 @@ class User(models.Model):
 
 
 class Follow(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)  # Field name made lowercase.
     user = models.ForeignKey('USER', models.DO_NOTHING, db_column='USER_ID')  # Field name made lowercase.
     follow_id = models.IntegerField(db_column='FOLLOW_ID')  # Field name made lowercase.
     is_following = models.CharField(db_column='IS_FOLLOWING', max_length=1)  # Field name made lowercase.

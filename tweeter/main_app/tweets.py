@@ -2,6 +2,10 @@ from .models import Tweet, User, Follow
 from datetime import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 import json
+<<<<<<< HEAD
+=======
+from .follow import get_following_ids
+>>>>>>> sms4
 
 
 def save_user_tweets(tweetData):
@@ -12,15 +16,6 @@ def save_user_tweets(tweetData):
     #retrieve_user_tweets(user[0][0])
     return 0
 
-def get_following_ids(username):
-
-	
-	current_user_id = User.objects.get(username = username).pk
-
-	#returns a list of follow_ids that the current user is following
-	following_ids = Follow.objects.values_list('follow_id', flat=True).filter(user_id = current_user_id).filter(is_following=1)[::1]
-	following_ids.append(current_user_id)
-	return following_ids
 
 def retrieve_user_tweets(username):
 
@@ -31,8 +26,9 @@ def retrieve_user_tweets(username):
 	tweet_data_json = json.dumps(list(tweet_data), cls=DjangoJSONEncoder)
 	return tweet_data_json
 
+
 def fetch_older_tweets(tweetId, username):
-	
+
 	following_ids = get_following_ids(username)
 	more_tweets = Tweet.objects.filter(user_id__in = following_ids).filter(is_comment = 0).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
 	more_tweets_json = json.dumps(list(tweet_data), cls=DjangoJSONEncoder)
