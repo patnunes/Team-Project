@@ -1,7 +1,3 @@
-function testFunc(parameter){
-    return (parameter);
-};
-
 function userLikesTweet(username, tweetID) {
     return true;
 }

@@ -1,23 +1,12 @@
 var counter =1;
 
 describe('', ()=> {
-    var description= "\n";    
-    it('', ()=> {
-        var parameter=true;
-        var result = testFunc(parameter);
-        console.log("Testing: test no"+counter+", comment: "+description);
-        counter++;
-        expect(result).toBe(true);
-
-    });
-});
-
-describe('', ()=> {
-    var description= "EmailValidation1 - Null input test\n";    
+    var description= "EmailValidation - Null input test\n";    
     it('', ()=> {
         var parameter="";
         var result = ValidateEmail(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Input '' should return false");
         counter++;
         expect(result).toBe(false);
 
@@ -25,11 +14,13 @@ describe('', ()=> {
 });
 
 describe('', ()=> {
-    var description= "EmailValidation2 - short input test\n";    
+    var description= "EmailValidation - short input test\n";
     it('', ()=> {
         var parameter="a";
         var result = ValidateEmail(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Emails shouldn't be short. Testing with " + parameter);
+        console.log("Result should return false")
         counter++;
         expect(result).toBe(false);
 
@@ -42,6 +33,8 @@ describe('', ()=> {
         var parameter="ab.com";
         var result = ValidateEmail(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing with 'ab.com'");
+        console.log("Invalid email input should return false");
         counter++;
         expect(result).toBe(false);
 
@@ -53,6 +46,8 @@ describe('', ()=> {
         var parameter="ab@abdozdakcom";
         var result = ValidateEmail(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing with " + parameter);
+        console.log("Invalid email input should return false");
         counter++;
         expect(result).toBe(false);
 
@@ -64,6 +59,8 @@ describe('', ()=> {
         var parameter="";
         var result = ValidateUsername(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing username with ''");
+        console.log("Empty username should return false");
         counter++;
         expect(result).toBe(false);
 
@@ -76,6 +73,8 @@ describe('', ()=> {
         var parameter="a";
         var result = ValidateUsername(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing username with 'a'");
+        console.log("Invalid username should return false");
         counter++;
         expect(result).toBe(false);
 
@@ -87,6 +86,8 @@ describe('', ()=> {
         var parameter="1abcdefg";
         var result = ValidateUsername(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing username with '1abcdefg'");
+        console.log("Usernames shouldn't begin with a number");
         counter++;
         expect(result).toBe(false);
 
@@ -95,11 +96,13 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "UsernameValidation - short input test\n";    
     it('', ()=> {
-        var parameter="ABCDEFG";
+        var parameter="ABC";
         var result = ValidateUsername(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing with 'ABC'");
+        console.log("Usernames shouldn't be short");
         counter++;
-        expect(result).toBe("abcdefg");
+        expect(result).toBe("abc");
 
     });
 });
@@ -109,6 +112,8 @@ describe('', ()=> {
         var parameter="";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing password with ''");
+        console.log("Password shouldn't be empty");
         counter++;
         expect(result).toBe(false);
 
@@ -120,6 +125,8 @@ describe('', ()=> {
         var parameter="1a";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing password with '1a'");
+        console.log("Short passwords aren't accepted");
         counter++;
         expect(result).toBe(false);
 
@@ -131,6 +138,8 @@ describe('', ()=> {
         var parameter="AbCdEf";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing password with 'AbCdEf'");
+        console.log("Passwords must contain numbers");
         counter++;
         expect(result).toBe(false);
 
@@ -142,6 +151,8 @@ describe('', ()=> {
         var parameter="1abcdefg";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing password with '1abcdefg'");
+        console.log("Passwords must contain at least 1 capital letter");
         counter++;
         expect(result).toBe(false);
 
@@ -153,17 +164,21 @@ describe('', ()=> {
         var parameter="AbCdEf123";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing password with 'AbCdEf123'");
+        console.log("Passwords must contain at least 1 number and at least 1 capital letter");
         counter++;
         expect(result).toBe(true);
 
     });
 });
 describe('', ()=> {
-    var description= "TweetContent - empty content test\n";    
+    var description= "TweetContent - empty content test\n";
     it('', ()=> {
         var parameter="";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing Tweets with ''");
+        console.log("Tweets shouldn't be empty");
         counter++;
         expect(result).toBe(false);
     });
@@ -174,6 +189,8 @@ describe('', ()=> {
         var parameter="A";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing Tweets with 'A'");
+        console.log("Tweets must not be short");
         counter++;
         expect(result).toBe(false);
     });
@@ -189,6 +206,8 @@ describe('', ()=> {
         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing Tweets with '" + parameter + "'");
+        console.log("Tweets must not be very long");
         counter++;
         expect(result).toBe(false);
     });
@@ -199,6 +218,8 @@ describe('', ()=> {
         var parameter="asdasdhasfasdafuck";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing Tweets with '" + parameter + "'");
+        console.log("Tweets must not contain curse words");
         counter++;
         expect(result).toBe(false);
     });
@@ -209,6 +230,8 @@ describe('', ()=> {
         var parameter="asdasdhasfaasdshitasdasd";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing Tweets with '" + parameter + "'");
+        console.log("Tweets must not contain curse words");
         counter++;
         expect(result).toBe(false);
     });
@@ -219,6 +242,8 @@ describe('', ()=> {
         var parameter="asdasdhasfaasdsbitchezdasda";
         var result = ValidatePassword(parameter);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log("Testing Tweets with '" + parameter + "'");
+        console.log("Tweets must not contain curse words");
         counter++;
         expect(result).toBe(false);
     });
@@ -227,8 +252,11 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "Testing Like Feature\n";    
     it('', ()=> {
-        var result = userLikesTweet("Filip", 11);
+        var username = "Filip"
+        var tweetID = 11;
+        var result = userLikesTweet(username, tweetID);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log(`User '${username}' likes Tweet ID '${tweetID}`);
         counter++;
         expect(result).toBe(true);
     });
@@ -237,8 +265,11 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "Testing Like Feature\n";    
     it('', ()=> {
-        var result = userDoesntLikeTweet("Filip", 4);
+        var username = "Filip";
+        var tweetID = 4;
+        var result = userDoesntLikeTweet(username, tweetID);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log(`User '${username}' doesn't like Tweet ID '${tweetID}'`);
         counter++;
         expect(result).toBe(false);
     });
@@ -250,6 +281,7 @@ describe('', ()=> {
         var query = "THIRD"
         var result = searchForTweet(query);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log(`Testing Search with query '${query}'`);
         counter++;
         expect(result).toBe(4);
     });
@@ -262,6 +294,7 @@ describe('', ()=> {
         var following = "test2"
         var result = userFollows(user, following);
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log(`User '${user}' follows user '${following}'`);
         counter++;
         expect(result).toBe(true);
     });
@@ -274,6 +307,7 @@ describe('', ()=> {
         var user = "test2"
         var result = userTweeted(user, tweet)
         console.log("Testing: test no"+counter+", comment: "+description);
+        console.log(`User '${user}' has tweeted '${tweet}'`);
         counter++;
         expect(result).toBe(true);
     });
