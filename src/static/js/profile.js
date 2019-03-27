@@ -76,7 +76,7 @@ $(document).ready(function() {
                         $("#followerCounter").text(function(i, text){
                             return (parseInt(text) - 1);
                         })
-                    }z
+                    }
                 case ServerResponses.OTHER:
                     alert("failed following User")
                     toggleFollowButton(); // undo the follow
