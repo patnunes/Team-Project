@@ -11,7 +11,10 @@ from .models import Tweet, User, Follow, Likes
 
 # Import features here
 from main_app.signup import create_user
-from main_app.signin import validate_user, return_user_id
+from main_app.signin import validate_user, validate_userName, return_user_id #validate_username added by Hossein
+
+
+
 from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
 from main_app.likes import user_has_liked_tweet
 from main_app.follow import *
@@ -36,6 +39,10 @@ def profile(request):
 def tweet_template(request):
     return render(request, 'tweet_template.html')
 
+
+def dashboard(request):
+    return render(request, 'dashboard.html')
+  
 
 # Potential responses from the various methods
 responses = {
@@ -168,7 +175,7 @@ def like(request):
     # redirect in case of weird failure
     return render(request, 'index.html')
 
-
+  
 @csrf_exempt
 def follow_dist(request):
     if(request.is_ajax() and request.method == 'POST'):
@@ -202,6 +209,7 @@ def follow_dist(request):
         response = unfollow(user1, user2)
         return JsonResponse({"status":responses[response]})
 
+      
 @csrf_exempt
 def get_info(request):
 
@@ -220,3 +228,29 @@ def get_info(request):
 
     return JsonResponse({"status":"success", "following": follows(user1, user2),
                             "num_followers": followers(user2)})
+
+  
+@csrf_exempt
+def search_submit(request):
+    if request.is_ajax() and request.method == 'POST':
+        # load the content of the response into another var
+        data = json.loads(request.body)
+        try:
+            # store all the passed data into a dict
+            user = {'username':data['userName']}
+        except KeyError:
+            # if for some reason the response is formed wrong
+            return JsonResponse({"status":responses[3]})
+
+        # TODO: call the function that processes this info
+        # print the result of adding the user
+        response = validate_userName(user)
+        if response == 0:
+            userID = return_user_id(user)
+            userinfo ={ 0: userID}
+            return JsonResponse({"status":responses[response], "userID": userinfo[0]})
+        else:
+             return JsonResponse({"status":responses[response]})
+
+    # redirect in case of weird failure
+    return render(request, 'dashboard.html')

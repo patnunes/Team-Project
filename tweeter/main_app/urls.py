@@ -18,4 +18,7 @@ urlpatterns = [
     path('like', views.like, name='like'),
     path('follow', views.follow_dist, name='follow'),
     path('get_info', views.get_info, name='get_info')
+    path('myprofile.html', views.profile, name="myprofile"),
+    path('dashboard.html', views.dashboard, name='dashboard'),
+    path('search_submit', views.search_submit, name='search_submit'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
