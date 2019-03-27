@@ -34,6 +34,7 @@ $(document).ready(function() {
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
                         document.cookie = "UserName" + "=" + userName;
+                        document.cookie = "FriendsName" + "=" + "test2"; //for testing!
                         window.location.replace("profile.html"); 
                         break;
                     case ServerResponses.INVALID_CREDENTIALS:

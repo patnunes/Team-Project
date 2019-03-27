@@ -13,12 +13,51 @@ var tweet_json = `{
     ]
 }`
 
+
+
+function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    console.log("match: " + match);
+    if (match) return match[2];
+}
+
+function delete_cookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1941 00:00:01 GMT;';
+};
+
+var username;
+//getting the name of the html file that is using this js file:
+var path = window.location.pathname;
+var pagename = path.split("/").pop();
+// var ACTIVE_USER;
+// var VISITING_USER;
+
+if (pagename=="myprofile.html"){
+    ACTIVE_USER = getCookie("UserName");
+    console.log(username);
+    CURRENT_ACTION = ACTIVE_USER;
+}
+if (pagename=="profile.html"){
+    au = getCookie("UserName");
+    console.log(username);
+    cu = getCookie("FriendsName");
+    console.log("username: " + username);   
+}
+if (pagename=="dashboard.html"){
+    ACTIVE_USER = getCookie("UserName");
+    console.log(username);
+    CURRENT_ACTION = "dashboard";
+}
+
+var CURRENT_ACTION;
+var USER;
+
 console.log(tweet_json);
 
 $(document).ready(function() {
     // var mockUser = new Object();
-    var username = "test2";
-    var currentAction = "test2";
+    var username = au;
+    var currentAction = cu;
 
 
 // INTEGRATION OF BACKEND ////////////////////////////////////////////
@@ -81,13 +120,13 @@ $(document).ready(function() {
         for (i = 0; i < tweets_js_call.length; i++) {
 
             tweets_js_call[i].liked = false;
-            console.log("i = " + i)
-            console.log("likes = " + tweets_js_call[i].like_counter);
+            // console.log("i = " + i)
+            // console.log("likes = " + tweets_js_call[i].like_counter);
             likes = tweets_js_call[i].like_count > 0 ? tweets_js_call[i].like_counter : "";
             like_icon = tweets_js_call[i].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`; //${tweets_js_call[i].profile_picture} 
-            console.log(tweets_js_call[i].timestamp)
+            // console.log(tweets_js_call[i].timestamp)
             var time = moment(tweets_js_call[i].timestamp, "YYYY-MM-DDTHH:mm:ssZ").fromNow();
-            console.log(time)
+            // console.log(time)
             $('#feed').append(
                 `<div class="row tweet rounded pt-3 mt-3 pb-4 mb-4" id="tweet${i}">
                     <div class="col-2 pr-0">
@@ -114,33 +153,33 @@ $(document).ready(function() {
                 </div>`
             );
 
-            // setInitialLike(i);
+            setInitialLike(i);
         }    
     }
 
-    // var setInitialLike = function(i){
-    //     var tweet = new Object;
-    //     tweet.userName = username;
-    //     tweet.tweet_ID = tweets_js_call[i].id;
-    //     $.post("/is_liked", JSON.stringify(tweet), function(m_response){
-    //         console.log("post/like: m_response.status: " + m_response.status);
-    //         console.log("post/like: index: " + i);
-    //         console.log("post/like: tweet: " + tweet.userName);
-    //         console.log("post/like: tweet: " + tweet.tweet_ID);
-    //         switch (m_response.status) {
-    //             case ServerResponses.SUCCESS:
-    //                 // updateTweetentry(index, m_response.
-    //                 console.log("post/like: isLiked: " + m_response.isLiked);
-    //                 updateTweetLikes(i, true, m_response.isLiked);
-    //                 break;
-    //             case ServerResponses.OTHER:
-    //                 alert("failed liking tweet")
-    //                 break;
-    //             default:
-    //                 // DEBUG: alert("Uknown Error");
-    //         }
-    //     })
-    // }
+    var setInitialLike = function(i){
+        var tweet = new Object;
+        tweet.userName = username;
+        tweet.tweet_ID = tweets_js_call[i].id;
+        $.post("/is_liked", JSON.stringify(tweet), function(m_response){
+            console.log("post/like: m_response.status: " + m_response.status);
+            console.log("post/like: index: " + i);
+            console.log("post/like: tweet: " + tweet.userName);
+            console.log("post/like: tweet: " + tweet.tweet_ID);
+            switch (m_response.status) {
+                case ServerResponses.SUCCESS:
+                    // updateTweetentry(index, m_response.
+                    console.log("post/like: isLiked: " + m_response.isLiked);
+                    updateTweetLikes(i, true, m_response.isLiked);
+                    break;
+                case ServerResponses.OTHER:
+                    alert("failed liking tweet")
+                    break;
+                default:
+                    // DEBUG: alert("Uknown Error");
+            }
+        })
+    }
 
     window.like = function(index){
         updateTweetLikes(index, false, false); // like regardless of confirmation from server, this prevents delays in UI

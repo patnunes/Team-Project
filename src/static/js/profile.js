@@ -1,9 +1,9 @@
-var followerCount = 0;
-
 function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    console.log("match: " + match);
     if (match) return match[2];
 }
+
 function delete_cookie(name) {
     document.cookie = name + '=;expires=Thu, 01 Jan 1941 00:00:01 GMT;';
 };
@@ -12,25 +12,32 @@ var username;
 //getting the name of the html file that is using this js file:
 var path = window.location.pathname;
 var pagename = path.split("/").pop();
+var ACTIVE_USER;
+var VISITING_USER;
 
 if (pagename=="myprofile.html"){
-    username = getCookie("UserName");
-    
+    ACTIVE_USER = getCookie("UserName");
+    console.log(username)
 }
+
 if (pagename=="profile.html"){
-    username = getCookie("FriendsName");
+    VISITING_USER = getCookie("FriendsName");
+    console.log("VISITING_USER: " + username);
+    console.log("pagenamecheck");
+    ACTIVE_USER = getCookie("UserName");
+    console.log("username :" + username);
+    
 }
 
 
-    
+var replaced = document.getElementsByClassName("username");    
 
-// for(i = 0; i < replaced.length; i++)
-// {
-//     replaced[i].innerText = username;
-// }
+for(i = 0; i < replaced.length; i++)
+{
+    replaced[i].innerText = username;
+}
 $(document).ready(function() {
-    ACTIVE_USER = "NoahForReal";
-    VISITING_USER = "test2";
+    
     
     $('#log_out').click(function(){
         window.location = "signin.html"
@@ -65,10 +72,9 @@ $(document).ready(function() {
         request.userName2 = VISITING_USER;
         $.post("/get_info", JSON.stringify(request), function(m_response){
             console.log("post/like: m_response.status: " + m_response.status);
-            console.log("num-follwoing:" + m_response.num_following);
             switch (m_response.status) {
                 case ServerResponses.SUCCESS:
-                    console.log("num-follwoing:" + m_response.num_followers);
+                    console.log("num-following:" + m_response.num_followers);
                     setFollowButton(m_response.following);
                     setFollowersCount(m_response.num_followers);
                     break;
