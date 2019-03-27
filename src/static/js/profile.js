@@ -16,12 +16,12 @@ var ACTIVE_USER;
 var VISITING_USER;
 
 if (pagename=="myprofile.html"){
-    ACTIVE_USER = getKookie("UserName");
+    ACTIVE_USER = getCookie("UserName");
     console.log(username)
 }
 
 if (pagename=="profile.html"){
-    VISITING_USER = getKookie("FriendsName");
+    VISITING_USER = getCookie("FriendsName");
     console.log("VISITING_USER: " + VISITING_USER);
     console.log("pagenamecheck");
     ACTIVE_USER = getKookie("UserName");
