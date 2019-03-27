@@ -116,7 +116,7 @@ $(document).ready(function() {
                     <div class="col-10 tweet_text">
                         <div class="row">
                             <div class="col-8">
-                                <span class="top" onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user__username}</span> <span class="userHandle">@${tweets_js_call[i].user__username}</span></span>
+                                <div class="top"><span onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user__username}</span> <span class="userHandle">@${tweets_js_call[i].user__username}</span></span></div>
                             </div>
                             <div class="col-4 text-right">
                                 <span class="time_span">${time}</span>

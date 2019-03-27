@@ -26,6 +26,10 @@
 .icon_row {
   height: 40px; }
 
+.top {
+  display: inline-block;
+  cursor: pointer; }
+
 .userName {
   color: white;
   font-weight: 400;
