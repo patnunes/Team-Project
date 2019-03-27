@@ -2,10 +2,8 @@ from .models import Tweet, User, Follow
 from datetime import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 import json
-<<<<<<< HEAD
-=======
 from .follow import get_following_ids
->>>>>>> sms4
+
 
 
 def save_user_tweets(tweetData):
