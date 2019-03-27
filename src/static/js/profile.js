@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 function getCookie(name) {
   var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
   if (match) return match[2];
@@ -16,9 +14,6 @@ for(i = 0; i < replaced.length; i++)
 {
     replaced[i].innerText = username;
 }
-
-
->>>>>>> tweet_template_and_functions
 $(document).ready(function() {
     const ACTIVE_USER = "user1";
     const VISITING_USER = "test2";
