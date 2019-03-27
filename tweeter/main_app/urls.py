@@ -15,10 +15,13 @@ urlpatterns = [
     path('tweet_submit', views.tweet_submit, name='tweet_submit'),
     path('get_tweets', views.get_tweets, name='get_tweets'),
     path('get_more_tweets', views.get_older_tweets, name='get_older_tweets'),
+<<<<<<< HEAD
+=======
     path('like', views.like, name='like'),
     path('follow', views.follow_dist, name='follow'),
     path('get_info', views.get_info, name='get_info'),
     path('myprofile.html', views.profile, name="myprofile"),
     path('dashboard.html', views.dashboard, name='dashboard'),
     path('search_submit', views.search_submit, name='search_submit'),
+>>>>>>> sms4
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

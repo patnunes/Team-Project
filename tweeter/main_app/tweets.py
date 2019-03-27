@@ -2,7 +2,10 @@ from .models import Tweet, User, Follow
 from datetime import datetime
 from django.core.serializers.json import DjangoJSONEncoder
 import json
+<<<<<<< HEAD
+=======
 from .follow import get_following_ids
+>>>>>>> sms4
 
 
 def save_user_tweets(tweetData):
@@ -19,7 +22,7 @@ def retrieve_user_tweets(username):
 	following_ids = get_following_ids(username)
 
 	#returns a queryset of first 5 tweets in order of most recent
-	tweet_data = Tweet.objects.filter(user_id__in = following_ids).filter().order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
+	tweet_data = Tweet.objects.filter(user_id__in = following_ids).filter(is_comment = 0).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
 	tweet_data_json = json.dumps(list(tweet_data), cls=DjangoJSONEncoder)
 	return tweet_data_json
 
@@ -27,6 +30,6 @@ def retrieve_user_tweets(username):
 def fetch_older_tweets(tweetId, username):
 
 	following_ids = get_following_ids(username)
-	more_tweets = Tweet.objects.filter(user_id__in = following_ids).filter().order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
+	more_tweets = Tweet.objects.filter(user_id__in = following_ids).filter(is_comment = 0).order_by('-timestamp').values('id','user__username','content','timestamp','like_counter','parent_tweet')[:5]
 	more_tweets_json = json.dumps(list(tweet_data), cls=DjangoJSONEncoder)
 	return more_tweets_json

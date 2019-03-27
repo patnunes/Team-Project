@@ -11,13 +11,13 @@ from .models import Tweet, User, Follow, Likes
 
 # Import features here
 from main_app.signup import create_user
-from main_app.signin import validate_user, validate_userName, return_user_id #validate_username added by Hossein
-
-
-
+from main_app.signin import validate_user, return_user_id
 from main_app.tweets import save_user_tweets, retrieve_user_tweets, fetch_older_tweets
+<<<<<<< HEAD
+=======
 from main_app.likes import user_has_liked_tweet
 from main_app.follow import *
+>>>>>>> sms4
 
 # HTML file declarations
 def index(request):
@@ -35,6 +35,11 @@ def signin(request):
 def profile(request):
     return render(request, 'profile.html')
 
+<<<<<<< HEAD
+def tweet_template(request):
+    return render(request, 'tweet_template.html')
+
+=======
 
 def tweet_template(request):
     return render(request, 'tweet_template.html')
@@ -44,6 +49,7 @@ def dashboard(request):
     return render(request, 'dashboard.html')
   
 
+>>>>>>> sms4
 # Potential responses from the various methods
 responses = {
                     0: 'success',
@@ -102,16 +108,20 @@ def signin_submit(request):
     # redirect in case of weird failure
     return render(request, 'signin.html')
 
+<<<<<<< HEAD
+@csrf_exempt  
+=======
 
 @csrf_exempt
+>>>>>>> sms4
 def get_tweets(request):
     if request.is_ajax() and request.method == 'GET':
-
+        
         try:
             username = request.GET.get('username', None)
         except KeyError:
              return JsonResponse({"status":responses[3]})
-
+       
         tweets = retrieve_user_tweets(username)
         return JsonResponse({"status":responses[0], "tweets": tweets})
 
@@ -121,17 +131,17 @@ def get_tweets(request):
 @csrf_exempt
 def get_older_tweets(request):
     if request.is_ajax() and request.method == 'GET':
-
+        
         try:
-            username = request.GET.get('userName', None)
+            username = request.GET.get('username', None)
             tweetID = request.GET.get('tweetID', None)
         except KeyError:
             return JsonResponse({"status":responses[3]})
-
+        
         tweets = fetch_older_tweets(tweetID, username)
         return JsonResponse(tweets, safe=False)
     return render (request, 'profile.html')
-
+        
 
 @csrf_exempt
 def tweet_submit(request):
@@ -149,6 +159,11 @@ def tweet_submit(request):
         # print the result of adding the user
         response = save_user_tweets(user)
         return JsonResponse({"status":responses[response]})
+<<<<<<< HEAD
+
+    # redirect in case of weird failure
+    return render(request, 'profile.html')
+=======
 
     # redirect in case of weird failure
     return render(request, 'profile.html')
@@ -254,3 +269,4 @@ def search_submit(request):
 
     # redirect in case of weird failure
     return render(request, 'dashboard.html')
+>>>>>>> sms4

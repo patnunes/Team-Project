@@ -1,3 +1,4 @@
+var followerCount = 0;
 
 function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
@@ -21,7 +22,7 @@ if (pagename=="profile.html"){
 }
 
 
-const replaced = document.querySelectorAll(".replacer");
+    // getInfo();
 
 for(i = 0; i < replaced.length; i++)
 {
@@ -30,13 +31,11 @@ for(i = 0; i < replaced.length; i++)
 $(document).ready(function() {
     
     $('#log_out').click(function(){
-        delete_cookie("UserName");
-        delete_cookie("FriendsName");
-        window.location = "signin.html";
+        window.location = "signin.html"
     });
     
     $('#dashboard').click(function(){
-        window.location = "dashboard.html"
+       window.location = "index.html"
     });
     
     $('#my_profile').click(function(){
@@ -61,7 +60,7 @@ $(document).ready(function() {
         var request = new Object;
         request.userName1 = ACTIVE_USER;
         request.userName2 = VISITING_USER;
-        $.post("/get_info", JSON.stringify(request), function(m_response){
+        $.post("/get_info", JSON.stringify(tweet), function(m_response){
             console.log("post/like: m_response.status: " + m_response.status);
             console.log("num-follwoing:" + m_response.num_following);
             switch (m_response.status) {
@@ -108,9 +107,6 @@ $(document).ready(function() {
                     // DEBUG: alert("Uknown Error");
             }
         })
-        .fail(function() {
-            toggleFollowButton(); // undo the follow
-        });
     }
 
     var setFollowButton = function(following){
@@ -143,8 +139,8 @@ $(document).ready(function() {
     }
 
 
-    var setFollowersCount = function(count){
-        $("#followerCounter").text(count);
+    var setFollowersCount = function(){
+
     }
-});
+//});
 
