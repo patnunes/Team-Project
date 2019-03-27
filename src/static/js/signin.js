@@ -35,7 +35,7 @@ $(document).ready(function() {
                     case ServerResponses.SUCCESS:
                         document.cookie = "FriendsName" + "=" + "test2"; //for testing!
                         document.cookie = "UserName" + "=" + userName;
-                        window.location.replace("profile.html"); 
+                        window.location.replace("dashboard.html"); 
                         break;
                     case ServerResponses.INVALID_CREDENTIALS:
                         $('#userNameWarning').text("Error in credentials. Please try again.");

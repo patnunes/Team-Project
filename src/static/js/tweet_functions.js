@@ -63,27 +63,9 @@ $(document).ready(function() {
 // INTEGRATION OF BACKEND ////////////////////////////////////////////
     console.log(username);
     console.log(JSON.stringify(username));
-    // $.get("/get_tweets", username, function(m_response){
-    //     switch (m_response.status) {
-    //         case ServerResponses.SUCCESS:
-    //             console.log()
-    //     }
-    // })
+   
     window.tweets_js_call = "";
-    // $.ajax({
-    //     url: "/get_tweets",
-    //     method: "GET",
-    //     data: { 
-    //      username:"test2"
-    //  },
-    //     success: function(data){
-    //         console.log(data)
-    //         window.tweets_js_call = JSON.parse(data["tweets"]);
-    //         console.log(tweets_js_call);
-    //         fillForm(tweets_js_call);
-    //     }
-    //  })
-
+  
     var request = new Object();
     request.userName = username;
     request.action = currentAction;
@@ -97,8 +79,7 @@ $(document).ready(function() {
                 fillForm(tweets_js_call);
                 break;
             case ServerResponses.OTHER:
-                alert("failed liking tweet")
-                updateTweetLikes(index, false, false); // undo the like
+                alert("failed getting tweets in tweet_functions")
                 break;
             default:
                 // DEBUG: alert("Uknown Error");
@@ -134,14 +115,14 @@ $(document).ready(function() {
                     </div>
                     <div class="col-10 tweet_text">
                         <div class="row">
-                            <div class="col 8">
+                            <div class="col-8">
                                 <span class="top" onclick="goToUser(${i})"><span class="userName">${tweets_js_call[i].user__username}</span> <span class="userHandle">@${tweets_js_call[i].user__username}</span></span>
                             </div>
-                            <div class="col 4 text-right">
+                            <div class="col-4 text-right">
                                 <span class="time_span">${time}</span>
                             </div>
                         </div>
-                        <p>${tweets_js_call[i].content}</p>
+                        <p class="tweetContent">${tweets_js_call[i].content}</p>
                     
                         <!-- Icon Row -->
                         <div class="row icon_row">
@@ -173,7 +154,6 @@ $(document).ready(function() {
                     updateTweetLikes(i, true, m_response.isLiked);
                     break;
                 case ServerResponses.OTHER:
-                    alert("failed liking tweet")
                     break;
                 default:
                     // DEBUG: alert("Uknown Error");
@@ -206,6 +186,7 @@ $(document).ready(function() {
     }
 
     var updateTweetLikes = function(index, initialSet, isLiked){
+        console.log("updateTweetLikes: index: " + index + ", initialSet: " + initialSet + ", isLiked: " + isLiked);
         if (initialSet) {
             like_icon = isLiked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
             tweets_js_call[index].liked = isLiked;
@@ -218,75 +199,22 @@ $(document).ready(function() {
             tweets_js_call[index].like_counter = like_count; 
             like_count = like_count == 0 ? "" : like_count;
         }
+        $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
+    }
 
-        // var likeRequest = new Object;
-        // for(i=0; i < tweets_js_call.length; i++) {
-        //     likeRequest.username = "test2";
-        //     likeRequest.tweetID = tweets_js_call[i].id;
-        //     likeRequest.index = i;
-        //     $.post("/like", JSON.stringify(likeRequest), function(m_response){
-        //         async:false;
-        //         switch (m_response.status) {
-        //             case ServerResponses.OTHER:
-        //                 setInitialLike(likeRequest.index, false, tweets_js_call);
-        //                 break;
-        //             case ServerResponses.SUCCESS:
-        //                 setInitialLike(likeRequest.index, true, tweets_js_call);
-        //                 break;
-        //             default:
-        //                 setInitialLike(likeRequest.index, false, tweets_js_call);
-        //                 break;
-        //         }
-        //    });
-        // }
-
-        //     $.ajax({
-        //         url: "/like",
-        //         method: "POST",
-        //         data: { 
-        //             username: "test2",
-        //             tweetID: tweets_js_call[i].id,
-        //         },
-        //         success: function(m_response) {
-        //             switch (m_response.status) {
-        //                 case ServerResponses.OTHER:
-        //                     setInitialLike(likeRequest.index, false, tweets_js_call);
-        //                     break;
-        //                 case ServerResponses.SUCCESS:
-        //                     setInitialLike(likeRequest.index, true, tweets_js_call);
-        //                     break;
-        //                 default:
-        //                     setInitialLike(likeRequest.index, false, tweets_js_call);
-        //                     break;
-        //             }
-        //         },
-        //         async: false,
-        //     })
-        
-        // }
-
-        // var setInitialLike = function(index, boolean, tweets_js_call){
-        //     like_icon = boolean ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
-        //     tweets_js_call[index].liked = boolean;
-        //     // console.log( $(`#tweet${index}`));
-        //     console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
-        //     $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${tweets_js_call[index].like_count}</span></span>`);
-        // }        
-      
+    window.goToUser = function(index){
+        document.cookie = "FriendsName" + "=" + tweets_js_call[index].user__username; //for testing!
+        window.location.replace("profile.html"); 
     }
 })
 
 function like(index){
-    like_icon = !tweets_js_call[index].liked ? `<i class="fas fa-heart icon liked"></i>` : `<i class="far fa-heart icon notLiked"></i>`;
-    like_count = !tweets_js_call[index].liked ? (tweets_js_call[index].like_counter + 1) : (tweets_js_call[index].like_counter - 1);
-    tweets_js_call[index].liked = !tweets_js_call[index].liked;
-    tweets_js_call[index].like_counter = like_count; 
-    like_count = like_count == 0 ? "" : like_count
-    // console.log( $(`#tweet${index}`));
-    console.log($(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col"));
-    $(`#tweet${index}`).children(".tweet_text").children(".icon_row").children(".like_col").html(`<span class="like_text" onclick="like(${index})">${like_icon}<span class="likes">${like_count}</span></span>`);
+    // html can only call non-jquery functions, jquery will intercept this call at window.like above.
 }
 
+function goToUser(index){
+    // html can only call non-jquery functions, jquery will intercept this call at window.goToUser above.
+}
 
 
 

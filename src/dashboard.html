@@ -12,6 +12,8 @@
         <link media="all" type="text/css" rel="stylesheet" href="static/css/bootstrap.css">
         <link rel="stylesheet" href="static/css/main.css">
         <link rel="stylesheet" href="static/css/dashboard.css">
+        <link rel="stylesheet" href="static/css/tweet_template.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
 
     <body>
@@ -55,11 +57,18 @@
                     </div>
                 </div>
 
-                <div class="jumbotron p-3 mt-3 m-0 text-center" id="feed">
+                <!-- <div class="jumbotron p-3 mt-3 m-0 text-center" id="feed">
                     <h5>Your feed. See what everyone's talking about.</h5>
 
-                    <!-- TWEETS WILL GO HERE -->
+                    TWEETS WILL GO HERE
                     
+                </div> -->
+                <div id = "tweets_div" class="col-10 ml-auto mr-auto">
+                    <div class="jumbotron jumbotron-fluid ml-4 p-1 text-center" id="tweets_jumbo">
+                        <div class="jumbotron p-4 m-4 align-top text-left" id="feed">
+                            <!-- <em>Looks like this user prefers to keep to themselves.</em> -->
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -69,12 +78,13 @@
         <script src="static/js/tether.min.js"></script>
         <script src="static/js/jquery.min.js"></script>
         <script src="static/js/bootstrap.min.js"></script>
-
+        
         
         <script src="static/js/moment-with-locales.min.js"></script>
         <script src="static/js/dashboard.js"></script>
         <script src="static/js/tweet.js"></script>
         <script src="static/js/tweet_functions.js"></script>
+
 
     </body>
 
