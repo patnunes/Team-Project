@@ -16,4 +16,11 @@ urlpatterns = [
     path('get_tweets', views.get_tweets, name='get_tweets'),
     path('get_more_tweets', views.get_older_tweets, name='get_older_tweets'),
     path('like', views.like, name='like'),
+    
+    # *****************************************************************************************
+# Added by Hossein:
+    path('myprofile.html', views.profile, name="myprofile"),
+    path('dashboard.html', views.dashboard, name='dashboard'),
+    path('search_submit', views.search_submit, name='search_submit'),
+    
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
