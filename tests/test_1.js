@@ -240,7 +240,7 @@ describe('', ()=> {
         var result = userDoesntLikeTweet("Filip", 4);
         console.log("Testing: test no"+counter+", comment: "+description);
         counter++;
-        expect(result).toBe(true);
+        expect(result).toBe(false);
     });
 });
 
