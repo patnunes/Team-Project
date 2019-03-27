@@ -178,6 +178,26 @@ def like(request):
     # redirect in case of weird failure
     return render(request, 'index.html')
 
+@csrf_exempt
+def  is_liked(request):
+    if request.is_ajax() and request.method == 'POST':
+    # load the content of the response into another var
+        data = json.loads(request.body)
+    try:
+        # store all the passed data into a dict
+        user = data['userName']
+        tweet_id = data['tweet_ID']
+    except KeyError:
+        # if for some reason the response is formed wrong
+        return JsonResponse({"status":responses[3]})
+
+    # TODO: call the function that processes this info
+    # print the result of adding the user
+    response = user_has_liked_tweet(user, tweet_id)
+    return JsonResponse({"status":responses[response[0]], "isLiked":response[1]})
+
+    # redirect in case of weird failure
+    return render(request, 'index.html')
 
 @csrf_exempt
 def follow_dist(request):
