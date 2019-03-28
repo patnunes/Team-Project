@@ -65,6 +65,8 @@ $(document).ready(function() {
                     switch(m_response.status){
                         case ServerResponses.SUCCESS:
                             alert("tweet has been published!");
+                            $(`#tweet_content`).val("");
+                            refreshTweets("tweets.js");
                             break;
                         default:
                             alert("[cheeky error message]");

@@ -69,34 +69,38 @@ $(document).ready(function() {
     var request = new Object();
     request.userName = username;
     request.action = currentAction;
-
-    $.post("/populate_tweets", JSON.stringify(request), function(m_response){
-        console.log("post/populate_tweets: m_response.status: " + m_response.status);
-        switch (m_response.status) {
-            case ServerResponses.SUCCESS:
-                tweets_js_call = m_response.tweets;
-                console.log(tweets_js_call);
-                fillForm(tweets_js_call);
-                break;
-            case ServerResponses.OTHER:
-                alert("failed getting tweets in tweet_functions")
-                break;
-            default:
-                // DEBUG: alert("Uknown Error");
-        }
-    })
-
     
 
+    var populateTweets = function() {
+        $.post("/populate_tweets", JSON.stringify(request), function(m_response){
+            console.log("post/populate_tweets: m_response.status: " + m_response.status);
+            switch (m_response.status) {
+                case ServerResponses.SUCCESS:
+                    tweets_js_call = m_response.tweets;
+                    console.log(tweets_js_call);
+                    fillForm(tweets_js_call);
+                    break;
+                case ServerResponses.OTHER:
+                    alert("failed getting tweets in tweet_functions")
+                    break;
+                default:
+                    // DEBUG: alert("Uknown Error");
+            }
+        })
+    }
+    populateTweets();
 
+    window.refreshTweets = function() {
+        $('#feed').empty();
+        populateTweets();
+    }
 
     var fillForm = function(tweets_js_call){
 
         console.log("tweets: " + tweets_js_call);
-        var tweet;
         var likes;
         var like_icon;
-        var iconRow;
+    
 
         for (i = 0; i < tweets_js_call.length; i++) {
 
@@ -133,7 +137,6 @@ $(document).ready(function() {
                     </div>
                 </div>`
             );
-
             setInitialLike(i);
         }    
     }
@@ -216,6 +219,9 @@ function goToUser(index){
     // html can only call non-jquery functions, jquery will intercept this call at window.goToUser above.
 }
 
+function refreshTweets(callingFile){
+    console.log("refreshTweets: calledFrom" + callingFile);
+}
 
 
  
