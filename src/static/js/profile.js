@@ -30,8 +30,11 @@ if (pagename=="profile.html"){
     console.log("ACTIVE_USER: " + ACTIVE_USER);
 
     $(".username").html(VISITING_USER);
-    
 }
+
+if (typeof ACTIVE_USER === 'undefined') {
+    window.location.replace("signin.html"); 
+};
 
 $(document).ready(function() {
     
@@ -77,7 +80,6 @@ $(document).ready(function() {
                     break;
                 case ServerResponses.OTHER:
                     console.log("failed getting info");
-                
                     break;
                 default:
                     // DEBUG: alert("Uknown Error");
