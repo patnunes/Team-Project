@@ -1,9 +1,12 @@
 #my_profile, #log_out {
-  font-variant: small-caps; }
+  font-variant: small-caps;
+}
 
 .jumbotron {
-  border-radius: 25px; }
+  border-radius: 25px;
+}
 
 #create_tweet_message, #search_jumbo, #feed {
   background-color: white;
-  border-radius: 18px; }
+  border-radius: 18px;
+}
