@@ -49,6 +49,10 @@ if (pagename=="dashboard.html"){
     CURRENT_ACTION = "dashboard";
 }
 
+if (typeof ACTIVE_USER === 'undefined') {
+    window.location.replace("signin.html"); 
+};
+
 var CURRENT_ACTION;
 var USER;
 

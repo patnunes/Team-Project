@@ -17,8 +17,8 @@ var VISITING_USER;
 
 if (pagename=="myprofile.html"){
     ACTIVE_USER = getCookie("UserName");
-    console.log(username);
-
+    console.log(ACTIVE_USER);
+    VISITING_USER = ACTIVE_USER;
     $(".username").html(ACTIVE_USER);
 }
 
@@ -31,10 +31,6 @@ if (pagename=="profile.html"){
 
     $(".username").html(VISITING_USER);
 }
-
-if (typeof ACTIVE_USER === 'undefined') {
-    window.location.replace("signin.html"); 
-};
 
 $(document).ready(function() {
     
@@ -118,6 +114,7 @@ $(document).ready(function() {
     }
 
     var setFollowButton = function(following){
+        
         if (following) {
             $("#follow_user").addClass("btn-primary");
             $("#follow_user").removeClass("btn-outline-primary");

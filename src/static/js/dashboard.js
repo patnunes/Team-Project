@@ -12,11 +12,6 @@ $('#log_out').click(function(){
     window.location = "signin.html"
 });
 
-if (typeof ACTIVE_USER === 'undefined') {
-    window.location.replace("signin.html"); 
-};
-
-
 // For search Button:
 var ServerResponses = ServerResponses = {
     SUCCESS: 'success',
