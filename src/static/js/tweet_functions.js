@@ -81,7 +81,7 @@ $(document).ready(function() {
                     fillForm(tweets_js_call);
                     break;
                 case ServerResponses.OTHER:
-                    alert("failed getting tweets in tweet_functions")
+                    console.log("failed getting tweets in tweet_functions");
                     break;
                 default:
                     // DEBUG: alert("Uknown Error");
@@ -115,7 +115,7 @@ $(document).ready(function() {
             $('#feed').append(
                 `<div class="row tweet rounded pt-3 mt-3 pb-4 mb-4" id="tweet${i}">
                     <div class="col-2 pr-0">
-                        <img src="static/assets/user_placeholder.jpeg" class="mx-auto d-block img-fluid rounded-circle mt-2" alt=""> 
+                        <img src="static/assets/default_crab.png" class="mx-auto d-block img-fluid rounded mt-2" alt=""> 
                     </div>
                     <div class="col-10 tweet_text">
                         <div class="row">
@@ -179,7 +179,7 @@ $(document).ready(function() {
                     // updateTweetentry(index, m_response.
                     break;
                 case ServerResponses.OTHER:
-                    alert("failed liking tweet")
+                    console.log("failed liking tweet")
                     updateTweetLikes(index, false, false); // undo the like
                     break;
                 default:

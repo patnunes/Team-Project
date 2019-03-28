@@ -76,7 +76,7 @@ $(document).ready(function() {
                     setFollowersCount(m_response.num_followers);
                     break;
                 case ServerResponses.OTHER:
-                    alert("failed getting info");
+                    console.log("failed getting info");
                 
                     break;
                 default:
