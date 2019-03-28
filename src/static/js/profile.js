@@ -17,7 +17,9 @@ var VISITING_USER;
 
 if (pagename=="myprofile.html"){
     ACTIVE_USER = getCookie("UserName");
-    console.log(username)
+    console.log(username);
+
+    $(".username").html(ACTIVE_USER);
 }
 
 if (pagename=="profile.html"){
@@ -26,16 +28,11 @@ if (pagename=="profile.html"){
     console.log("pagenamecheck");
     ACTIVE_USER = getCookie("UserName");
     console.log("ACTIVE_USER: " + ACTIVE_USER);
+
+    $(".username").html(VISITING_USER);
     
 }
 
-
-var replaced = document.getElementsByClassName("username");    
-
-for(i = 0; i < replaced.length; i++)
-{
-    replaced[i].innerText = VISITING_USER;
-}
 $(document).ready(function() {
     
     
