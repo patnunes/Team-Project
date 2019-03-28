@@ -39,6 +39,11 @@ $liked: #af3f3f;
     height: 40px;
 }
 
+.top {
+    display: inline-block;
+    cursor: pointer;
+}
+
 .userName{
     color: white;
     font-weight: 400;
@@ -51,4 +56,8 @@ $liked: #af3f3f;
 
 .spacer {
     height: 1em;
+}
+
+.tweetContent{
+    font-size: 1.4em;
 }

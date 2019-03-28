@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.signin, name='index'),
     path('signup.html', views.signup, name='signup'),
     path('signin.html', views.signin, name='signin'),
     path('profile.html', views.profile, name="profile"),
@@ -16,4 +16,12 @@ urlpatterns = [
     path('get_tweets', views.get_tweets, name='get_tweets'),
     path('get_more_tweets', views.get_older_tweets, name='get_older_tweets'),
     path('like', views.like, name='like'),
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('is_liked', views.is_liked, name='is_liked'),
+    path('populate_tweets', views.populate_tweets, name='populate_tweets'),
+    path('follow', views.follow_dist, name='follow'),
+    path('get_info', views.get_info, name='get_info'),
+    path('myprofile.html', views.profile, name="myprofile"),
+    path('dashboard.html', views.dashboard, name='dashboard'),
+    path('search_submit', views.search_submit, name='search_submit'),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
