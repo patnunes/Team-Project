@@ -1,0 +1,25 @@
+body {
+  background: lightblue; }
+
+.firstText {
+  color: black; }
+
+#tweets_jumbo {
+  border-radius: 25px; }
+
+#tweets_message, #user_text_jumbo, #create_tweet_message {
+  background-color: white;
+  border-radius: 18px; }
+
+#user_info_jumbo {
+  border-radius: 25px; }
+
+#follow_counter_badge {
+  font-size: 15px;
+  background-color: grey; }
+
+#user_photo {
+  border-radius: 25px; }
+
+#my_profile, #log_out, #dashboard {
+  font-variant: small-caps; }
