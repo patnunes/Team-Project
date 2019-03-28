@@ -206,8 +206,15 @@ $(document).ready(function() {
     }
 
     window.goToUser = function(index){
-        document.cookie = "FriendsName" + "=" + tweets_js_call[index].user__username; //for testing!
+        var user = tweets_js_call[index].user__username;
+
+        if (user == ACTIVE_USER){
+        window.location.replace("myprofile.html"); 
+        }
+        else {
+        document.cookie = "FriendsName" + "=" + user; //for testing!
         window.location.replace("profile.html"); 
+        }   
     }
 })
 

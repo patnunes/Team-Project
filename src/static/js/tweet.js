@@ -58,13 +58,11 @@ $(document).ready(function() {
                 tweet.userName = ACTIVE_USER;
                 tweet.content = tweetContent;
 
-                alert("This is the JSON produced: " + JSON.stringify(tweet));
 
                 $.post("/tweet_submit", JSON.stringify(tweet), function(m_response){
                     alert(m_response.status)
                     switch(m_response.status){
                         case ServerResponses.SUCCESS:
-                            alert("tweet has been published!");
                             $(`#tweet_content`).val("");
                             refreshTweets("tweets.js");
                             break;
