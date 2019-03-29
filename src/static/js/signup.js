@@ -16,15 +16,15 @@ $(document).ready(function() {
         var email = $('#inputEmail').val();
         var password = $('#inputPassword').val();
         var confirmPassword = $('#confirmInputPassword').val();
-        
+
 
         if (userName == null || userName == ''){
             $('#userNameWarning').text("Please Fill User Name Field");
             error = 1;
         }
-    
-    
-        
+
+
+
         if (password != confirmPassword){
             $('#confirmPasswordWarning').text('Your passwords don\'t match');
             error = 1
@@ -35,13 +35,13 @@ $(document).ready(function() {
            newUser.email = email;
            newUser.userName = userName;
            newUser.password = password;
-           alert("This is the JSON produced: " + JSON.stringify(newUser));
-           alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
+           //alert("This is the JSON produced: " + JSON.stringify(newUser));
+           //alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
            $.post("/signup_submit", JSON.stringify(newUser), function(m_response){
-                alert(m_response.status)
+                //alert(m_response.status)
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
-                        alert("user successfully created!")
+                        //alert("user successfully created!")
                         document.location.href = "signin.html"
                         break;
                     case ServerResponses.USER_NAME_IN_USE:
@@ -51,7 +51,7 @@ $(document).ready(function() {
                         $('#emailWarning').text("This email is already in use");
                         break;
                     default:
-                        alert("Uknown Error, please contact your local zoo or webMD");
+                        //alert("Uknown Error, please contact your local zoo or webMD");
                 }
            })
         }

@@ -1,6 +1,6 @@
 function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    console.log("match: " + match);
+    //console.log("match: " + match);
     if (match) return match[2];
 }
 
@@ -17,32 +17,33 @@ var VISITING_USER;
 
 if (pagename=="myprofile.html"){
     ACTIVE_USER = getCookie("UserName");
-    console.log(ACTIVE_USER);
+    //console.log(ACTIVE_USER);
     VISITING_USER = ACTIVE_USER;
     $(".username").html(ACTIVE_USER);
 }
 
 if (pagename=="profile.html"){
     VISITING_USER = getCookie("FriendsName");
-    console.log("VISITING_USER: " + VISITING_USER);
-    console.log("pagenamecheck");
+    //console.log("VISITING_USER: " + VISITING_USER);
+    //console.log("pagenamecheck");
     ACTIVE_USER = getCookie("UserName");
-    console.log("ACTIVE_USER: " + ACTIVE_USER);
+    //console.log("ACTIVE_USER: " + ACTIVE_USER);
 
     $(".username").html(VISITING_USER);
 }
 
+$('#log_out').click(function(){
+  delete_cookie("UserName");
+  delete_cookie("FriendsName");
+    window.location = "signin.html"
+});
+
 $(document).ready(function() {
-    
-    
-    $('#log_out').click(function(){
-        window.location = "signin.html"
-    });
-    
+
     $('#dashboard').click(function(){
        window.location = "dashboard.html"
     });
-    
+
     $('#my_profile').click(function(){
         window.location = "myprofile.html"
     });
@@ -50,10 +51,10 @@ $(document).ready(function() {
 
 
     $('#follow_user').click(function(){
-        
+
         var action = $(this).text() == "Follow" ? "follow" : "unfollow";
         var antiAction = $(this).text() != "Follow" ? "follow" : "unfollow";
-        console.log(action);
+        //console.log(action);
         follow(action, antiAction);
         toggleFollowButton();
 
@@ -61,34 +62,34 @@ $(document).ready(function() {
     });
 
 
-   
+
     var getInfo = function(){
         var request = new Object;
         request.userName1 = ACTIVE_USER;
         request.userName2 = VISITING_USER;
         $.post("/get_info", JSON.stringify(request), function(m_response){
-            console.log("post/like: m_response.status: " + m_response.status);
+            //console.log("post/like: m_response.status: " + m_response.status);
             switch (m_response.status) {
                 case ServerResponses.SUCCESS:
-                    console.log("num-following:" + m_response.num_followers);
+                    //console.log("num-following:" + m_response.num_followers);
                     setFollowButton(m_response.following);
                     setFollowersCount(m_response.num_followers);
                     break;
                 case ServerResponses.OTHER:
-                    console.log("failed getting info");
+                    //console.log("failed getting info");
                     break;
                 default:
                     // DEBUG: alert("Uknown Error");
             }
         })
         .fail(function() {
-        
+
         });
     }
 
     getInfo();
 
-    
+
 
     var follow = function(action, antiAction){
         var request = new Object;
@@ -96,9 +97,9 @@ $(document).ready(function() {
         request.userName2 = VISITING_USER;
         request.action = action;
         setFollowers(action);
-        console.log("post/follow: action: " + (action));
+        //console.log("post/follow: action: " + (action));
         $.post("/follow", JSON.stringify(request), function(m_response){
-            console.log("post/like: m_response.status: " + m_response.status);
+            //console.log("post/like: m_response.status: " + m_response.status);
             switch (m_response.status) {
                 case ServerResponses.SUCCESS:
                     break;
@@ -114,7 +115,7 @@ $(document).ready(function() {
     }
 
     var setFollowButton = function(following){
-        
+
         if (following) {
             $("#follow_user").addClass("btn-primary");
             $("#follow_user").removeClass("btn-outline-primary");
@@ -145,7 +146,7 @@ $(document).ready(function() {
 
 
     var setFollowersCount = function(num_followers){
-        console.log("setFollowersCount: " +  num_followers);
+        //console.log("setFollowersCount: " +  num_followers);
         $("#followerCounter").text(num_followers);
     }
 
