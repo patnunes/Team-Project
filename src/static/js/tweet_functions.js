@@ -105,7 +105,7 @@ $(document).ready(function() {
         var likes;
         var like_icon;
     
-
+        $('#feed').empty();
         for (i = 0; i < tweets_js_call.length; i++) {
 
             tweets_js_call[i].liked = false;
