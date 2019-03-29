@@ -34,6 +34,8 @@ def signin(request):
 def profile(request):
     return render(request, 'profile.html')
 
+def myprofile(request):
+    return render(request, 'myprofile.html')
 
 def tweet_template(request):
     return render(request, 'tweet_template.html')
