@@ -17,8 +17,7 @@ function ValidateUsername(username)
     
     if (!isNaN(username.charAt(0)))
     return false;
-    
-    
+  
     return lower_case_username;
 }
 
@@ -58,16 +57,16 @@ $(document).ready(function() {
         var confirmPassword = $('#confirmInputPassword').val();
         
         
-        if (ValidateUsername(username)==false){
-            $('#userNameWarning').text("Please enter a valid Username!");
+        if (ValidateUsername(userName)==false){
+            alert("Please enter a valid Username!");
             error = 1;
         }
         if (ValidateEmail(email)==false){
-            $('#emailWarning').text("Please enter a valid email address!");
+           alert("Please enter a valid email address!");
             error = 1;
         }
         if (ValidatePassword(password)==false){
-            $('#passwordWarning').text("Password should be at least 3 characters including a number and a capital letter!");
+            alert("Password should be at least 3 characters including a number and a capital letter!");
             error = 1;
         }
         if (password!= confirmPassword){
