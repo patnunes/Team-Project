@@ -143,122 +143,122 @@ describe('', ()=> {
 
     });
 });
-describe('', ()=> {
-    var description= "TweetContent - empty content test\n";
-    it('', ()=> {
-        var parameter="";
-        var result = ValidatePassword(parameter);
-        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with ''\n
-        Tweets shouldn't be empty`);
-        expect(result).toBe(false);
-    });
-});
-describe('', ()=> {
-    var description= "TweetContent - short length content test\n";    
-    it('', ()=> {
-        var parameter="A";
-        var result = ValidatePassword(parameter);
-        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
-        Tweets must not be short`);
-        expect(result).toBe(false);
-    });
-});
-describe('', ()=> {
-    var description= "TweetContent - long length content test\n";    
-    it('', ()=> {
-        var parameter="ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
-        ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
-        ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
-        ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
-        ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
-        ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG";
-        var result = ValidatePassword(parameter);
-        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
-        Tweets must not be very long`);
-        expect(result).toBe(false);
-    });
-});
-describe('', ()=> {
-    var description= "TweetContent - curse content test\n";    
-    it('', ()=> {
-        var parameter="asdasdhasfasdafuck";
-        var result = ValidatePassword(parameter);
-        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
-        Tweets must not contain curse words`);
-        expect(result).toBe(false);
-    });
-});
-describe('', ()=> {
-    var description= "TweetContent - curse content test\n";    
-    it('', ()=> {
-        var parameter="asdasdhasfaasdshitasdasd";
-        var result = ValidatePassword(parameter);
-        console.log(`Testing #${counter}: ${description}\nTesting Tweets with '${parameter}'\n
-        Tweets must not contain curse words`);
-        expect(result).toBe(false);
-    });
-});
-describe('', ()=> {
-    var description= "TweetContent - curse content test\n";    
-    it('', ()=> {
-        var parameter="asdasdhasfaasdsbitchezdasda";
-        var result = ValidatePassword(parameter);
-        console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
-        Tweets must not contain curse words`);
-        expect(result).toBe(false);
-    });
-});
+// describe('', ()=> {
+//     var description= "TweetContent - empty content test\n";
+//     it('', ()=> {
+//         var parameter="";
+//         var result = ValidatePassword(parameter);
+//         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with ''\n
+//         Tweets shouldn't be empty`);
+//         expect(result).toBe(false);
+//     });
+// });
+// describe('', ()=> {
+//     var description= "TweetContent - short length content test\n";    
+//     it('', ()=> {
+//         var parameter="A";
+//         var result = ValidatePassword(parameter);
+//         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+//         Tweets must not be short`);
+//         expect(result).toBe(false);
+//     });
+// });
+// describe('', ()=> {
+//     var description= "TweetContent - long length content test\n";    
+//     it('', ()=> {
+//         var parameter="ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
+//         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
+//         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
+//         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
+//         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
+//         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG";
+//         var result = ValidatePassword(parameter);
+//         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+//         Tweets must not be very long`);
+//         expect(result).toBe(false);
+//     });
+// });
+// describe('', ()=> {
+//     var description= "TweetContent - curse content test\n";    
+//     it('', ()=> {
+//         var parameter="asdasdhasfasdafuck";
+//         var result = ValidatePassword(parameter);
+//         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+//         Tweets must not contain curse words`);
+//         expect(result).toBe(false);
+//     });
+// });
+// describe('', ()=> {
+//     var description= "TweetContent - curse content test\n";    
+//     it('', ()=> {
+//         var parameter="asdasdhasfaasdshitasdasd";
+//         var result = ValidatePassword(parameter);
+//         console.log(`Testing #${counter}: ${description}\nTesting Tweets with '${parameter}'\n
+//         Tweets must not contain curse words`);
+//         expect(result).toBe(false);
+//     });
+// });
+// describe('', ()=> {
+//     var description= "TweetContent - curse content test\n";    
+//     it('', ()=> {
+//         var parameter="asdasdhasfaasdsbitchezdasda";
+//         var result = ValidatePassword(parameter);
+//         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
+//         Tweets must not contain curse words`);
+//         expect(result).toBe(false);
+//     });
+// });
 
-describe('', ()=> {
-    var description= "Testing Like Feature\n";    
-    it('', ()=> {
-        var username = "Filip"
-        var tweetID = 11;
-        var result = userLikesTweet(username, tweetID);
-        console.log(`Testing #${counter++}: ${description}\nUser '${username}' likes Tweet ID '${tweetID}`);
-        expect(result).toBe(true);
-    });
-});
+// describe('', ()=> {
+//     var description= "Testing Like Feature\n";    
+//     it('', ()=> {
+//         var username = "Filip"
+//         var tweetID = 11;
+//         var result = userLikesTweet(username, tweetID);
+//         console.log(`Testing #${counter++}: ${description}\nUser '${username}' likes Tweet ID '${tweetID}`);
+//         expect(result).toBe(true);
+//     });
+// });
 
-describe('', ()=> {
-    var description= "Testing Like Feature\n";    
-    it('', ()=> {
-        var username = "Filip";
-        var tweetID = 4;
-        var result = userDoesntLikeTweet(username, tweetID);
-        console.log(`Testing #${counter++}: ${description}\nUser '${username}' doesn't like Tweet ID '${tweetID}'`);
-        expect(result).toBe(false);
-    });
-});
+// describe('', ()=> {
+//     var description= "Testing Like Feature\n";    
+//     it('', ()=> {
+//         var username = "Filip";
+//         var tweetID = 4;
+//         var result = userDoesntLikeTweet(username, tweetID);
+//         console.log(`Testing #${counter++}: ${description}\nUser '${username}' doesn't like Tweet ID '${tweetID}'`);
+//         expect(result).toBe(false);
+//     });
+// });
 
-describe('', ()=> {
-    var description= "Testing Search Feature\n";    
-    it('', ()=> {
-        var query = "THIRD"
-        var result = searchForTweet(query);
-        console.log(`Testing #${counter++}: ${description}\nTesting Search with query '${query}'`);
-        expect(result).toBe(4);
-    });
-});
+// describe('', ()=> {
+//     var description= "Testing Search Feature\n";    
+//     it('', ()=> {
+//         var query = "THIRD"
+//         var result = searchForTweet(query);
+//         console.log(`Testing #${counter++}: ${description}\nTesting Search with query '${query}'`);
+//         expect(result).toBe(4);
+//     });
+// });
 
-describe('', ()=> {
-    var description= "Testing Following Feature\n";    
-    it('', ()=> {
-        var user = "user1"
-        var following = "test2"
-        var result = userFollows(user, following);
-        console.log(`Testing #${counter++}: ${description}\nUser '${user}' follows user '${following}'`);
-        expect(result).toBe(true);
-    });
-});
+// describe('', ()=> {
+//     var description= "Testing Following Feature\n";    
+//     it('', ()=> {
+//         var user = "user1"
+//         var following = "test2"
+//         var result = userFollows(user, following);
+//         console.log(`Testing #${counter++}: ${description}\nUser '${user}' follows user '${following}'`);
+//         expect(result).toBe(true);
+//     });
+// });
 
-describe('', ()=> {
-    var description= "Testing Tweet Feature\n";    
-    it('', ()=> {
-        var tweet = "quick maths"
-        var user = "test2"
-        var result = userTweeted(user, tweet)
-        console.log(`Testing #${counter++}: ${description}\nUser '${user}' has tweeted '${tweet}'`);
-        expect(result).toBe(true);
-    });
-});
+// describe('', ()=> {
+//     var description= "Testing Tweet Feature\n";    
+//     it('', ()=> {
+//         var tweet = "quick maths"
+//         var user = "test2"
+//         var result = userTweeted(user, tweet)
+//         console.log(`Testing #${counter++}: ${description}\nUser '${user}' has tweeted '${tweet}'`);
+//         expect(result).toBe(true);
+//     });
+// });
