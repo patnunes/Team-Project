@@ -252,13 +252,13 @@ describe('', ()=> {
     });
 });
 
-// describe('', ()=> {
-//     var description= "Testing Tweet Feature\n";    
-//     it('', ()=> {
-//         var tweet = "quick maths"
-//         var user = "test2"
-//         var result = userTweeted(user, tweet)
-//         console.log(`Testing #${counter++}: ${description}\nUser '${user}' has tweeted '${tweet}'`);
-//         expect(result).toBe(true);
-//     });
-// });
+describe('', ()=> {
+    var description= "Testing Tweet Feature\n";    
+    it('', ()=> {
+        var tweet = "quick maths"
+        var user = "test2"
+        var result = userTweeted(user, tweet)
+        console.log(`Testing #${counter++}: ${description}\nUser '${user}' has tweeted '${tweet}'`);
+        expect(result).toBe(true);
+    });
+});
