@@ -58,15 +58,15 @@ $(document).ready(function() {
         
         
         if (ValidateUsername(userName)==false){
-            alert("Please enter a valid Username!");
+            $('#userNameWarning').text("Please enter a valid Username!");
             error = 1;
         }
         if (ValidateEmail(email)==false){
-           alert("Please enter a valid email address!");
+            $('#emailWarning').text("Please enter a valid email address!");
             error = 1;
         }
         if (ValidatePassword(password)==false){
-            alert("Password should be at least 3 characters including a number and a capital letter!");
+            $('#passwordWarning').text("Password should be at least 3 characters including a number and a capital letter!");
             error = 1;
         }
         if (password!= confirmPassword){
