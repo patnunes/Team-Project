@@ -17,7 +17,7 @@ function ValidateUsername(username)
     
     if (!isNaN(username.charAt(0)))
     return false;
-  
+    
     return lower_case_username;
 }
 
