@@ -5,7 +5,7 @@ var ServerResponses = ServerResponses = {
 
 function getCookie(name) {
     var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    console.log("match: " + match);
+    //console.log("match: " + match);
     if (match) return match[2];
 }
 
@@ -22,19 +22,19 @@ var VISITING_USER;
 
 
 ACTIVE_USER = getCookie("UserName");
-console.log("ACTIVE_USER: " + ACTIVE_USER)
+//console.log("ACTIVE_USER: " + ACTIVE_USER)
 // if (pagename=="myprofile.html"){
 //     ACTIVE_USER = getCookie("UserName");
-//     console.log(username)
+//     //console.log(username)
 // }
 
 // if (pagename=="profile.html"){
 //     VISITING_USER = getCookie("FriendsName");
-//     console.log("VISITING_USER: " + VISITING_USER);
-//     console.log("pagenamecheck");
+//     //console.log("VISITING_USER: " + VISITING_USER);
+//     //console.log("pagenamecheck");
 //     ACTIVE_USER = getCookie("UserName");
-//     console.log("ACTIVE_USER: " + ACTIVE_USER);
-    
+//     //console.log("ACTIVE_USER: " + ACTIVE_USER);
+
 // }
 
 $(document).ready(function() {
@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 
                 $.post("/tweet_submit", JSON.stringify(tweet), function(m_response){
-                    alert(m_response.status)
+                    //alert(m_response.status)
                     switch(m_response.status){
                         case ServerResponses.SUCCESS:
                             $(`#tweet_content`).val("");

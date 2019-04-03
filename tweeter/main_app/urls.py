@@ -20,7 +20,7 @@ urlpatterns = [
     path('populate_tweets', views.populate_tweets, name='populate_tweets'),
     path('follow', views.follow_dist, name='follow'),
     path('get_info', views.get_info, name='get_info'),
-    path('myprofile.html', views.profile, name="myprofile"),
+    path('myprofile.html', views.myprofile, name="myprofile"),
     path('dashboard.html', views.dashboard, name='dashboard'),
     path('search_submit', views.search_submit, name='search_submit'),
 

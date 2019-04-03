@@ -55,6 +55,7 @@ $(document).ready(function() {
         var email = $('#inputEmail').val();
         var password = $('#inputPassword').val();
         var confirmPassword = $('#confirmInputPassword').val();
+
         
         
         if (ValidateUsername(userName)==false){
@@ -75,19 +76,21 @@ $(document).ready(function() {
         }
         
         if (error == 0){
-            var newUser = new Object();
-            newUser.email = email;
-            newUser.userName = userName;
-            newUser.password = password;
-            alert("This is the JSON produced: " + JSON.stringify(newUser));
-            alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
-            $.post("/signup_submit", JSON.stringify(newUser), function(m_response){
-                alert(m_response.status)
+
+          var newUser = new Object();
+           newUser.email = email;
+           newUser.userName = userName;
+           newUser.password = password;
+           //alert("This is the JSON produced: " + JSON.stringify(newUser));
+           //alert("This is the String of ServerResponses.SUCCESS: " + ServerResponses.SUCCESS);
+           $.post("/signup_submit", JSON.stringify(newUser), function(m_response){
+                //alert(m_response.status)
                 switch (m_response.status) {
                     case ServerResponses.SUCCESS:
-                    alert("user successfully created!")
-                    document.location.href = "signin.html"
-                    break;
+                        //alert("user successfully created!")
+                        document.location.href = "signin.html"
+                        break;
+
                     case ServerResponses.USER_NAME_IN_USE:
                     $('#userNameWarning').text("Username already in use");
                     break;
@@ -95,7 +98,9 @@ $(document).ready(function() {
                     $('#emailWarning').text("This email is already in use");
                     break;
                     default:
-                    alert("Uknown Error, please contact your local zoo or webMD");
+
+                        //alert("Uknown Error, please contact your local zoo or webMD");
+
                 }
             })
         }
