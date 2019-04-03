@@ -26,7 +26,12 @@ module.exports = function(config) {
     exclude: [
      'gulpfile.js', 
      'src/static/js/jquery.min.js',
-     'src/static/js/bootstrap.min.js'
+     'src/static/js/bootstrap.min.js',
+     'src/static/js/moment-with-locales.min',
+     'src/static/js/tether.min.js',
+     'src/static/js/tweet_functions.js',
+     'src/static/js/tweet.js'
+
     ],
     
     

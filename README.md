@@ -24,6 +24,11 @@
       - sass-conversion     COMMAND: npm install gulp-sass --save-dev
       - jquery              COMMAND: npm install jquery
       - tether              COMMAND: npm install tether
+      - moment              COMMAND: npm install moment
+
+## Travis-CI setup:
+We used jasmine as framework alongside with karma, please follow the instructions at:
+- https://www.sitepoint.com/testing-javascript-jasmine-travis-karma/ 
 
 
 ## Team Members:
