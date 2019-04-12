@@ -7,7 +7,7 @@ function userDoesntLikeTweet(username, tweetID) {
 }
 
 function searchForTweet(query) {
-    if query == "lion" {
+    if (query == "lion") {
         var tweetID = 22;
         return tweetID;
     }
@@ -19,7 +19,7 @@ function searchForTweet(query) {
 function userFollows(user, follows) {
     var userID = 3;
     var followingID = 17;
-    if userID == 3 && followingID == 17 {
+    if (userID == 3 && followingID == 17) {
         return true;
     }
     else {
@@ -29,10 +29,24 @@ function userFollows(user, follows) {
 
 function userTweeted(user, tweet) {
     var userID = 17;
-    if userID == 17 && tweet == "hi everyone" {
+    if (userID == 17 && tweet == "hi everyone") {
         return true;
     }
     else {
         return false;
     }
+}
+
+function tweetValidation(tweet) {
+    if (tweet === "" || tweet === null) {
+        return false;
+    }
+    if (tweet.length > 140 || tweet.length < 10) {
+        return false;
+    }
+    if (/(shit|fuck|motherfucker|ass|asshole|bitch)/.test(tweet)) { // check if the user is using curse words
+        return false;
+    }
+
+    return true;
 }
