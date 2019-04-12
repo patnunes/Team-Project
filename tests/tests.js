@@ -212,8 +212,8 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "Testing Like Feature\n";    
     it('', ()=> {
-        var username = "Filip"
-        var tweetID = 11;
+        var username = "NoahForReal"
+        var tweetID = 45;
         var result = userLikesTweet(username, tweetID);
         console.log(`Testing #${counter++}: ${description}\nUser '${username}' likes Tweet ID '${tweetID}`);
         expect(result).toBe(true);
@@ -223,8 +223,8 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "Testing Like Feature\n";    
     it('', ()=> {
-        var username = "Filip";
-        var tweetID = 4;
+        var username = "NoahForReal";
+        var tweetID = 450;
         var result = userDoesntLikeTweet(username, tweetID);
         console.log(`Testing #${counter++}: ${description}\nUser '${username}' doesn't like Tweet ID '${tweetID}'`);
         expect(result).toBe(false);
@@ -234,18 +234,18 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "Testing Search Feature\n";    
     it('', ()=> {
-        var query = "THIRD"
+        var query = "lion"
         var result = searchForTweet(query);
         console.log(`Testing #${counter++}: ${description}\nTesting Search with query '${query}'`);
-        expect(result).toBe(4);
+        expect(result).toBe(22);
     });
 });
 
 describe('', ()=> {
     var description= "Testing Following Feature\n";    
     it('', ()=> {
-        var user = "user1"
-        var following = "test2"
+        var user = "NoahForReal"
+        var following = "alexalexalex"
         var result = userFollows(user, following);
         console.log(`Testing #${counter++}: ${description}\nUser '${user}' follows user '${following}'`);
         expect(result).toBe(true);
@@ -255,8 +255,8 @@ describe('', ()=> {
 describe('', ()=> {
     var description= "Testing Tweet Feature\n";    
     it('', ()=> {
-        var tweet = "quick maths"
-        var user = "test2"
+        var tweet = "hi everyone"
+        var user = "alexalexalex"
         var result = userTweeted(user, tweet)
         console.log(`Testing #${counter++}: ${description}\nUser '${user}' has tweeted '${tweet}'`);
         expect(result).toBe(true);
