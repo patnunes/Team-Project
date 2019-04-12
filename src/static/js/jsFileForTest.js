@@ -38,10 +38,10 @@ function userTweeted(user, tweet) {
 }
 
 function tweetValidation(tweet) {
-    if (content === "" || content===null) {
+    if (tweet === "" || tweet === null) {
         return false;
     }
-    if (content.length > 140 || content.length < 10) {
+    if (tweet.length > 140 || tweet.length < 10) {
         return false;
     }
     if (/(shit|fuck|motherfucker|ass|asshole|bitch)/.test(tweet)) { // check if the user is using curse words
