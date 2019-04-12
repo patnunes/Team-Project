@@ -147,7 +147,7 @@ describe('', ()=> {
     var description= "TweetContent - empty content test\n";
     it('', ()=> {
         var parameter="";
-        var result = ValidatePassword(parameter);
+        var result = tweetValidation(parameter);
         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with ''\n
         Tweets shouldn't be empty`);
         expect(result).toBe(false);
@@ -157,7 +157,7 @@ describe('', ()=> {
     var description= "TweetContent - short length content test\n";    
     it('', ()=> {
         var parameter="A";
-        var result = ValidatePassword(parameter);
+        var result = tweetValidation(parameter);
         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
         Tweets must not be short`);
         expect(result).toBe(false);
@@ -172,7 +172,7 @@ describe('', ()=> {
         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG\
         ABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFGABCDEFG";
-        var result = ValidatePassword(parameter);
+        var result = tweetValidation(parameter);
         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
         Tweets must not be very long`);
         expect(result).toBe(false);
@@ -182,7 +182,7 @@ describe('', ()=> {
     var description= "TweetContent - curse content test\n";    
     it('', ()=> {
         var parameter="asdasdhasfasdafuck";
-        var result = ValidatePassword(parameter);
+        var result = tweetValidation(parameter);
         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
         Tweets must not contain curse words`);
         expect(result).toBe(false);
@@ -192,7 +192,7 @@ describe('', ()=> {
     var description= "TweetContent - curse content test\n";    
     it('', ()=> {
         var parameter="asdasdhasfaasdshitasdasd";
-        var result = ValidatePassword(parameter);
+        var result = tweetValidation(parameter);
         console.log(`Testing #${counter}: ${description}\nTesting Tweets with '${parameter}'\n
         Tweets must not contain curse words`);
         expect(result).toBe(false);
@@ -202,7 +202,7 @@ describe('', ()=> {
     var description= "TweetContent - curse content test\n";    
     it('', ()=> {
         var parameter="asdasdhasfaasdsbitchezdasda";
-        var result = ValidatePassword(parameter);
+        var result = tweetValidation(parameter);
         console.log(`Testing #${counter++}: ${description}\nTesting Tweets with '${parameter}'\n
         Tweets must not contain curse words`);
         expect(result).toBe(false);
