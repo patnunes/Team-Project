@@ -1,24 +1,38 @@
 function userLikesTweet(username, tweetID) {
-    return true;
+    return username == "NoahForReal" && tweetID == 45;
 }
 
 function userDoesntLikeTweet(username, tweetID) {
-    return false;
+    return username == "NoahForReal" && tweetID == 45;
 }
 
 function searchForTweet(query) {
-    var tweetID = 4;
-    return tweetID;
+    if query == "lion" {
+        var tweetID = 22;
+        return tweetID;
+    }
+    else {
+        return -1;
+    }
 }
 
 function userFollows(user, follows) {
-    var userID = 7;
-    var followingID = 8;
-    return true;
+    var userID = 3;
+    var followingID = 17;
+    if userID == 3 && followingID == 17 {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 function userTweeted(user, tweet) {
-    var user = "user2";
-    var tweet = "quick maths";
-    return true;
+    var userID = 17;
+    if userID == 17 && tweet == "hi everyone" {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
